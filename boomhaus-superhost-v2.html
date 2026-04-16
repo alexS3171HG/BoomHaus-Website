@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoomHaus — Free Superhost Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --orange: #993333;
+    --grey-dark: #666666;
+    --grey-light: #F0F0F0;
+    --font: 'Jost', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 16px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo { font-weight: 600; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 22px; font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.12em !important; }
+
+  /* SHARED */
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: block; }
+  h1 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(26px, 3vw, 44px); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+  h3 { font-size: 17px; font-weight: 500; margin-bottom: 10px; }
+  p { line-height: 1.75; }
+  .btn { display: inline-block; padding: 16px 36px; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #e8881f; }
+
+  /* HERO */
+  .hero { margin-top: 64px; background: var(--black); padding: 100px 60px; position: relative; overflow: hidden; }
+  .hero::before { content: 'FREE'; position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 260px; font-weight: 600; letter-spacing: -0.06em; color: rgba(255,255,255,0.025); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: start; position: relative; z-index: 1; }
+  .hero h1 { color: var(--white); margin-bottom: 28px; }
+  .hero h1 em { color: var(--orange); font-style: normal; }
+  .hero-body { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.85; margin-bottom: 40px; }
+
+  /* Hero card */
+  .hero-card { background: var(--white); padding: 40px 36px; position: relative; }
+  .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+  .hero-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; display: block; }
+  .hero-card h3 { font-size: 20px; margin-bottom: 6px; }
+  .hero-card > p { font-size: 14px; color: var(--grey-dark); margin-bottom: 24px; line-height: 1.65; }
+  .feature-list { list-style: none; margin-bottom: 28px; }
+  .feature-list li { font-size: 14px; color: var(--black); padding: 9px 0; border-bottom: 1px solid var(--grey-light); display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
+  .feature-list li:first-child { border-top: 1px solid var(--grey-light); }
+  .dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .hero-card .btn { display: block; text-align: center; }
+  .card-sub { text-align: center; font-size: 12px; color: var(--grey-dark); margin-top: 12px; }
+
+  /* PROBLEM */
+  .problem { padding: 100px 60px; max-width: 860px; margin: 0 auto; text-align: center; }
+  .problem h2 { margin-bottom: 24px; }
+  .problem p { font-size: 17px; color: var(--grey-dark); line-height: 1.85; }
+
+  /* ANALYSIS — 3 cols */
+  .analysis { background: var(--grey-light); padding: 100px 60px; }
+  .analysis-inner { max-width: 1200px; margin: 0 auto; }
+  .analysis-header { margin-bottom: 16px; }
+  .analysis-header h2 { margin-bottom: 16px; }
+  .analysis-subhead { font-size: 16px; color: var(--grey-dark); margin-bottom: 52px; }
+  .analysis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .analysis-card { background: var(--white); padding: 44px 36px; position: relative; overflow: hidden; }
+  .analysis-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .analysis-card:hover::after { transform: scaleX(1); }
+  .analysis-num { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: var(--orange); margin-bottom: 20px; display: block; }
+  .analysis-card h3 { font-size: 18px; margin-bottom: 14px; }
+  .analysis-card p { color: var(--grey-dark); font-size: 14px; line-height: 1.8; }
+  .analysis-detail { margin-top: 16px; font-size: 13px; color: rgba(26,26,26,0.45); font-style: italic; line-height: 1.65; }
+
+  /* REPORT OUTPUTS */
+  .outputs { padding: 100px 60px; }
+  .outputs-inner { max-width: 1200px; margin: 0 auto; }
+  .outputs-header { margin-bottom: 64px; }
+  .outputs-header h2 { max-width: 640px; }
+  .outputs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .output-card { padding: 48px 44px; background: var(--grey-light); display: flex; gap: 28px; }
+  .output-icon-num { font-size: 52px; font-weight: 500; color: var(--orange); line-height: 1; flex-shrink: 0; min-width: 52px; }
+  .output-card h3 { font-size: 18px; margin-bottom: 12px; }
+  .output-card p { color: var(--grey-dark); font-size: 15px; line-height: 1.75; }
+  .output-example { margin-top: 14px; font-size: 12px; color: rgba(26,26,26,0.45); font-style: italic; padding-top: 12px; border-top: 1px solid rgba(26,26,26,0.08); }
+
+  /* PROCESS */
+  .process { background: var(--black); padding: 100px 60px; }
+  .process-inner { max-width: 1200px; margin: 0 auto; }
+  .process-header { margin-bottom: 64px; }
+  .process-header h2 { color: var(--white); }
+  .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .process-step { padding: 48px 40px; background: #242424; position: relative; overflow: hidden; }
+  .process-step:nth-child(2) { background: var(--orange); }
+  .process-step:nth-child(2) .step-num { color: rgba(255,255,255,0.2); }
+  .process-step:nth-child(2) .step-label { color: rgba(255,255,255,0.7); }
+  .process-step:nth-child(2) h3 { color: var(--white); }
+  .process-step:nth-child(2) p { color: rgba(255,255,255,0.75); }
+  .step-num { font-size: 88px; font-weight: 500; line-height: 1; color: rgba(255,255,255,0.04); position: absolute; top: 20px; right: 20px; }
+  .step-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; display: block; }
+  .process-step:nth-child(2) .step-label { color: rgba(255,255,255,0.7); }
+  .process-step h3 { font-size: 19px; color: var(--white); margin-bottom: 14px; position: relative; z-index: 1; }
+  .process-step p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.8; position: relative; z-index: 1; }
+
+  /* CREDIBILITY */
+  .credibility { padding: 100px 60px; }
+  .credibility-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .credibility h2 { margin-bottom: 24px; }
+  .credibility p { color: var(--grey-dark); font-size: 17px; line-height: 1.85; margin-bottom: 20px; }
+
+  /* Sample report visual */
+  .report-visual { background: var(--black); padding: 44px; position: relative; overflow: hidden; }
+  .report-visual::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+  .rv-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 28px; display: block; }
+  .rv-title { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+
+  /* Design score dims */
+  .score-dims { margin-bottom: 28px; }
+  .dim-row { margin-bottom: 14px; }
+  .dim-top { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 6px; font-weight: 400; }
+  .dim-track { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+  .dim-fill { height: 100%; background: var(--orange); border-radius: 2px; }
+
+  /* DPI + uplift strip */
+  .rv-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 20px; }
+  .rv-metric { background: #1e1e1e; padding: 16px 18px; }
+  .rv-metric-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; display: block; }
+  .rv-metric-val { font-size: 22px; font-weight: 500; color: var(--white); line-height: 1; }
+  .rv-metric-val.orange { color: var(--orange); }
+  .rv-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; }
+
+  /* FORM */
+  .form-section { background: var(--grey-light); padding: 100px 60px; }
+  .form-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .form-inner h2 { margin-bottom: 16px; }
+  .form-inner > p { font-size: 17px; color: var(--grey-dark); margin-bottom: 48px; line-height: 1.8; }
+  .form-placeholder { background: var(--white); border: 2px dashed #D0D0D0; padding: 60px 44px; color: var(--grey-dark); font-size: 14px; line-height: 1.8; }
+  .form-placeholder strong { display: block; font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 8px; }
+
+  /* FAQ */
+  .faq { padding: 100px 60px; }
+  .faq-inner { max-width: 780px; margin: 0 auto; }
+  .faq-header { margin-bottom: 52px; }
+  .faq-item { border-top: 1px solid #E4E4E4; padding: 26px 0; }
+  .faq-item:last-child { border-bottom: 1px solid #E4E4E4; }
+  .faq-q { font-size: 17px; font-weight: 500; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .faq-q::after { content: '+'; font-size: 22px; font-weight: 300; color: var(--orange); flex-shrink: 0; line-height: 1.1; }
+  .faq-a { color: var(--grey-dark); font-size: 15px; line-height: 1.8; max-width: 620px; }
+
+  /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 60px; display: grid; grid-template-columns: 200px 1fr 1fr auto; gap: 48px; align-items: start; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; line-height: 1.8; }
+  .footer-social { display: flex; flex-direction: column; gap: 14px; }
+  .social-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: var(--orange); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; text-align: left; line-height: 1.8; }
+
+  /* MOBILE */
+  .mobile-note { display: none; background: #FFF3E0; border-left: 3px solid var(--orange); padding: 12px 16px; font-size: 13px; }
+  @media (max-width: 768px) {
+    .mobile-note { display: block; }
+    nav { padding: 0 24px; }
+    .hero, .problem, .analysis, .outputs, .process, .credibility, .form-section, .faq { padding: 60px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero::before { display: none; }
+    .analysis-grid, .process-steps { grid-template-columns: 1fr; }
+    .outputs-grid { grid-template-columns: 1fr; }
+    .credibility-inner { grid-template-columns: 1fr; gap: 48px; }
+    .rv-metrics { grid-template-columns: 1fr 1fr; }
+        footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* HubSpot form wrapper */
+  .hs-form-wrapper { width: 100%; }
+  .hs-form-wrapper .hs-form-frame { display: block; width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="mobile-note"><strong>Mobile note:</strong> Hero stacks vertically. Analysis, outputs, and process grids collapse to single column. Credibility section stacks.</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">BoomHaus</a>
+  <ul class="nav-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="boomhaus-contact.html" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow" style="color:rgba(153,51,51,0.9);">Free Listing Performance Audit</span>
+      <h1>Your Airbnb Is Leaving Money on the Table.</h1>
+      <p class="hero-body">We analyse your listing photos, guest reviews, and live market data to produce a scored performance report — with ranked recommendations and a projected £ revenue uplift. Free. No commitment. Straight to your inbox.</p>
+      <a href="#form" class="btn btn-primary">Get My Free Audit</a>
+    </div>
+    <div class="hero-card">
+      <span class="hero-card-label">What's in the report</span>
+      <h3>Your Performance Audit</h3>
+      <p>A branded report scoring your listing across design, market performance, and revenue opportunity.</p>
+      <ul class="feature-list">
+        <li><span class="dot"></span>Design score (0–100) across 7 dimensions</li>
+        <li><span class="dot"></span>Design Premium Index vs peer median</li>
+        <li><span class="dot"></span>£ revenue uplift — 3 scenarios</li>
+        <li><span class="dot"></span>Payback period estimate</li>
+        <li><span class="dot"></span>Recommendations ranked by ROI impact</li>
+      </ul>
+      <a href="#form" class="btn btn-primary">Get My Free Audit</a>
+      <p class="card-sub">No card required. No commitment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <span class="eyebrow">The Problem</span>
+  <h2>A Good Listing and a High-Performing One Are Very Different Things.</h2>
+  <p>Most hosts know something isn't working. Occupancy is inconsistent, the nightly rate feels like a guess, and the photos are fine — but not special. The gap between where you are and where top-performing listings sit in your market is rarely one big problem. It's a handful of fixable ones. The audit finds them.</p>
+</section>
+
+<!-- ANALYSIS — THREE LAYERS -->
+<section class="analysis">
+  <div class="analysis-inner">
+    <div class="analysis-header">
+      <span class="eyebrow">The Analysis</span>
+      <h2>Three Layers of Analysis. One Clear Report.</h2>
+    </div>
+    <p class="analysis-subhead">We pull data from three sources and run it through our AI pipeline:</p>
+    <div class="analysis-grid">
+
+      <div class="analysis-card">
+        <span class="analysis-num">Layer 01</span>
+        <h3>Your Listing Photos</h3>
+        <p>Gemini AI analyses up to 16 images across 7 design dimensions, scoring your property on what actually drives guest decisions.</p>
+        <p class="analysis-detail">Photo quality · Furniture tier · Interior style · Colour sophistication · Space optimisation · Lighting · Styling details</p>
+      </div>
+
+      <div class="analysis-card">
+        <span class="analysis-num">Layer 02</span>
+        <h3>Guest Reviews &amp; Listing Content</h3>
+        <p>We assess your written listing, amenities, and guest feedback to identify gaps in how your property is presented and perceived — and what guests are actually responding to.</p>
+      </div>
+
+      <div class="analysis-card">
+        <span class="analysis-num">Layer 03</span>
+        <h3>Your Market</h3>
+        <p>We pull live ADR, occupancy rates, and RevPAR data for comparable listings in your area, and benchmark your property against the peer median — so you can see exactly where the gap is.</p>
+        <p class="analysis-detail">Powered by AirROI market data</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REPORT OUTPUTS -->
+<section class="outputs">
+  <div class="outputs-inner">
+    <div class="outputs-header">
+      <span class="eyebrow">The Report</span>
+      <h2>A Branded Report With Numbers Behind Every Recommendation.</h2>
+    </div>
+    <div class="outputs-grid">
+
+      <div class="output-card">
+        <div class="output-icon-num">01</div>
+        <div>
+          <h3>Design Score</h3>
+          <p>A composite score out of 100 across 7 design dimensions, with a breakdown by room and category. You'll see exactly where your property sits — and what's dragging the score down.</p>
+        </div>
+      </div>
+
+      <div class="output-card">
+        <div class="output-icon-num">02</div>
+        <div>
+          <h3>Design Premium Index</h3>
+          <p>How your listing's RevPAR compares to the peer median in your market. A DPI below 1.0 means you're earning less than comparable properties. The report shows you the gap in £ terms.</p>
+        </div>
+      </div>
+
+      <div class="output-card">
+        <div class="output-icon-num">03</div>
+        <div>
+          <h3>Revenue Uplift Projection</h3>
+          <p>Three scenarios — conservative, expected, and optimistic — showing the estimated £ annual gain from design improvements, plus a payback period so you can weigh the investment.</p>
+          <p class="output-example">e.g. "Expected uplift: £3,200/year. Payback period: 4 months."</p>
+        </div>
+      </div>
+
+      <div class="output-card">
+        <div class="output-icon-num">04</div>
+        <div>
+          <h3>Ranked Recommendations</h3>
+          <p>Every recommendation scored High / Medium / Low ROI, with estimated cost range and implementation time. You know exactly where to spend first to move the needle fastest.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <span class="eyebrow" style="color:rgba(153,51,51,0.9);">The Process</span>
+      <h2>Three Steps. Zero Faff.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <span class="step-label">Step 01</span>
+        <h3>Submit Your Listing</h3>
+        <p>Fill in the form with your Airbnb URL and a few property details. Under two minutes.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <span class="step-label">Step 02</span>
+        <h3>We Run the Analysis</h3>
+        <p>Our pipeline scrapes your listing, pulls live market data, and runs your photos through Gemini AI. No manual work required on your end.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <span class="step-label">Step 03</span>
+        <h3>Your Report Arrives</h3>
+        <p>A branded report with your design score, DPI, revenue projections, and prioritised action plan — reviewed by our team before it reaches you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="credibility">
+  <div class="credibility-inner">
+    <div>
+      <span class="eyebrow">Why Trust It</span>
+      <h2>The Same Framework We Use Internally on Every Project.</h2>
+      <p>Before BoomHaus begins any design project, we run this exact analysis on the client's listing. The Superhost Audit makes that framework available to every host, for free.</p>
+      <p>If the report surfaces something we can help with, we'll follow up. If it doesn't, you've still got a clearer picture of your property's performance — and where to focus next.</p>
+    </div>
+    <div class="report-visual">
+      <span class="rv-label">Sample Report Output</span>
+      <div class="rv-title">Design Score Breakdown</div>
+      <div class="score-dims">
+        <div class="dim-row">
+          <div class="dim-top"><span>Photo Quality</span><span>58/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:58%"></div></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-top"><span>Furniture Tier</span><span>64/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:64%"></div></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-top"><span>Lighting</span><span>42/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:42%"></div></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-top"><span>Colour Sophistication</span><span>55/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:55%"></div></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-top"><span>Space Optimisation</span><span>70/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:70%"></div></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-top"><span>Styling Details</span><span>48/100</span></div>
+          <div class="dim-track"><div class="dim-fill" style="width:48%"></div></div>
+        </div>
+      </div>
+      <div class="rv-metrics">
+        <div class="rv-metric">
+          <span class="rv-metric-label">Design Premium Index</span>
+          <div class="rv-metric-val orange">0.80</div>
+        </div>
+        <div class="rv-metric">
+          <span class="rv-metric-label">Expected Uplift</span>
+          <div class="rv-metric-val">£3,200<span style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.4)">/yr</span></div>
+        </div>
+      </div>
+      <div class="rv-disclaimer">Illustrative example — not a real listing</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <span class="eyebrow">Get Started</span>
+    <h2>Free. Two Minutes. No Commitment.</h2>
+    <p>Paste your listing URL below and we'll take it from there.</p>
+    <div class="hs-form-wrapper">
+      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="e5195927-7b70-404d-ac14-a690b3c92083" data-portal-id="146792842"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Good Questions. Quick Answers.</h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it really free?</div>
+      <p class="faq-a">Yes. No card required, no catch. We offer the audit because it starts the right conversation.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long does it take to receive?</div>
+      <p class="faq-a">We aim to deliver within one business day. Every report is reviewed by our team before it's sent.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What do I need to submit?</div>
+      <p class="faq-a">Your Airbnb listing URL and a few property details. The system does the rest — it scrapes your listing, pulls your market data, and runs the analysis automatically.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will someone try to sell me something?</div>
+      <p class="faq-a">Only if the report identifies something we can genuinely help with. It's always your call — there's no obligation attached to receiving the report.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My listing isn't on Airbnb — can I still submit?</div>
+      <p class="faq-a">The analysis is optimised for Airbnb. If you're on VRBO or Booking.com, submit anyway and we'll do our best with what's available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <div class="footer-logo">BoomHaus</div>
+    <div class="footer-tagline">Design That Performs.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-contact">
+    info@boomhaus.design<br>
+    +44 20 4621 6202<br>
+    79&#8211;81 Borough Road, London SE1 1DN
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+    <a href="https://www.linkedin.com/company/boomhaus" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

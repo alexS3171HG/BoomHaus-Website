@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoomHaus — Residential Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --orange: #FF9933;
+    --grey-dark: #666666;
+    --grey-light: #F0F0F0;
+    --warm: #FAF8F5;
+    --font: 'Jost', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 16px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo { font-weight: 600; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 22px; font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.12em !important; }
+
+  /* SHARED */
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: block; }
+  .eyebrow-grey { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 16px; display: block; }
+  h1 { font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+  h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  p { line-height: 1.75; }
+  .btn { display: inline-block; padding: 16px 36px; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #e8881f; }
+  .btn-dark { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
+  .btn-dark:hover { background: var(--black); color: var(--white); }
+  .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-white-outline:hover { border-color: var(--white); }
+
+  /* ── HERO ── */
+  /* Warm, light hero — different from Hospitality's dark treatment */
+  .hero {
+    margin-top: 64px;
+    background: var(--warm);
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 60px;
+  }
+  .hero h1 { color: var(--black); margin-bottom: 32px; }
+  .hero h1 em { color: var(--orange); font-style: normal; }
+  .hero-body {
+    color: var(--grey-dark);
+    font-size: 18px;
+    line-height: 1.85;
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-image {
+    position: relative;
+    overflow: hidden;
+    background: #E8E3DC;
+  }
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(26,26,26,0.2);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  /* Organic shape accent — warm, residential feel */
+  .hero-accent-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--orange);
+    opacity: 0.6;
+  }
+
+  /* ── APPROACH ── */
+  .approach {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .approach-text h2 { margin-bottom: 28px; }
+  .approach-text p {
+    color: var(--grey-dark);
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .approach-text p:last-child { margin-bottom: 0; }
+
+  /* Pull quote panel */
+  .approach-quote {
+    background: var(--black);
+    padding: 56px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .approach-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    font-size: 180px;
+    color: rgba(255,153,51,0.12);
+    font-weight: 600;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .quote-text {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.65;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .quote-text em {
+    color: var(--orange);
+    font-style: normal;
+    font-weight: 500;
+  }
+  .quote-attr {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--warm);
+    padding: 100px 60px;
+  }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-header { margin-bottom: 64px; }
+  .services-header h2 { max-width: 560px; }
+
+  /* 3-col cards — more personal, less corporate than Hospitality 2x2 */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 52px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  /* Large decorative room label */
+  .service-bg-label {
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+    font-size: 72px;
+    font-weight: 600;
+    color: rgba(26,26,26,0.035);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    text-transform: uppercase;
+  }
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 28px;
+  }
+  .service-card h3 { font-size: 20px; margin-bottom: 14px; }
+  .service-card > p { color: var(--grey-dark); font-size: 15px; line-height: 1.8; margin-bottom: 0; }
+  .service-includes {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--grey-light);
+    list-style: none;
+  }
+  .service-includes li {
+    font-size: 13px;
+    color: rgba(26,26,26,0.5);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .service-includes li::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .process { padding: 100px 60px; }
+  .process-inner { max-width: 1200px; margin: 0 auto; }
+  .process-header { margin-bottom: 64px; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .process-step {
+    padding: 52px 40px;
+    background: var(--grey-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .step-bg-num {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 100px;
+    font-weight: 600;
+    color: rgba(26,26,26,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .step-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+    margin-bottom: 28px;
+  }
+  .process-step h3 { font-size: 20px; margin-bottom: 14px; position: relative; z-index: 1; }
+  .process-step p { color: var(--grey-dark); font-size: 15px; line-height: 1.8; position: relative; z-index: 1; }
+  /* Connector line between steps (desktop only) */
+  .process-connector {
+    display: none; /* decorative — handled via gap on desktop */
+  }
+
+  /* ── WHY BOOMHAUS ── */
+  .why {
+    background: var(--black);
+    padding: 100px 60px;
+  }
+  .why-inner { max-width: 1200px; margin: 0 auto; }
+  .why-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .why-header h2 { color: var(--white); }
+  .why-header p { color: rgba(255,255,255,0.45); font-size: 17px; line-height: 1.85; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .why-card {
+    background: #1e1e1e;
+    padding: 48px 40px;
+    position: relative;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s;
+  }
+  .why-card:hover::before { background: var(--orange); }
+  .why-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .why-card h3 { color: var(--white); font-size: 18px; margin-bottom: 14px; }
+  .why-card p { color: rgba(255,255,255,0.45); font-size: 15px; line-height: 1.8; }
+
+  /* ── CTA + FORM ── */
+  .cta-form { padding: 100px 60px; background: var(--warm); }
+  .cta-form-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .cta-left h2 { margin-bottom: 24px; }
+  .cta-left p { color: var(--grey-dark); font-size: 17px; line-height: 1.85; margin-bottom: 20px; }
+  .cta-left p:last-of-type { margin-bottom: 0; }
+
+  /* Reassurance list */
+  .cta-reassurance {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(26,26,26,0.1);
+  }
+  .reassurance-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .reassurance-item:last-child { margin-bottom: 0; }
+  .r-dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .reassurance-item p { color: var(--grey-dark); font-size: 14px; line-height: 1.65; margin: 0; }
+
+  /* Form panel */
+  .form-panel {
+    background: var(--white);
+    padding: 48px 44px;
+    position: relative;
+    box-shadow: 0 2px 40px rgba(26,26,26,0.07);
+  }
+  .form-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--orange);
+  }
+  .form-panel-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .form-panel h3 { font-size: 22px; margin-bottom: 8px; }
+  .form-panel > p { font-size: 14px; color: var(--grey-dark); margin-bottom: 32px; line-height: 1.7; }
+  .form-placeholder {
+    background: var(--grey-light);
+    border: 2px dashed #D0D0D0;
+    padding: 52px 36px;
+    text-align: center;
+    color: var(--grey-dark);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .form-placeholder strong { display: block; font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 8px; }
+
+  /* ── FOOTER ── */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 60px; display: grid; grid-template-columns: 200px 1fr 1fr auto; gap: 48px; align-items: start; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; line-height: 1.8; }
+  .footer-social { display: flex; flex-direction: column; gap: 14px; }
+  .social-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: var(--orange); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; text-align: left; line-height: 1.8; }
+
+  /* MOBILE */
+  .mobile-note { display: none; background: #FFF3E0; border-left: 3px solid var(--orange); padding: 12px 16px; font-size: 13px; }
+  @media (max-width: 900px) {
+    .mobile-note { display: block; }
+    nav { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-content { padding: 60px 24px; }
+    .hero-image { height: 280px; }
+    .approach { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+    .services, .process, .why, .cta-form { padding: 60px 24px; }
+    .services-grid, .process-steps, .why-grid { grid-template-columns: 1fr; }
+    .why-header { grid-template-columns: 1fr; gap: 24px; }
+    .cta-form-inner { grid-template-columns: 1fr; gap: 48px; }
+        footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* HubSpot form wrapper */
+  .hs-form-wrapper { width: 100%; }
+  .hs-form-wrapper .hs-form-frame { display: block; width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="mobile-note"><strong>Mobile note:</strong> Hero stacks vertically. Approach section stacks (quote below copy). Services, process, and Why grids collapse to single column. CTA form stacks below copy.</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">BoomHaus</a>
+  <ul class="nav-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="boomhaus-contact.html" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">Residential Interior Design</span>
+    <h1>Designed for How<br>You Actually <em>Live.</em></h1>
+    <p class="hero-body">We bring commercial rigour to personal spaces — without losing the warmth that makes a house feel like a home. From a single room to a whole-home transformation, we design around your life, your budget, and how you want to feel when you walk through the door.</p>
+    <div class="hero-ctas">
+      <a href="#form" class="btn btn-primary">Start a Conversation</a>
+      <a href="#services" class="btn btn-dark">See What We Offer</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-placeholder">Residential photography here</div>
+    <div class="hero-accent-bar"></div>
+  </div>
+</section>
+
+<!-- THE APPROACH -->
+<section style="padding: 100px 60px; background: var(--white);">
+  <div class="approach" style="padding: 0;">
+    <div class="approach-text">
+      <span class="eyebrow">Our Approach</span>
+      <h2>The Same Rigour. A Completely Different Brief.</h2>
+      <p>BoomHaus was built on the principle that good design should pay back. In commercial properties, that means occupancy rates and ADR. In a home, it means spaces that work harder, feel better, and hold their value longer.</p>
+      <p>We don't design for photoshoots. We design for how you live — your morning routine, your dinner parties, the way you actually use your kitchen. The difference shows in every room we deliver.</p>
+      <p>Every residential project starts with a proper brief, not a mood board. We ask the questions that most designers skip, because getting those answers right is what turns a well-furnished room into a space you genuinely love.</p>
+    </div>
+    <div class="approach-quote">
+      <div class="quote-text">
+        We don't design for photoshoots. We design for the life that happens <em>inside</em> the frame.
+      </div>
+      <div class="quote-attr">— BoomHaus Design Philosophy</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <span class="eyebrow">What We Offer</span>
+      <h2>One Room or the Whole House.<br>We Work Around You.</h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-bg-label">Full</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 38V20L24 10L40 20V38" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="16" y="26" width="16" height="12" rx="1" stroke="#FF9933" stroke-width="1.5"/>
+          <line x1="24" y1="26" x2="24" y2="38" stroke="#FF9933" stroke-width="1"/>
+          <line x1="8" y1="38" x2="40" y2="38" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Whole-Home Design</h3>
+        <p>A complete interior design service from brief to final styling. We work through every room in sequence, ensuring the house feels coherent — not like a series of isolated decisions.</p>
+        <ul class="service-includes">
+          <li>Full design concept & brief</li>
+          <li>Room-by-room FF&E specification</li>
+          <li>Procurement management</li>
+          <li>Installation & final styling</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-bg-label">Room</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="16" height="16" rx="1" stroke="#FF9933" stroke-width="1.5"/>
+          <rect x="26" y="6" width="16" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
+          <rect x="6" y="26" width="16" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
+          <rect x="26" y="26" width="16" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
+        </svg>
+        <h3>Room-by-Room</h3>
+        <p>Not ready for the full house? We work one room at a time — fully resolved, to the same standard as a whole-home project. A logical starting point that can grow into something bigger.</p>
+        <ul class="service-includes">
+          <li>Single-room design brief</li>
+          <li>Furniture & lighting specification</li>
+          <li>Sourcing & procurement</li>
+          <li>Delivery & installation</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-bg-label">Style</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="14" stroke="#1A1A1A" stroke-width="1.5"/>
+          <path d="M24 10v4M24 34v4M10 24h4M34 24h4" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="5" stroke="#FF9933" stroke-width="1.5"/>
+        </svg>
+        <h3>Styling &amp; Refresh</h3>
+        <p>Your bones are good — you just need the right finish. We come in at the end: accessories, art, soft furnishings, and the small decisions that make everything feel intentional.</p>
+        <ul class="service-includes">
+          <li>Styling consultation</li>
+          <li>Accessory & soft furnishing edit</li>
+          <li>Art & object curation</li>
+          <li>Half-day or full-day styling visit</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <span class="eyebrow">How It Works</span>
+      <h2>Simple from the Start.</h2>
+    </div>
+    <div class="process-steps">
+
+      <div class="process-step">
+        <div class="step-bg-num">01</div>
+        <div class="step-dot"></div>
+        <h3>We Have a Conversation</h3>
+        <p>Tell us about your home, your brief, and your budget. There's no commitment at this stage — just a conversation to see if we're the right fit. Most first calls are 20 minutes.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-bg-num">02</div>
+        <div class="step-dot"></div>
+        <h3>We Send a Proposal</h3>
+        <p>A fixed-scope proposal with a clear fee, timeline, and exactly what's included. No hourly billing surprises. You know what you're getting before you commit to anything.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-bg-num">03</div>
+        <div class="step-dot"></div>
+        <h3>We Deliver the Design</h3>
+        <p>Concept, specification, procurement, and installation — all handled by us. You're involved in the decisions that matter, and spared the ones that don't.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY BOOMHAUS -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <h2>Why BoomHaus for Your Home.</h2>
+      <p>We come from a commercial background — which means we think carefully about value, durability, and return on investment. Those instincts don't switch off when the brief is personal.</p>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <span class="why-num">01</span>
+        <h3>Commercial Rigour, Personal Result</h3>
+        <p>Every specification decision we make is filtered through quality, longevity, and value. You get the discipline of a commercial brief with a result that feels entirely personal.</p>
+      </div>
+
+      <div class="why-card">
+        <span class="why-num">02</span>
+        <h3>Honest, Fixed-Fee Process</h3>
+        <p>No hourly billing. No hidden sourcing fees. No surprise invoices. We agree a scope, agree a price, and deliver to it. Your budget is a constraint we design within — not around.</p>
+      </div>
+
+      <div class="why-card">
+        <span class="why-num">03</span>
+        <h3>Designed to Last</h3>
+        <p>We specify for the long term. The pieces we choose are built to survive real life — children, pets, dinner parties, years of use. We'd rather steer you right than sell you something beautiful that breaks.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section class="cta-form" id="form">
+  <div class="cta-form-inner">
+    <div class="cta-left">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Start with a Conversation. Not a Commitment.</h2>
+      <p>Fill in the form and we'll be in touch within one business day. First conversations are always informal — we want to understand what you're trying to achieve before we say anything about how we can help.</p>
+      <p>If you're not sure yet which service is right for you, tell us that. It's one of the most useful things to know at the start.</p>
+      <div class="cta-reassurance">
+        <div class="reassurance-item">
+          <div class="r-dot"></div>
+          <p>Every enquiry gets a personal response — not an automated reply.</p>
+        </div>
+        <div class="reassurance-item">
+          <div class="r-dot"></div>
+          <p>We work with all budgets. Tell us yours and we'll tell you honestly what's possible.</p>
+        </div>
+        <div class="reassurance-item">
+          <div class="r-dot"></div>
+          <p>First call is 20 minutes. No slides, no pitch — just a conversation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-panel">
+      <span class="form-panel-label">Residential Enquiry</span>
+      <h3>Tell Us About Your Home</h3>
+      <p>We'll follow up within one business day to arrange an initial conversation.</p>
+      <div class="hs-form-wrapper">
+      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="e3852bf6-18c0-409c-97e7-7a7a222d271f" data-portal-id="146792842"></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <div class="footer-logo">BoomHaus</div>
+    <div class="footer-tagline">Design That Performs.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-contact">
+    info@boomhaus.design<br>
+    +44 20 4621 6202<br>
+    79&#8211;81 Borough Road, London SE1 1DN
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+    <a href="https://www.linkedin.com/company/boomhaus" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

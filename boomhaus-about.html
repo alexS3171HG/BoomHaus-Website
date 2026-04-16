@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoomHaus — About</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --orange: #FF9933;
+    --grey-dark: #666666;
+    --grey-light: #F0F0F0;
+    --warm: #FAF8F5;
+    --font: 'Jost', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 16px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo { font-weight: 600; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 22px; font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.12em !important; }
+
+  /* SHARED */
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: block; }
+  .eyebrow-grey { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 16px; display: block; }
+  h1 { font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+  h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  p { line-height: 1.75; }
+  .btn { display: inline-block; padding: 16px 36px; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #e8881f; }
+  .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-white-outline:hover { border-color: var(--white); }
+  .btn-dark { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
+  .btn-dark:hover { background: var(--black); color: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 64px;
+    background: var(--black);
+    padding: 120px 60px 0;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  /* Large decorative word */
+  .hero::before {
+    content: 'ABOUT';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-60%);
+    font-size: 220px;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    color: rgba(255,255,255,0.025);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .hero-content { position: relative; z-index: 1; padding-bottom: 80px; }
+  .hero h1 { color: var(--white); margin-bottom: 32px; }
+  .hero h1 em { color: var(--orange); font-style: normal; display: block; }
+  .hero-body { color: rgba(255,255,255,0.6); font-size: 18px; line-height: 1.85; max-width: 520px; }
+
+  /* Right column — founding stat strip */
+  .hero-stats {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2px;
+  }
+  .hero-stat {
+    background: #1e1e1e;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .hero-stat:first-child { background: var(--orange); }
+  .hero-stat:first-child .stat-num { color: var(--white); }
+  .hero-stat:first-child .stat-label { color: rgba(255,255,255,0.75); }
+  .stat-num {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+
+  /* ── ORIGIN ── */
+  .origin {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .origin-text h2 { margin-bottom: 28px; }
+  .origin-text p {
+    color: var(--grey-dark);
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .origin-text p strong { color: var(--black); font-weight: 500; }
+  .origin-text p:last-child { margin-bottom: 0; }
+
+  /* Image placeholder with orange caption bar */
+  .origin-visual {
+    position: relative;
+  }
+  .origin-image {
+    aspect-ratio: 4/5;
+    background: var(--grey-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-dark);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  .origin-caption {
+    background: var(--orange);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .origin-caption-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.5;
+  }
+  .origin-caption-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+  }
+
+  /* ── HOW WE THINK — three values ── */
+  .values {
+    background: var(--grey-light);
+    padding: 100px 60px;
+  }
+  .values-inner { max-width: 1200px; margin: 0 auto; }
+  .values-header { margin-bottom: 64px; }
+  .values-header h2 { max-width: 560px; }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .value-card {
+    background: var(--white);
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Alternating accent — first card gets orange top bar */
+  .value-card:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--orange);
+  }
+  .value-num {
+    font-size: 88px;
+    font-weight: 600;
+    color: rgba(26,26,26,0.04);
+    line-height: 1;
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    pointer-events: none;
+  }
+  .value-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 28px;
+  }
+  .value-card h3 { font-size: 20px; margin-bottom: 16px; }
+  .value-card p { color: var(--grey-dark); font-size: 15px; line-height: 1.85; position: relative; z-index: 1; }
+
+  /* ── TEAM ── */
+  .team { padding: 100px 60px; }
+  .team-inner { max-width: 1200px; margin: 0 auto; }
+  .team-header { margin-bottom: 64px; }
+  .team-header h2 { max-width: 480px; }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .team-card { }
+  .team-photo {
+    aspect-ratio: 3/4;
+    background: var(--grey-light);
+    margin-bottom: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .team-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-dark);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  /* Info bar below photo — flush, no gap */
+  .team-info {
+    background: var(--grey-light);
+    padding: 20px 24px 24px;
+  }
+  .team-name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+  .team-title { font-size: 12px; color: var(--grey-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+  .team-bio { font-size: 13px; color: var(--grey-dark); line-height: 1.65; }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    background: var(--black);
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-strip::before {
+    content: 'BOOMHAUS';
+    position: absolute;
+    font-size: 180px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: rgba(255,255,255,0.025);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .cta-strip-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .cta-strip h2 { color: var(--white); margin-bottom: 20px; }
+  .cta-strip p { color: rgba(255,255,255,0.5); font-size: 17px; margin-bottom: 48px; line-height: 1.8; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 60px; display: grid; grid-template-columns: 200px 1fr 1fr auto; gap: 48px; align-items: start; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; line-height: 1.8; }
+  .footer-social { display: flex; flex-direction: column; gap: 14px; }
+  .social-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: var(--orange); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; text-align: left; line-height: 1.8; }
+
+  /* MOBILE */
+  .mobile-note { display: none; background: #FFF3E0; border-left: 3px solid var(--orange); padding: 12px 16px; font-size: 13px; }
+  @media (max-width: 900px) {
+    .mobile-note { display: block; }
+    nav { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px 0; gap: 40px; }
+    .hero::before { display: none; }
+    .hero-content { padding-bottom: 0; }
+    .hero-stats { padding-bottom: 0; flex-direction: row; flex-wrap: wrap; gap: 2px; }
+    .hero-stat { flex: 1 1 calc(50% - 1px); min-width: 140px; }
+    .origin { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+    .values, .team { padding: 60px 24px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-strip { padding: 60px 24px; }
+        footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-note"><strong>Mobile note:</strong> Hero stacks vertically; stat strip wraps to 2×2 grid. Origin section stacks. Values grid collapses to single column. Team grid collapses to 2 columns.</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">BoomHaus</a>
+  <ul class="nav-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="boomhaus-contact.html" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow" style="color:rgba(255,153,51,0.9);">About BoomHaus</span>
+    <h1>Design Built on<br><em>Commercial Truth.</em></h1>
+    <p class="hero-body">We started BoomHaus because we were tired of interior design that looked great and performed poorly. Our founders were short-let operators before they were designers. That changes everything about how we work.</p>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">UK cities served:<br>London, Manchester, Birmingham,<br>Edinburgh, Glasgow</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Services under one roof:<br>Design, Procurement,<br>Installation, Aftercare</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">£0</div>
+      <div class="stat-label">Hidden fees — ever.<br>Fixed-scope proposals.<br>No surprises.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ORIGIN -->
+<section style="padding: 100px 60px; background: var(--white);">
+  <div class="origin" style="padding: 0;">
+    <div class="origin-text">
+      <span class="eyebrow">Where We Started</span>
+      <h2>Built from a Specific Frustration.</h2>
+      <p>BoomHaus was born from watching property owners bleed revenue while trying to furnish spaces that ended up looking generic and taking far too long to get live. <strong>Every empty day is money you never recover.</strong> Traditional interior design didn't understand that — or didn't care.</p>
+      <p>Our founders weren't designers who moved into short-lets. They were short-let operators who learned to design. That distinction matters. We've sat on your side of the table. We know what drives occupancy, what triggers the algorithm, and what actually earns a five-star review.</p>
+      <p>We built BoomHaus to be the partner we wished we'd had — one that moves fast, specifies smart, and never loses sight of the commercial reality your property has to survive.</p>
+    </div>
+    <div class="origin-visual">
+      <div class="origin-image">Project photography here</div>
+      <div class="origin-caption">
+        <div>
+          <div class="origin-caption-text">Operators first. Designers second.</div>
+          <div class="origin-caption-sub">The founding principle behind everything we build.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE THINK -->
+<section class="values">
+  <div class="values-inner">
+    <div class="values-header">
+      <span class="eyebrow">How We Think</span>
+      <h2>Three Principles. Every Project.</h2>
+    </div>
+    <div class="values-grid">
+
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <svg class="value-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="16" r="7" stroke="#FF9933" stroke-width="1.5"/>
+          <path d="M8 38c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>People Before Properties</h3>
+        <p>We design for the people who use the space — guests who need to feel at home, clients who need to feel confident, and suppliers who need to feel valued. Good design serves the people inside it, not just the camera pointed at it.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <svg class="value-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="32" height="24" rx="2" stroke="#1A1A1A" stroke-width="1.5"/>
+          <path d="M14 22h6l3-6 4 12 3-6h4" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Tech That Creates Space to Think</h3>
+        <p>We use smart systems, automation, and AI — not to replace design thinking, but to free it up. By automating the logistics and admin that slow traditional studios down, our team spends its time on what actually matters: creative decisions and real relationships.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <svg class="value-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 36V22l14-14 14 14v14" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 36v-9h12v9" stroke="#FF9933" stroke-width="1.5" stroke-linejoin="round"/>
+          <line x1="22" y1="27" x2="22" y2="36" stroke="#FF9933" stroke-width="1"/>
+        </svg>
+        <h3>Small Projects. Long Partnerships.</h3>
+        <p>We don't treat your first unit as a one-off transaction. We treat it as the beginning of something bigger. Our goal isn't to sell you furniture today — it's to be the partner you call when you're ready for your fifth property, or your fiftieth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE TEAM -->
+<section class="team">
+  <div class="team-inner">
+    <div class="team-header">
+      <span class="eyebrow">The Team</span>
+      <h2>The People Who Make It Happen.</h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-info">
+          <div class="team-name">Lois Griffin</div>
+          <div class="team-title">Co-Founder & CEO</div>
+          <p class="team-bio">Interior designer and short-let operator. Lois leads creative direction and client relationships, bringing a decade of experience in design and property management.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-info">
+          <div class="team-name">Allan Harding</div>
+          <div class="team-title">Co-Founder</div>
+          <p class="team-bio">Property investor and operator turned design entrepreneur. Allan drives the commercial framework behind every BoomHaus project — yield first, always.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-info">
+          <div class="team-name">Blake Duffy</div>
+          <div class="team-title">Chief Revenue Officer</div>
+          <p class="team-bio">Blake leads business development and client growth — building the relationships that turn first projects into long-term portfolios.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-info">
+          <div class="team-name">Alex Martins</div>
+          <div class="team-title">Chief of Operations</div>
+          <p class="team-bio">Alex runs the engine room — procurement, logistics, systems, and the technology that lets BoomHaus move at the speed the market demands.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>Ready to Work Together?</h2>
+    <p>Whether you're furnishing your first short-let or scaling a hospitality portfolio — there's a starting point that fits.</p>
+    <div class="cta-buttons">
+      <a href="index.html" class="btn btn-primary">Browse Furniture Packs</a>
+      <a href="boomhaus-contact.html" class="btn btn-white-outline">Talk to the Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <div class="footer-logo">BoomHaus</div>
+    <div class="footer-tagline">Design That Performs.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="index.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-contact">
+    info@boomhaus.design<br>
+    +44 20 4621 6202<br>
+    79&#8211;81 Borough Road, London SE1 1DN
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+    <a href="https://www.linkedin.com/company/boomhaus" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
