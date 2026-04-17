@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Packs — BoomHaus</title>
+<meta name="description" content="Five furniture packs for short-let hosts and BTR operators. Commercial-grade quality, turnkey delivery. From £4,599. Pick the aesthetic that fits your property.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://boomhaus.design/furniture-packs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Furniture Packs — BoomHaus">
+<meta property="og:description" content="Five furniture packs built for performance. From £4,599 ex. VAT. Turnkey delivery and installation included.">
+<meta property="og:url" content="https://boomhaus.design/furniture-packs">
+<meta property="og:site_name" content="BoomHaus">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/776e06e8-22bd-48b8-80fc-2a1a9880f18f/Resized.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DZM9SB4J9V');
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+  </script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --black: #1A1A1A; --white: #FFFFFF; --orange: #FF9933; --grey-dark: #666666; --grey-light: #F0F0F0; --font: 'Jost', sans-serif; }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo { font-weight: 600; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 20px; }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: block; }
+  h1 { font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(26px, 3vw, 44px); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+  h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  p { line-height: 1.75; }
+  .btn { display: inline-block; padding: 16px 36px; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #e8881f; }
+  .btn-dark { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
+  .btn-dark:hover { background: var(--black); color: var(--white); }
+  .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-white-outline:hover { border-color: var(--white); }
+
+  /* HERO */
+  .hero { margin-top: 64px; background: var(--black); padding: 100px 60px; position: relative; overflow: hidden; }
+  .hero::before { content: 'PACKS'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 220px; font-weight: 600; letter-spacing: -0.06em; color: rgba(255,255,255,0.025); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+  .hero h1 { color: var(--white); margin-bottom: 24px; }
+  .hero h1 em { color: var(--orange); font-style: normal; }
+  .hero-body { color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.85; margin-bottom: 44px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* Hero right — value props */
+  .hero-props { display: flex; flex-direction: column; gap: 2px; }
+  .prop-item { background: #1e1e1e; padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; }
+  .prop-item:first-child { background: var(--orange); }
+  .prop-item:first-child .prop-title { color: var(--white); }
+  .prop-item:first-child .prop-desc { color: rgba(255,255,255,0.7); }
+  .prop-num { font-size: 28px; font-weight: 500; color: rgba(255,255,255,0.2); line-height: 1; flex-shrink: 0; min-width: 32px; }
+  .prop-item:first-child .prop-num { color: rgba(255,255,255,0.4); }
+  .prop-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+  .prop-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.55; }
+
+  /* Problem strip */
+  .problem { padding: 80px 60px; max-width: 860px; margin: 0 auto; text-align: center; }
+  .problem h2 { margin-bottom: 20px; }
+  .problem p { color: var(--grey-dark); font-size: 17px; line-height: 1.85; }
+
+  /* Packs grid */
+  .packs { padding: 0 60px 100px; }
+  .packs-inner { max-width: 1200px; margin: 0 auto; }
+  .packs-header { margin-bottom: 52px; }
+  .packs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+  /* Pack card */
+  .pack-card { background: var(--grey-light); overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .pack-card:hover .pack-img img { transform: scale(1.03); }
+  .pack-img { aspect-ratio: 4/3; overflow: hidden; background: #2a2a2a; }
+  .pack-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .pack-body { padding: 36px 36px 40px; flex: 1; display: flex; flex-direction: column; }
+  .pack-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; display: block; }
+  .pack-name { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+  .pack-mood { font-size: 14px; color: var(--grey-dark); font-style: italic; margin-bottom: 16px; }
+  .pack-best { font-size: 13px; color: var(--black); line-height: 1.6; margin-bottom: 28px; flex: 1; }
+  .pack-best strong { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 4px; }
+  .pack-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(26,26,26,0.1); }
+  .pack-price { font-size: 20px; font-weight: 500; }
+  .pack-price-note { font-size: 11px; color: var(--grey-dark); margin-top: 2px; }
+  .pack-cta { font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--black); padding: 12px 22px; text-decoration: none; transition: background 0.2s; }
+  .pack-cta:hover { background: var(--orange); }
+
+  /* Featured pack — full width */
+  .pack-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+  .pack-card.featured .pack-img { aspect-ratio: unset; min-height: 400px; }
+  .pack-card.featured .pack-body { padding: 52px 48px; justify-content: center; }
+  .pack-card.featured .pack-name { font-size: 32px; }
+
+  /* Process */
+  .process { background: var(--black); padding: 100px 60px; }
+  .process-inner { max-width: 1200px; margin: 0 auto; }
+  .process-header { margin-bottom: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+  .process-header h2 { color: var(--white); }
+  .process-header p { color: rgba(255,255,255,0.45); font-size: 16px; line-height: 1.8; }
+  .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .process-step { background: #1e1e1e; padding: 44px 36px; position: relative; overflow: hidden; }
+  .step-bg-num { position: absolute; top: 16px; right: 16px; font-size: 100px; font-weight: 600; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
+  .step-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; margin-bottom: 24px; }
+  .process-step h3 { color: var(--white); font-size: 18px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .process-step p { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.8; position: relative; z-index: 1; }
+
+  /* Superhost upsell */
+  .superhost-upsell { background: var(--orange); padding: 64px 60px; text-align: center; }
+  .superhost-upsell h2 { color: var(--white); margin-bottom: 16px; }
+  .superhost-upsell p { color: rgba(255,255,255,0.8); font-size: 17px; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .superhost-upsell .btn { background: var(--white); color: var(--black); }
+  .superhost-upsell .btn:hover { background: var(--black); color: var(--white); }
+
+  /* Footer */
+  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 60px; display: grid; grid-template-columns: 200px 1fr 1fr auto; gap: 48px; align-items: start; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 13px; line-height: 1.8; }
+  .footer-social { display: flex; flex-direction: column; gap: 14px; }
+  .social-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: var(--orange); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .hero { padding: 60px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero::before { display: none; }
+    .problem { padding: 60px 24px; }
+    .packs { padding: 0 24px 60px; }
+    .packs-grid { grid-template-columns: 1fr; }
+    .pack-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .pack-card.featured .pack-img { min-height: 260px; }
+    .process { padding: 60px 24px; }
+    .process-header { grid-template-columns: 1fr; gap: 24px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .superhost-upsell { padding: 60px 24px; }
+    footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="boomhaus-homepage.html" class="nav-logo">BoomHaus</a>
+  <ul class="nav-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="boomhaus-furniture-packs.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="boomhaus-contact.html" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Furniture Packages</span>
+      <h1>Stop Guessing.<br><em>Start Performing.</em></h1>
+      <p class="hero-body">Five packs. Each one spec'd for a specific guest experience and priced to make commercial sense. Pick the aesthetic that fits your property — and let us handle everything else.</p>
+      <div class="hero-ctas">
+        <a href="#packs" class="btn btn-primary">Explore the Range</a>
+        <a href="boomhaus-contact.html" class="btn btn-white-outline">Talk to the Team</a>
+      </div>
+    </div>
+    <div class="hero-props">
+      <div class="prop-item">
+        <div class="prop-num">5</div>
+        <div>
+          <div class="prop-title">Packs in the range</div>
+          <div class="prop-desc">From entry-level to premium. All commercial-grade.</div>
+        </div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-num">£0</div>
+        <div>
+          <div class="prop-title">Hidden fees</div>
+          <div class="prop-desc">Published pricing. Delivery confirmed at order.</div>
+        </div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-num">1</div>
+        <div>
+          <div class="prop-title">Point of contact</div>
+          <div class="prop-desc">We handle procurement, delivery, and installation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <span class="eyebrow">The Problem</span>
+  <h2>Most Interiors Fail Before a Single Guest Books.</h2>
+  <p>Landlords spend weeks trawling trade websites, arguing with delivery companies, and second-guessing whether their sofa is "the right shade of grey." The result? An overpriced, under-styled room that takes too long to get live. Every BoomHaus pack is built on one question: what will make this property perform?</p>
+</section>
+
+<!-- PACKS -->
+<section class="packs" id="packs">
+  <div class="packs-inner">
+    <div class="packs-header">
+      <span class="eyebrow">The Range</span>
+      <h2>Five Packs. One Decision.</h2>
+    </div>
+    <div class="packs-grid">
+
+      <!-- Blakethrough — featured -->
+      <div class="pack-card featured">
+        <div class="pack-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/2a80ea97-8acf-4727-a634-887f041bf1a5/Resized.jpg" alt="The Blakethrough" loading="lazy">
+        </div>
+        <div class="pack-body">
+          <span class="pack-tag">Most Popular</span>
+          <div class="pack-name">The Blakethrough</div>
+          <div class="pack-mood">Dark. Dramatic. Deeply instagrammable.</div>
+          <div class="pack-best">
+            <strong>Best for</strong>
+            Hosts chasing premium nightly rates with an interior that commands attention.
+          </div>
+          <div class="pack-footer">
+            <div>
+              <div class="pack-price">From £4,699</div>
+              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+            </div>
+            <a href="boomhaus-the-blakethrough.html" class="pack-cta">Explore Pack →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Lois -->
+      <div class="pack-card">
+        <div class="pack-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/93030146-5cf2-42d4-8b44-4e82ca113014/Resized.jpg" alt="The Lois" loading="lazy">
+        </div>
+        <div class="pack-body">
+          <span class="pack-tag">Warm-Luxe</span>
+          <div class="pack-name">The Lois</div>
+          <div class="pack-mood">Terracotta soul. Warm-luxe. Review-worthy.</div>
+          <div class="pack-best">
+            <strong>Best for</strong>
+            Hosts who want a design-forward space with standout photography.
+          </div>
+          <div class="pack-footer">
+            <div>
+              <div class="pack-price">From £6,399</div>
+              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+            </div>
+            <a href="boomhaus-the-lois.html" class="pack-cta">Explore Pack →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The BTR -->
+      <div class="pack-card">
+        <div class="pack-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/301c43d7-5bbc-4bb7-ba2e-5a9a62edd901/Gemini_Generated_Image_tptb3atptb3atptb.jpg" alt="The BTR" loading="lazy">
+        </div>
+        <div class="pack-body">
+          <span class="pack-tag">City & BTR</span>
+          <div class="pack-name">The BTR</div>
+          <div class="pack-mood">Modern. Confident. Built for the city.</div>
+          <div class="pack-best">
+            <strong>Best for</strong>
+            Build-to-rent operators and city hosts competing for the corporate market. Available in 1, 2 and 3-bed.
+          </div>
+          <div class="pack-footer">
+            <div>
+              <div class="pack-price">From £4,599</div>
+              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+            </div>
+            <a href="boomhaus-the-btr.html" class="pack-cta">Explore Pack →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Take Five -->
+      <div class="pack-card">
+        <div class="pack-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/18904ee3-87f2-47fd-bd60-fadeb1888398/Resized.jpg" alt="The Take Five" loading="lazy">
+        </div>
+        <div class="pack-body">
+          <span class="pack-tag">Premium</span>
+          <div class="pack-name">The Take Five</div>
+          <div class="pack-mood">Designer-led. Tactile. Effortlessly premium.</div>
+          <div class="pack-best">
+            <strong>Best for</strong>
+            Operators wanting a high-spec finish that retains guests and justifies the rate.
+          </div>
+          <div class="pack-footer">
+            <div>
+              <div class="pack-price">From £6,999</div>
+              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+            </div>
+            <a href="boomhaus-the-take-five.html" class="pack-cta">Explore Pack →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Classic — featured -->
+      <div class="pack-card featured">
+        <div class="pack-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/c49b13ff-67ed-45f0-9caf-6612478b224f/Gemini_Generated_Image_qy1airqy1airqy1a.jpg" alt="The Classic" loading="lazy">
+        </div>
+        <div class="pack-body">
+          <span class="pack-tag">Country &amp; Coastal</span>
+          <div class="pack-name">The Classic</div>
+          <div class="pack-mood">Cosy, timeless, and impossible to leave.</div>
+          <div class="pack-best">
+            <strong>Best for</strong>
+            Country houses, coastal retreats, barn conversions, and heritage city breaks.
+          </div>
+          <div class="pack-footer">
+            <div>
+              <div class="pack-price">From £6,399</div>
+              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+            </div>
+            <a href="boomhaus-the-classic.html" class="pack-cta">Explore Pack →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div>
+        <span class="eyebrow" style="color:rgba(255,153,51,0.9);">The Process</span>
+        <h2>Three Steps. No Faff.</h2>
+      </div>
+      <p>From order to guest-ready property. We handle every step so you don't have to.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-bg-num">01</div>
+        <div class="step-dot"></div>
+        <h3>Check the Specs</h3>
+        <p>Every pack page lists exactly what's included by room — beds, sofas, dining, lighting. No surprises.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-bg-num">02</div>
+        <div class="step-dot"></div>
+        <h3>Select Your Pack</h3>
+        <p>Choose the look, choose the size, order online or contact us. We confirm lead times and delivery within 24 hours.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-bg-num">03</div>
+        <div class="step-dot"></div>
+        <h3>We Handle the Rest</h3>
+        <p>Delivery, installation, and professional styling — fully coordinated. You hand over the keys. We hand back a guest-ready property.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPERHOST UPSELL -->
+<section class="superhost-upsell">
+  <h2>Not Sure Which Pack Is Right?</h2>
+  <p>Get a free Superhost Audit first. We'll analyse your listing, benchmark it against your market, and tell you exactly what design changes would move the needle most — before you spend a penny.</p>
+  <a href="boomhaus-superhost-v2.html" class="btn">Get My Free Audit</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <div class="footer-logo">BoomHaus</div>
+    <div class="footer-tagline">Design That Performs.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="boomhaus-about.html">About</a></li>
+    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
+    <li><a href="boomhaus-residential.html">Residential</a></li>
+    <li><a href="boomhaus-furniture-packs.html">Furniture Packs</a></li>
+    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
+    <li><a href="boomhaus-contact.html">Contact</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-contact">
+    info@boomhaus.design<br>
+    +44 20 4621 6202<br>
+    79&#8211;81 Borough Road, London SE1 1DN
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:700px;">We use cookies to improve your experience and analyse site performance. <a href="#" style="color:#FF9933;text-decoration:none;margin-left:4px;">Privacy Policy</a></p>
+  <div style="display:flex;gap:12px;flex-shrink:0;">
+    <button onclick="setCookieConsent('declined')" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:10px 20px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.2);cursor:pointer;">Decline</button>
+    <button onclick="setCookieConsent('accepted')" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:10px 24px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Accept</button>
+  </div>
+</div>
+<script>
+  function setCookieConsent(val) {
+    localStorage.setItem('bh_cookie_consent', val);
+    document.getElementById('cookie-banner').style.display = 'none';
+    if (val === 'accepted') { gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted' }); }
+  }
+  (function() { if (!localStorage.getItem('bh_cookie_consent')) { document.getElementById('cookie-banner').style.display = 'flex'; } })();
+</script>
+<a href="https://wa.me/PLACEHOLDER?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener" title="Chat on WhatsApp" style="position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.417.632 4.683 1.737 6.651L2 30l7.573-1.71A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/><path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#25D366"/></svg>
+</a>
+
+</body>
+</html>

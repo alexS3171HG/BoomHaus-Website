@@ -67,3 +67,20 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Firebase local cache
+.firebase/
+
+# Local AI assistant folders
+.agents/
+.claude/
+
+# Local tooling
+skills-lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
