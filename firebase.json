@@ -29,7 +29,8 @@
       { "source": "/the-btr",            "destination": "/boomhaus-the-btr.html" },
       { "source": "/the-classic",        "destination": "/boomhaus-the-classic.html" },
       { "source": "/the-lois",           "destination": "/boomhaus-the-lois.html" },
-      { "source": "/the-take-five",      "destination": "/boomhaus-the-take-five.html" }
+      { "source": "/the-take-five",      "destination": "/boomhaus-the-take-five.html" },
+      { "source": "/privacy-policy",        "destination": "/boomhaus-privacy-policy.html" }
     ],
     "headers": [
       {

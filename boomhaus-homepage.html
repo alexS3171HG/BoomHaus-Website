@@ -113,7 +113,7 @@
     display: inline-block;
     padding: 14px 32px;
     font-family: var(--font);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -352,7 +352,7 @@
   .project-info { position: relative; z-index: 2; }
   .project-tag {
     display: inline-block;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -616,7 +616,7 @@
     <h1>Design That<br><em>Performs.</em></h1>
     <p class="hero-body">We create spaces that stop the scroll, hold the guest, and protect your margins. Whether you're launching your first short-let or scaling a managed portfolio, we design for the numbers — and the five-star review.</p>
     <div class="hero-ctas">
-      <a href="/" class="btn btn-primary">See Furniture Packs</a>
+      <a href="/furniture-packs" class="btn btn-primary">See Furniture Packs</a>
       <a href="/contact" class="btn btn-white-outline">Talk to Us</a>
     </div>
     <div class="hero-accent">London · SE1</div>
@@ -819,7 +819,7 @@
     <li><a href="/furniture-packs">Furniture Packs</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -849,43 +849,38 @@
 
 
 <!-- Cookie Banner -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-  <p style="margin:0;font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:700px;">
-    We use cookies to improve your experience and analyse site performance. By clicking Accept, you consent to our use of cookies.
-    <a href="#" style="color:#993333;text-decoration:none;margin-left:6px;">Privacy Policy</a>
-  </p>
-  <div style="display:flex;gap:12px;flex-shrink:0;">
-    <button onclick="setCookieConsent('declined')" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:10px 20px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.2);cursor:pointer;">Decline</button>
-    <button onclick="setCookieConsent('accepted')" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:10px 24px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Accept</button>
-  </div>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
 </div>
 <script>
-  function setCookieConsent(val) {
-    localStorage.setItem('bh_cookie_consent', val);
+  function acknowledgeCookies() {
+    localStorage.setItem('bh_cookie_ack', '1');
     document.getElementById('cookie-banner').style.display = 'none';
-    if (val === 'accepted') {
-      gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted' });
-    }
   }
   (function() {
-    var consent = localStorage.getItem('bh_cookie_consent');
-    if (!consent) {
+    if (!localStorage.getItem('bh_cookie_ack')) {
       document.getElementById('cookie-banner').style.display = 'flex';
-    }
-    // Default consent denied until user accepts
-    if (typeof gtag !== 'undefined') {
-      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     }
   })();
 </script>
 
 <!-- WhatsApp Click-to-Chat -->
-<a id="whatsapp-btn" href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener" title="Chat with us on WhatsApp" style="position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;" onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)'">
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.417.632 4.683 1.737 6.651L2 30l7.573-1.71A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/>
-    <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#25D366"/>
-  </svg>
-</a>
+<div style="position:fixed;bottom:28px;right:28px;z-index:1000;" id="wa-wrap">
+  <div id="wa-tooltip" style="position:absolute;bottom:68px;right:0;background:#1A1A1A;color:#fff;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none;letter-spacing:0.02em;">
+    Chat with us on WhatsApp
+    <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
+  </div>
+  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
+     style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.417.632 4.683 1.737 6.651L2 30l7.573-1.71A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/>
+      <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#25D366"/>
+    </svg>
+  </a>
+</div>
 
 <!-- Sticky CTA Bar -->
 <div id="sticky-cta" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:99;background:#FF9933;padding:10px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;transform:translateY(-100%);transition:transform 0.3s ease;">
