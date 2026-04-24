@@ -593,6 +593,40 @@
 </head>
 <body>
 
+<!-- VERSION A: Splash Screen -->
+<div id="splash-screen" style="position:fixed;inset:0;z-index:9998;background:#1A1A1A;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s ease;">
+  <video id="splash-video" autoplay muted playsinline preload="auto"
+         style="max-height:60vh;max-width:60vw;width:auto;height:auto;">
+    <source src="https://boomhaus-website.web.app/assets/videos/boomhaus-logo-animation.mp4" type="video/mp4">
+  </video>
+</div>
+<script>
+  (function() {
+    var splash = document.getElementById('splash-screen');
+    var video = document.getElementById('splash-video');
+    if (!splash || !video) return;
+    // Prevent body scroll while splash shows
+    document.body.style.overflow = 'hidden';
+    video.addEventListener('ended', function() {
+      splash.style.opacity = '0';
+      setTimeout(function() {
+        splash.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 800);
+    });
+    // Failsafe: if video doesn't play, remove after 6s
+    setTimeout(function() {
+      if (splash.style.display !== 'none') {
+        splash.style.opacity = '0';
+        setTimeout(function() {
+          splash.style.display = 'none';
+          document.body.style.overflow = '';
+        }, 800);
+      }
+    }, 6000);
+  })();
+</script>
+
 <!-- MOBILE NOTE (designer reference only) -->
 
 <!-- NAV -->
@@ -622,7 +656,7 @@
     <div class="hero-accent">London · SE1</div>
   </div>
   <div class="hero-image">
-    <img src="https://boomhaus-website.web.app/assets/images/homepage-hero.webp" alt="BoomHaus — luxury interior design" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="hero-image-placeholder">Project photography here</div>
   </div>
 </section>
 
@@ -723,7 +757,7 @@
     </div>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-placeholder" style="position:relative;">
+        <div class="project-placeholder">
           <div class="project-info">
             <span class="project-tag">Short-Let</span>
             <span class="project-name">Canary Wharf</span>

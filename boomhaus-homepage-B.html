@@ -11,7 +11,7 @@
   :root {
     --black: #1A1A1A;
     --white: #FFFFFF;
-    --orange: #FF9933;
+    --orange: #993333;
     --grey-dark: #666666;
     --grey-light: #F0F0F0;
     --font: 'Jost', sans-serif;
@@ -113,7 +113,7 @@
     display: inline-block;
     padding: 14px 32px;
     font-family: var(--font);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -126,7 +126,7 @@
     background: var(--orange);
     color: var(--white);
   }
-  .btn-primary:hover { background: #e8881f; }
+  .btn-primary:hover { background: #882222; }
   .btn-secondary {
     background: transparent;
     color: var(--black);
@@ -256,7 +256,7 @@
   .solution-number {
     font-size: 72px;
     font-weight: 500;
-    color: var(--grey-light);
+    color: rgba(153,51,51,0.25);
     line-height: 1;
     margin-bottom: 24px;
     display: block;
@@ -352,12 +352,12 @@
   .project-info { position: relative; z-index: 2; }
   .project-tag {
     display: inline-block;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--orange);
-    background: rgba(255,153,51,0.12);
+    background: rgba(153,51,51,0.12);
     padding: 4px 10px;
     margin-bottom: 8px;
   }
@@ -563,44 +563,72 @@
 
   /* SVG ICONS */
   svg { display: block; }
+
+  .hero-b { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; }
+  .hero-b-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center right; opacity: 0.25; pointer-events: none; z-index: 0; background: #1A1A1A; }
+  .hero-b-content { position: relative; z-index: 1; max-width: 700px; padding: 100px 60px; }
 </style>
+  <meta name="description" content="Interior design for short-let hosts and hospitality operators. We design spaces that stop the scroll, hold the guest, and protect your margins.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://boomhaus.design/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BoomHaus — Design That Performs">
+  <meta property="og:description" content="Interior design for short-let hosts and hospitality operators across the UK.">
+  <meta property="og:url" content="https://boomhaus.design/">
+  <meta property="og:site_name" content="BoomHaus">
+  <meta property="og:image" content="https://boomhaus.design/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BoomHaus — Design That Performs">
+  <meta name="twitter:description" content="Interior design for short-let hosts and hospitality operators across the UK.">
+  <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DZM9SB4J9V');
+  </script>
 </head>
 <body>
 
 <!-- MOBILE NOTE (designer reference only) -->
-<div class="mobile-note">
-  <strong>Mobile note:</strong> All multi-column grids collapse to single column. Hero stacks image below content. Nav becomes hamburger menu. CTA strip buttons stack vertically.
-</div>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">BoomHaus</a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
   <ul class="nav-links">
-    <li><a href="boomhaus-about.html">About</a></li>
-    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
-    <li><a href="boomhaus-residential.html">Residential</a></li>
-    <li><a href="index.html">Furniture Packs</a></li>
-    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
-    <li><a href="boomhaus-contact.html">Contact</a></li>
-    <li><a href="boomhaus-contact.html" class="nav-cta btn">Get a Quote</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/hospitality">Hospitality</a></li>
+    <li><a href="/residential">Residential</a></li>
+    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/superhost-audit">Superhost Audit</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
+<section class="hero hero-b">
+  <video class="hero-b-video" autoplay muted playsinline loop preload="auto">
+    <source src="https://boomhaus-website.web.app/assets/videos/boomhaus-logo-animation.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content hero-b-content">
     <span class="section-label" style="color:rgba(255,255,255,0.4);">London-Based Interior Design Studio</span>
     <h1>Design That<br><em>Performs.</em></h1>
     <p class="hero-body">We create spaces that stop the scroll, hold the guest, and protect your margins. Whether you're launching your first short-let or scaling a managed portfolio, we design for the numbers — and the five-star review.</p>
     <div class="hero-ctas">
-      <a href="index.html" class="btn btn-primary">See Furniture Packs</a>
-      <a href="boomhaus-contact.html" class="btn btn-white-outline">Talk to Us</a>
+      <a href="/furniture-packs" class="btn btn-primary">See Furniture Packs</a>
+      <a href="/contact" class="btn btn-white-outline">Talk to Us</a>
     </div>
     <div class="hero-accent">London · SE1</div>
   </div>
-  <div class="hero-image">
-    <div class="hero-image-placeholder">Project photography here</div>
-  </div>
+
 </section>
 
 <!-- THE PROBLEM -->
@@ -650,7 +678,7 @@
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="4" width="32" height="32" rx="2" stroke="#1A1A1A" stroke-width="1.5"/>
-          <line x1="4" y1="14" x2="36" y2="14" stroke="#FF9933" stroke-width="1.5"/>
+          <line x1="4" y1="14" x2="36" y2="14" stroke="#993333" stroke-width="1.5"/>
           <line x1="14" y1="14" x2="14" y2="36" stroke="#1A1A1A" stroke-width="1.5"/>
         </svg>
         <h3>Design</h3>
@@ -659,7 +687,7 @@
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 32L20 8L32 32" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"/>
-          <line x1="11" y1="24" x2="29" y2="24" stroke="#FF9933" stroke-width="1.5"/>
+          <line x1="11" y1="24" x2="29" y2="24" stroke="#993333" stroke-width="1.5"/>
         </svg>
         <h3>Procurement</h3>
         <p>Commercial-grade furniture sourced at speed, at the margins that make your investment work.</p>
@@ -667,7 +695,7 @@
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="18" width="28" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
-          <path d="M12 18V14a8 8 0 0116 0v4" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 18V14a8 8 0 0116 0v4" stroke="#993333" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="20" cy="26" r="2" fill="#1A1A1A"/>
         </svg>
         <h3>Installation</h3>
@@ -676,14 +704,14 @@
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M20 6l3.09 9.26H33l-7.64 5.55 2.91 8.96L20 24.6l-8.27 5.17 2.91-8.96L7 15.26h9.91z" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M20 24.6V36" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 24.6V36" stroke="#993333" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <h3>Aftercare</h3>
         <p>Long after go-live, we're still your partner. Reviews compound. So does our support.</p>
       </div>
     </div>
     <div class="services-cta">
-      <a href="boomhaus-contact.html" class="btn btn-primary">Get a Quote</a>
+      <a href="/contact" class="btn btn-primary">Get a Quote</a>
     </div>
   </div>
 </section>
@@ -693,7 +721,7 @@
   <div class="projects-inner">
     <div class="projects-header">
       <div>
-        <span class="eyebrow" style="color:rgba(255,153,51,0.9);">In Progress</span>
+        <span class="eyebrow" style="color:rgba(153,51,51,0.9);">In Progress</span>
         <h2>What We're Working On.</h2>
       </div>
       <p>A selection of current projects across<br>short-let, BTR, and managed hospitality.</p>
@@ -777,26 +805,23 @@
     <h2>Ready to Make Your Space Work?</h2>
     <p>Running one Airbnb or managing a portfolio of units — we've got a starting point for both.</p>
     <div class="cta-strip-buttons">
-      <a href="index.html" class="btn btn-primary">Browse Furniture Packs</a>
-      <a href="boomhaus-contact.html" class="btn btn-white-outline">Talk to the Team</a>
+      <a href="/furniture-packs" class="btn btn-primary">Browse Furniture Packs</a>
+      <a href="/contact" class="btn btn-white-outline">Talk to the Team</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-col">
-    <div class="footer-logo">BoomHaus</div>
-    <div class="footer-tagline">Design That Performs.</div>
-  </div>
+  <div class="footer-col"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"><div class="footer-tagline">Design That Performs.</div></div>
   <ul class="footer-links">
-    <li><a href="boomhaus-about.html">About</a></li>
-    <li><a href="boomhaus-hospitality.html">Hospitality</a></li>
-    <li><a href="boomhaus-residential.html">Residential</a></li>
-    <li><a href="index.html">Furniture Packs</a></li>
-    <li><a href="boomhaus-superhost-v2.html">Superhost Audit</a></li>
-    <li><a href="boomhaus-contact.html">Contact</a></li>
-    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/hospitality">Hospitality</a></li>
+    <li><a href="/residential">Residential</a></li>
+    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/superhost-audit">Superhost Audit</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -812,7 +837,7 @@
       </svg>
       Instagram
     </a>
-    <a href="https://www.linkedin.com/company/boomhaus" target="_blank" rel="noopener" class="social-link">
+    <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" class="social-link">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
         <path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -823,6 +848,104 @@
     </a>
   </div>
 </footer>
+
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
+</div>
+<script>
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
+</script>
+
+<!-- Social Strip -->
+<div style="position:fixed;left:24px;bottom:40px;z-index:999;display:flex;flex-direction:column;align-items:center;gap:16px;">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" title="Follow us on Instagram"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+    </svg>
+  </a>
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" title="Connect on LinkedIn"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0A66C2;box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="1.8"/>
+      <path d="M7 10v7M7 7v.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 10v7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <!-- Vertical line -->
+  <div style="width:1px;height:40px;background:rgba(26,26,26,0.2);"></div>
+</div>
+
+<!-- WhatsApp Click-to-Chat -->
+<div style="position:fixed;bottom:28px;right:28px;z-index:1000;" id="wa-wrap">
+  <div id="wa-tooltip" style="position:absolute;bottom:68px;right:0;background:#1A1A1A;color:#fff;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none;letter-spacing:0.02em;">
+    Chat with us on WhatsApp
+    <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
+  </div>
+  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
+     style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.417.632 4.683 1.737 6.651L2 30l7.573-1.71A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/>
+      <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#25D366"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Sticky CTA Bar -->
+<div id="sticky-cta" style="position:fixed;top:64px;left:0;right:0;z-index:99;background:#FF9933;padding:10px 48px 10px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;transform:translateY(-100%);transition:transform 0.3s ease;">
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:#fff;letter-spacing:0.04em;">Is your listing leaving money on the table? Find out for free.</p>
+  <a href="/superhost-audit" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#1A1A1A;background:#fff;padding:8px 20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Get Free Audit &rarr;</a>
+  <button onclick="dismissStickyCta()" aria-label="Dismiss" style="position:absolute;top:6px;right:12px;background:none;border:none;color:rgba(255,255,255,0.7);font-size:18px;cursor:pointer;padding:4px 6px;line-height:1;font-family:sans-serif;">&times;</button>
+</div>
+<script>
+  function dismissStickyCta() {
+    var bar = document.getElementById('sticky-cta');
+    if (bar) { bar.style.transform = 'translateY(-100%)'; }
+    try { sessionStorage.setItem('bh_cta_dismissed','1'); } catch(e) {}
+  }
+  (function() {
+    var bar = document.getElementById('sticky-cta');
+    if (!bar) return;
+    try { if (sessionStorage.getItem('bh_cta_dismissed') === '1') return; } catch(e) {}
+    var shown = false;
+    window.addEventListener('scroll', function() {
+      if (shown) return;
+      var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (pct > 40) { bar.style.transform = 'translateY(0)'; shown = true; }
+    });
+  })();
+</script>
 
 </body>
 </html>

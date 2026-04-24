@@ -12,10 +12,10 @@
 <meta property="og:description" content="The Lois furniture pack from BoomHaus. Terracotta soul, warm-luxe, review-worthy. From £6,399. A design-forward space built for standout photography.">
 <meta property="og:url" content="https://boomhaus.design/the-lois">
 <meta property="og:site_name" content="BoomHaus">
-<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/93030146-5cf2-42d4-8b44-4e82ca113014/Resized.jpg">
+<meta property="og:image" content="https://boomhaus-website.web.app/assets/images/pack-lois-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Lois — BoomHaus Furniture Pack">
-<meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/93030146-5cf2-42d4-8b44-4e82ca113014/Resized.jpg">
+<meta name="twitter:image" content="https://boomhaus-website.web.app/assets/images/pack-lois-hero.webp">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
@@ -184,7 +184,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">BoomHaus</a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -219,7 +219,7 @@
     </div>
   </div>
   <div class="pack-hero-gallery">
-    <div class="gallery-img"><img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/2e07beed-4085-43cb-b38e-39759a844d6d/Resized.jpg" alt="The Lois interior" loading="lazy"></div><div class="gallery-img"><img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/ef44681f-f0eb-4d75-998b-33ef70eb432f/Gemini_Generated_Image_o8dct7o8dct7o8dc.jpg" alt="The Lois interior" loading="lazy"></div>
+    <div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-lois-hero.webp" alt="The Lois interior" loading="lazy"></div><div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-lois-bedroom.webp" alt="The Lois interior" loading="lazy"></div>
   </div>
 </section>
 
@@ -404,10 +404,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-col">
-    <div class="footer-logo">BoomHaus</div>
-    <div class="footer-tagline">Design That Performs.</div>
-  </div>
+  <div class="footer-col"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"><div class="footer-tagline">Design That Performs.</div></div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -450,16 +447,54 @@
 </div>
 <script>
   function acknowledgeCookies() {
-    localStorage.setItem('bh_cookie_ack', '1');
-    document.getElementById('cookie-banner').style.display = 'none';
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
   }
-  (function() {
-    if (!localStorage.getItem('bh_cookie_ack')) {
-      document.getElementById('cookie-banner').style.display = 'flex';
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
     }
-  })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
 <!-- WhatsApp -->
+<!-- Social Strip -->
+<div style="position:fixed;left:24px;bottom:40px;z-index:999;display:flex;flex-direction:column;align-items:center;gap:16px;">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" title="Follow us on Instagram"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+    </svg>
+  </a>
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" title="Connect on LinkedIn"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0A66C2;box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="1.8"/>
+      <path d="M7 10v7M7 7v.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 10v7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <!-- Vertical line -->
+  <div style="width:1px;height:40px;background:rgba(26,26,26,0.2);"></div>
+</div>
+
 <!-- WhatsApp Click-to-Chat -->
 <div style="position:fixed;bottom:28px;right:28px;z-index:1000;" id="wa-wrap">
   <div id="wa-tooltip" style="position:absolute;bottom:68px;right:0;background:#1A1A1A;color:#fff;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none;letter-spacing:0.02em;">

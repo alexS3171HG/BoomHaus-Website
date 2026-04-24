@@ -11,52 +11,116 @@
       ".claude/**",
       "skills-lock",
       "README.md",
-      "node_modules/**"
+      "node_modules/**",
+      ".git/**"
     ],
-    "cleanUrls": true,
+    "cleanUrls": false,
     "trailingSlash": false,
     "rewrites": [
-      { "source": "/",                   "destination": "/boomhaus-homepage.html" },
-      { "source": "/home",               "destination": "/boomhaus-homepage.html" },
-      { "source": "/about",              "destination": "/boomhaus-about.html" },
-      { "source": "/hospitality",        "destination": "/boomhaus-hospitality.html" },
-      { "source": "/residential",        "destination": "/boomhaus-residential.html" },
-      { "source": "/furniture-packs",    "destination": "/boomhaus-furniture-packs.html" },
-      { "source": "/superhost-audit",    "destination": "/boomhaus-superhost-v2.html" },
-      { "source": "/superhost",          "destination": "/boomhaus-superhost-v2.html" },
-      { "source": "/contact",            "destination": "/boomhaus-contact.html" },
-      { "source": "/the-blakethrough",   "destination": "/boomhaus-the-blakethrough.html" },
-      { "source": "/the-btr",            "destination": "/boomhaus-the-btr.html" },
-      { "source": "/the-classic",        "destination": "/boomhaus-the-classic.html" },
-      { "source": "/the-lois",           "destination": "/boomhaus-the-lois.html" },
-      { "source": "/the-take-five",      "destination": "/boomhaus-the-take-five.html" },
-      { "source": "/privacy-policy",        "destination": "/boomhaus-privacy-policy.html" }
+      {
+        "source": "/",
+        "destination": "/boomhaus-homepage.html"
+      },
+      {
+        "source": "/home",
+        "destination": "/boomhaus-homepage.html"
+      },
+      {
+        "source": "/about",
+        "destination": "/boomhaus-about.html"
+      },
+      {
+        "source": "/hospitality",
+        "destination": "/boomhaus-hospitality.html"
+      },
+      {
+        "source": "/residential",
+        "destination": "/boomhaus-residential.html"
+      },
+      {
+        "source": "/furniture-packs",
+        "destination": "/boomhaus-furniture-packs.html"
+      },
+      {
+        "source": "/superhost-audit",
+        "destination": "/boomhaus-superhost-v2.html"
+      },
+      {
+        "source": "/superhost",
+        "destination": "/boomhaus-superhost-v2.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/boomhaus-contact.html"
+      },
+      {
+        "source": "/the-blakethrough",
+        "destination": "/boomhaus-the-blakethrough.html"
+      },
+      {
+        "source": "/the-btr",
+        "destination": "/boomhaus-the-btr.html"
+      },
+      {
+        "source": "/the-classic",
+        "destination": "/boomhaus-the-classic.html"
+      },
+      {
+        "source": "/the-lois",
+        "destination": "/boomhaus-the-lois.html"
+      },
+      {
+        "source": "/the-take-five",
+        "destination": "/boomhaus-the-take-five.html"
+      },
+      {
+        "source": "/privacy-policy",
+        "destination": "/boomhaus-privacy-policy.html"
+      }
     ],
     "headers": [
       {
         "source": "**/*.html",
         "headers": [
-          { "key": "X-Frame-Options",        "value": "SAMEORIGIN" },
-          { "key": "X-Content-Type-Options",  "value": "nosniff" },
-          { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" }
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
         ]
       },
       {
-        "source": "**/*.@(jpg|jpeg|png|gif|webp|svg)",
+        "source": "**/*.@(jpg|jpeg|png|gif|webp|svg|mp4|webm|ico|tif|tiff)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800, immutable"
+          }
         ]
       },
       {
         "source": "**/*.@(css|js)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=604800" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
         ]
       },
       {
         "source": "**/*.html",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=3600" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
         ]
       }
     ],

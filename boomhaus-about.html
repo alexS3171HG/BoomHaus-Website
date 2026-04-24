@@ -335,7 +335,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">BoomHaus</a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -381,7 +381,7 @@
       <p>We built BoomHaus to be the partner we wished we'd had — one that moves fast, specifies smart, and never loses sight of the commercial reality your property has to survive.</p>
     </div>
     <div class="origin-visual">
-      <div class="origin-image">Project photography here</div>
+      <img src="https://boomhaus-website.web.app/assets/images/about-hero.webp" alt="BoomHaus studio" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="origin-caption">
         <div>
           <div class="origin-caption-text">Operators first. Designers second.</div>
@@ -446,7 +446,7 @@
     <div class="team-grid">
 
       <div class="team-card">
-        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-photo"><img src="https://boomhaus-website.web.app/assets/images/team-lois.webp" alt="Lois Griffin — Co-Founder & CEO" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="team-info">
           <div class="team-name">Lois Griffin</div>
           <div class="team-title">Co-Founder & CEO</div>
@@ -455,7 +455,7 @@
       </div>
 
       <div class="team-card">
-        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-photo"><img src="https://boomhaus-website.web.app/assets/images/team-allan.webp" alt="Allan Harding — Co-Founder" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="team-info">
           <div class="team-name">Allan Harding</div>
           <div class="team-title">Co-Founder</div>
@@ -464,7 +464,7 @@
       </div>
 
       <div class="team-card">
-        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-photo"><img src="https://boomhaus-website.web.app/assets/images/team-blake.webp" alt="Blake Duffy — Chief Revenue Officer" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="team-info">
           <div class="team-name">Blake Duffy</div>
           <div class="team-title">Chief Revenue Officer</div>
@@ -473,7 +473,7 @@
       </div>
 
       <div class="team-card">
-        <div class="team-photo"><div class="team-photo-placeholder">Photo</div></div>
+        <div class="team-photo"><img src="https://boomhaus-website.web.app/assets/images/team-alex.webp" alt="Alex Martins — Chief of Operations" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="team-info">
           <div class="team-name">Alex Martins</div>
           <div class="team-title">Chief of Operations</div>
@@ -499,10 +499,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-col">
-    <div class="footer-logo">BoomHaus</div>
-    <div class="footer-tagline">Design That Performs.</div>
-  </div>
+  <div class="footer-col"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"><div class="footer-tagline">Design That Performs.</div></div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -546,15 +543,53 @@
 </div>
 <script>
   function acknowledgeCookies() {
-    localStorage.setItem('bh_cookie_ack', '1');
-    document.getElementById('cookie-banner').style.display = 'none';
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
   }
-  (function() {
-    if (!localStorage.getItem('bh_cookie_ack')) {
-      document.getElementById('cookie-banner').style.display = 'flex';
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
     }
-  })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
+
+<!-- Social Strip -->
+<div style="position:fixed;left:24px;bottom:40px;z-index:999;display:flex;flex-direction:column;align-items:center;gap:16px;">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" title="Follow us on Instagram"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+    </svg>
+  </a>
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" title="Connect on LinkedIn"
+     style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0A66C2;box-shadow:0 2px 12px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+     onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.2)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="1.8"/>
+      <path d="M7 10v7M7 7v.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M11 10v7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <!-- Vertical line -->
+  <div style="width:1px;height:40px;background:rgba(26,26,26,0.2);"></div>
+</div>
 
 <!-- WhatsApp Click-to-Chat -->
 <div style="position:fixed;bottom:28px;right:28px;z-index:1000;" id="wa-wrap">
@@ -574,22 +609,26 @@
 </div>
 
 <!-- Sticky CTA Bar -->
-<div id="sticky-cta" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:99;background:#FF9933;padding:10px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;transform:translateY(-100%);transition:transform 0.3s ease;">
+<div id="sticky-cta" style="position:fixed;top:64px;left:0;right:0;z-index:99;background:#FF9933;padding:10px 48px 10px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;transform:translateY(-100%);transition:transform 0.3s ease;">
   <p style="margin:0;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:#fff;letter-spacing:0.04em;">Is your listing leaving money on the table? Find out for free.</p>
-  <a href="/superhost-audit" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#1A1A1A;background:#fff;padding:8px 20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Get Free Audit →</a>
+  <a href="/superhost-audit" style="font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#1A1A1A;background:#fff;padding:8px 20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Get Free Audit &rarr;</a>
+  <button onclick="dismissStickyCta()" aria-label="Dismiss" style="position:absolute;top:6px;right:12px;background:none;border:none;color:rgba(255,255,255,0.7);font-size:18px;cursor:pointer;padding:4px 6px;line-height:1;font-family:sans-serif;">&times;</button>
 </div>
 <script>
+  function dismissStickyCta() {
+    var bar = document.getElementById('sticky-cta');
+    if (bar) { bar.style.transform = 'translateY(-100%)'; }
+    try { sessionStorage.setItem('bh_cta_dismissed','1'); } catch(e) {}
+  }
   (function() {
-    var stickyCta = document.getElementById('sticky-cta');
-    if (!stickyCta) return;
+    var bar = document.getElementById('sticky-cta');
+    if (!bar) return;
+    try { if (sessionStorage.getItem('bh_cta_dismissed') === '1') return; } catch(e) {}
     var shown = false;
     window.addEventListener('scroll', function() {
-      var scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPct > 40 && !shown) {
-        stickyCta.style.display = 'flex';
-        setTimeout(function() { stickyCta.style.transform = 'translateY(0)'; }, 10);
-        shown = true;
-      }
+      if (shown) return;
+      var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (pct > 40) { bar.style.transform = 'translateY(0)'; shown = true; }
     });
   })();
 </script>
