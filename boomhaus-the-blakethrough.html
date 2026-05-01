@@ -16,7 +16,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Blakethrough — BoomHaus Furniture Pack">
 <meta name="twitter:image" content="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
   <script>
@@ -87,15 +92,12 @@
   .meta-chip { background: rgba(255,255,255,0.07); padding: 10px 18px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; }
   .meta-chip span { color: #fff; font-weight: 600; display: block; font-size: 15px; margin-bottom: 2px; }
   .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-  .pack-hero-gallery { display: grid; grid-template-rows: 1fr 1fr; gap: 2px; height: 520px; }
-  .gallery-img { overflow: hidden; background: rgba(255,255,255,0.05); }
-  .gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s; }
+  .pack-hero-gallery-old { display: flex; align-items: center; justify-content: center; padding: 48px; background: rgba(255,255,255,0.04); }
+  .gallery-img { width: 100%; max-width: 520px; aspect-ratio: 4/3; overflow: hidden; box-shadow: 0 8px 48px rgba(0,0,0,0.4); }
+  .gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.3s; }
   .gallery-img img:hover { opacity: 1; }
 
   /* Breadcrumb */
-  .breadcrumb { padding: 16px 60px; background: var(--grey-light); font-size: 12px; color: var(--grey-dark); letter-spacing: 0.06em; }
-  .breadcrumb a { color: var(--grey-dark); text-decoration: none; }
-  .breadcrumb a:hover { color: var(--orange); }
 
   /* Best for strip */
   .best-for-strip { background: var(--orange); padding: 18px 60px; display: flex; align-items: center; gap: 16px; }
@@ -170,7 +172,8 @@
   /* Mobile */
   @media (max-width: 900px) {
     .pack-hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
-    .pack-hero-gallery { height: 300px; grid-template-rows: 1fr; grid-template-columns: 1fr 1fr; }
+    .pack-hero-gallery-old { padding: 28px; }
+    .gallery-img { max-width: 100%; }
     .breadcrumb, .best-for-strip { padding: 16px 24px; }
     .key-pieces, .item-lists, .story, .pricing, .cross-sell { padding: 60px 24px; }
     .pieces-grid { grid-template-columns: 1fr 1fr; }
@@ -178,13 +181,196 @@
     .cross-grid { grid-template-columns: 1fr; }
     .cross-card { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--grey-light);
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-child { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── HERO IMAGE (full bleed) ── */
+  .pack-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; background: #1A1A1A; }
+  .pack-hero-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .breadcrumb-inline { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+  .breadcrumb-inline a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-inline a:hover { color: rgba(255,255,255,0.7); }
+  .pack-hero-image { overflow: hidden; }
+  .pack-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── NUDGE STRIP ── */
+  .nudge-strip { background: #1A1A1A; padding: 32px 60px; display: flex; align-items: center; gap: 28px; }
+  .nudge-number { font-size: 52px; font-weight: 500; color: var(--orange); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0; }
+  .nudge-text { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 480px; }
+
+  /* ── JOURNEY ── */
+  .journey { padding: 100px 60px; background: var(--grey-light); }
+  .journey-inner { max-width: 1200px; margin: 0 auto; }
+  .journey-steps { display: flex; flex-direction: column; gap: 0; }
+  .journey-step { display: flex; align-items: flex-start; gap: 32px; padding: 28px 0; border-bottom: 1px solid #E0E0E0; }
+  .journey-step:last-child { border-bottom: none; }
+  .journey-num { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: var(--orange); width: 28px; flex-shrink: 0; padding-top: 4px; }
+  .journey-title { font-size: 17px; font-weight: 500; color: var(--black); margin-bottom: 6px; }
+  .journey-desc { font-size: 14px; color: var(--grey-dark); line-height: 1.8; }
+
+  /* ── SOCIAL PROOF ── */
+  .social-proof-strip { background: var(--black); padding: 56px 60px; text-align: center; }
+  .social-quote { font-size: clamp(18px, 2.2vw, 26px); font-weight: 300; color: var(--white); line-height: 1.7; max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.01em; font-style: italic; }
+  .social-attr { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 100px 60px; background: var(--white); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-list { border-top: 1px solid var(--grey-light); }
+  .faq-item { border-bottom: 1px solid var(--grey-light); }
+  .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font); font-size: 16px; font-weight: 500; color: var(--black); gap: 16px; }
+  .faq-q:hover { color: var(--orange); }
+  .faq-icon { font-size: 22px; font-weight: 300; flex-shrink: 0; color: var(--orange); transition: transform 0.2s; line-height: 1; }
+  .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+  .faq-a { padding: 0 0 22px; }
+  .faq-a p { font-size: 15px; color: var(--grey-dark); line-height: 1.85; margin: 0; }
+  .faq-footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--grey-light); }
+  .faq-footer p { font-size: 15px; color: var(--grey-dark); }
+  .faq-footer a { color: var(--orange); text-decoration: none; font-weight: 500; }
+  .faq-footer a:hover { text-decoration: underline; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .pack-hero { grid-template-columns: 1fr; min-height: auto; }
+    .pack-hero-content { padding: 60px 24px 40px; }
+    .pack-hero-image { height: 280px; }
+    .nudge-strip { padding: 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .nudge-number { font-size: 40px; }
+    .journey, .faq-section { padding: 60px 24px; }
+    .social-proof-strip { padding: 48px 24px; }
+  }
+
+  /* ── DIMENSIONS GUIDE ── */
+  .dims-guide { padding: 80px 60px; background: var(--grey-light); }
+  .dims-inner { max-width: 1200px; margin: 0 auto; }
+  .dims-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+  .dims-card { background: var(--white); padding: 40px 32px; }
+  .dims-room { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .dims-min { font-size: 28px; font-weight: 500; color: var(--black); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .dims-ideal { font-size: 13px; color: var(--grey-dark); margin-bottom: 20px; }
+  .dims-note { font-size: 14px; color: var(--grey-dark); line-height: 1.75; margin: 0; }
+  .dims-floorplan-cta { margin-top: 48px; padding: 40px; background: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .dims-floorplan-cta p { font-size: 16px; color: var(--grey-dark); margin: 0; }
+  @media (max-width: 900px) { .dims-grid { grid-template-columns: 1fr; } .dims-floorplan-cta { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 768px) { .dims-guide { padding: 60px 24px; } }
+
+  /* ── ROI CALCULATOR ── */
+  .roi-calc { padding: 80px 60px; background: var(--black); }
+  .roi-inner { max-width: 1100px; margin: 0 auto; }
+  .roi-header { margin-bottom: 48px; }
+  .roi-header h2 { color: var(--white); }
+  .roi-header p { color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 520px; line-height: 1.8; }
+  .roi-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .roi-inputs { background: #1e1e1e; padding: 48px 40px; }
+  .roi-outputs { background: #993333; padding: 48px 40px; }
+  .roi-field { margin-bottom: 28px; }
+  .roi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; display: block; }
+  .roi-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-family: var(--font); font-size: 20px; font-weight: 500; padding: 14px 16px; outline: none; transition: border-color 0.2s; }
+  .roi-input:focus { border-color: rgba(255,153,51,0.6); }
+  .roi-input-prefix { position: relative; }
+  .roi-input-prefix::before { content: "£"; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 20px; pointer-events: none; }
+  .roi-input-prefix .roi-input { padding-left: 32px; }
+  .roi-input-suffix { position: relative; }
+  .roi-input-suffix::after { content: "%"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 20px; pointer-events: none; }
+  .roi-output-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; display: block; }
+  .roi-output-val { font-size: 44px; font-weight: 500; color: var(--white); letter-spacing: -0.02em; margin-bottom: 4px; line-height: 1; }
+  .roi-output-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+  .roi-divider { height: 1px; background: rgba(255,255,255,0.2); margin: 24px 0; }
+  .roi-outputs h3 { color: var(--white); font-size: 18px; margin-bottom: 24px; }
+  .roi-cta-row { margin-top: 32px; }
+  .roi-cta-row .btn { background: var(--white); color: var(--black); font-size: 11px; padding: 14px 28px; }
+  .roi-cta-row .btn:hover { background: var(--grey-light); }
+  .roi-disclaimer { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 16px; line-height: 1.6; }
+  @media (max-width: 900px) { .roi-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .roi-calc { padding: 60px 24px; } .roi-inputs, .roi-outputs { padding: 36px 28px; } .roi-output-val { font-size: 36px; } }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -194,32 +380,35 @@
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- BREADCRUMB -->
-<div class="breadcrumb">
-  <a href="/furniture-packs">Furniture Packs</a> &nbsp;/&nbsp; The Blakethrough
-</div>
-
 <!-- HERO -->
 <section class="pack-hero">
   <div class="pack-hero-content">
-    <span class="eyebrow">BoomHaus Furniture Pack</span>
+    <nav class="breadcrumb-inline">
+      <a href="/furniture-packs">Furniture Packs</a>
+      <span> / </span>
+      <span>The Blakethrough</span>
+    </nav>
     <div class="pack-name">The Blakethrough</div>
     <div class="pack-mood">Dark. Dramatic. Deeply instagrammable.</div>
     <p class="pack-tagline">A moody, design-led sanctuary built for premium nightly rates.</p>
     <div class="pack-hero-meta">
-      <div class="meta-chip"><span>£4,699</span>From (1-bed)</div>
-      <div class="meta-chip"><span>1 bedroom / 2 bedroom</span>Available sizes</div>
+      <div class="meta-chip"><span>From £4,699 +VAT</span>Starting price</div>
+      <div class="meta-chip"><span>1 bedroom  /  2 bedroom</span>Available sizes</div>
       <div class="meta-chip"><span>Ex. VAT</span>Price shown</div>
     </div>
     <div class="hero-ctas">
-      <a href="/contact" class="btn btn-primary">Order This Pack</a>
-      <a href="/contact" class="btn btn-white-outline">Request Brochure</a>
+      <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary" target="_blank" rel="noopener">Order 1 Bedroom Pack</a>
+      <a href="https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208" class="btn btn-white-outline" target="_blank" rel="noopener">Order 2 Bedroom Pack</a>
     </div>
   </div>
-  <div class="pack-hero-gallery">
-    <div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp" alt="The Blakethrough interior" loading="lazy"></div><div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-bedroom.webp" alt="The Blakethrough interior" loading="lazy"></div>
+  <div class="pack-hero-image">
+    <img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp" alt="The Blakethrough — moody design-led interior" loading="eager">
   </div>
 </section>
 
@@ -227,6 +416,13 @@
 <div class="best-for-strip">
   <span class="best-for-label">Best for</span>
   <span class="best-for-text">Hosts chasing premium nightly rates with an interior that commands attention.</span>
+</div>
+
+
+<!-- NUDGE STAT -->
+<div class="nudge-strip">
+  <div class="nudge-number">£200+</div>
+  <div class="nudge-text">average nightly rate premium for well-designed short-lets vs comparable properties</div>
 </div>
 
 <!-- KEY PIECES -->
@@ -239,7 +435,7 @@
     <div class="pieces-grid">
       <div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/e07d3a5a-6501-4501-8d97-d64d27a7065c/Screenshot+2026-03-06+at+10.00.30.png" alt="Blake Sofa" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-sofa.png" alt="Blake Sofa" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Sofa</div>
@@ -248,7 +444,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/ca63442a-c3c2-4af1-9e19-8d8c8cd70420/Screenshot+2026-03-06+at+10.22.20.png" alt="Blake Armchair" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-armchair.png" alt="Blake Armchair" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Armchair</div>
@@ -257,7 +453,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/bbfd8a89-f2f9-4133-8e54-cf659e634e64/Screenshot+2026-03-06+at+10.22.49.png" alt="Blake Media Unit" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-media-unit.png" alt="Blake Media Unit" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Media Unit</div>
@@ -266,7 +462,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/2458e0c2-a0b2-4899-9633-6ab788437d07/Screenshot+2026-03-06+at+10.00.43.png" alt="Blake Bedframe" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-bedframe.png" alt="Blake Bedframe" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Bedframe</div>
@@ -275,7 +471,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/7311ebe9-2efd-4edf-91a1-5c019549ee72/Screenshot+2026-03-06+at+10.00.58.png" alt="Blake Dining Chair" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-dining-chair.png" alt="Blake Dining Chair" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Dining Chair</div>
@@ -284,7 +480,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/63160507-f5f7-4843-b9f3-96d54e6dff2d/Screenshot+2026-03-06+at+10.20.57.png" alt="Blake Coffee Table" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-coffee-table.png" alt="Blake Coffee Table" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Blake Coffee Table</div>
@@ -292,6 +488,41 @@
             <div class="piece-dims">900 × 900 × 400mm</div>
           </div>
         </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSIONS GUIDE -->
+<section class="dims-guide">
+  <div class="dims-inner">
+    <div class="section-header">
+      <span class="eyebrow">Floor Plan Guidance</span>
+      <h2>Will It Fit?</h2>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">The Blakethrough is designed for well-proportioned London flats and city apartments. Use these minimums as a guide — if you&rsquo;re unsure, send us a floor plan and we&rsquo;ll advise before you order.</p>
+    </div>
+    <div class="dims-grid">
+      <div class="dims-card">
+        <div class="dims-room">Living Room</div>
+        <div class="dims-min">Minimum 18m²</div>
+        <div class="dims-ideal">Ideal 24m²+</div>
+        <p class="dims-note">The Blake 3-seater sofa needs clearance from the wall on at least two sides. Allow 900mm walkway in front.</p>
+      </div>
+      <div class="dims-card">
+        <div class="dims-room">Bedroom (double)</div>
+        <div class="dims-min">Minimum 10m²</div>
+        <div class="dims-ideal">Ideal 14m²+</div>
+        <p class="dims-note">The Blake bedframe (1500mm wide) needs 600mm either side for bedside tables and comfortable access.</p>
+      </div>
+      <div class="dims-card">
+        <div class="dims-room">Dining Area</div>
+        <div class="dims-min">Minimum 9m²</div>
+        <div class="dims-ideal">Ideal 12m²+</div>
+        <p class="dims-note">The dining table (800×800mm) fits 4 chairs comfortably. Allow 800mm clearance from wall for chairs to pull out.</p>
+      </div>
+    </div>
+    <div class="dims-floorplan-cta">
+      <p>Not sure if The Blakethrough works for your property?</p>
+      <a href="/contact" class="btn btn-dark" style="margin-top:16px;display:inline-block;">Send Us Your Floor Plan</a>
     </div>
   </div>
 </section>
@@ -328,6 +559,54 @@
   </div>
 </section>
 
+<!-- WHAT HAPPENS NEXT -->
+<section class="journey">
+  <div class="journey-inner">
+    <div class="section-header" style="margin-bottom:48px;">
+      <span class="eyebrow">After You Order</span>
+      <h2>What Happens Next.</h2>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">We&rsquo;ve handled hundreds of installations. Here&rsquo;s exactly what to expect — no surprises, no vague timelines.</p>
+    </div>
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="journey-num">01</div>
+        <div>
+          <div class="journey-title">Order confirmed</div>
+          <div class="journey-desc">You receive a Stripe receipt immediately. We receive your order and begin processing within the hour.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">02</div>
+        <div>
+          <div class="journey-title">We call within 24 hours</div>
+          <div class="journey-desc">A member of the BoomHaus team contacts you to confirm your delivery address, access requirements, and preferred installation date.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">03</div>
+        <div>
+          <div class="journey-title">Lead time confirmed</div>
+          <div class="journey-desc">We confirm your installation date in writing. Typically 2–4 weeks from order. You&rsquo;ll have a fixed date to plan around.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">04</div>
+        <div>
+          <div class="journey-title">Installation day</div>
+          <div class="journey-desc">Our team arrives, assembles everything, and styles the property. You or an authorised representative needs to be present. Most installs complete in half a day.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">05</div>
+        <div>
+          <div class="journey-title">Guest-ready handover</div>
+          <div class="journey-desc">We leave the property photographed, styled, and ready. Update your listing the same day. Your first booking can be that evening.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STORY -->
 <section class="story">
   <div class="story-inner">
@@ -345,31 +624,191 @@
   </div>
 </section>
 
+<!-- ROI CALCULATOR -->
+<section class="roi-calc">
+  <div class="roi-inner">
+    <div class="roi-header">
+      <span class="eyebrow">Return on Investment</span>
+      <h2>What Will The Blakethrough Earn You?</h2>
+      <p>Enter your current numbers and see how The Blakethrough is likely to change them. Based on performance data from BoomHaus-furnished properties.</p>
+    </div>
+    <div class="roi-layout">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label class="roi-label" for="roi-rate">Current nightly rate</label>
+          <div class="roi-input-prefix">
+            <input class="roi-input" id="roi-rate" type="number" value="120" min="30" max="2000" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label" for="roi-occ">Current occupancy rate</label>
+          <div class="roi-input-suffix">
+            <input class="roi-input" id="roi-occ" type="number" value="65" min="10" max="100" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label" for="roi-size">Property size</label>
+          <select class="roi-input" id="roi-size" onchange="calcROI()" style="appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;">
+            <option value="1">1 bedroom — £4,699</option>
+            <option value="2">2 bedroom — £6,599</option>
+          </select>
+        </div>
+      </div>
+      <div class="roi-outputs">
+        <h3>Your Estimated Results</h3>
+        <span class="roi-output-label">Projected nightly rate after BoomHaus</span>
+        <div class="roi-output-val" id="roi-new-rate">£174</div>
+        <div class="roi-output-sub">Based on average 45% uplift for The Blakethrough</div>
+        <div class="roi-divider"></div>
+        <span class="roi-output-label">Projected annual revenue uplift</span>
+        <div class="roi-output-val" id="roi-uplift">£12,800</div>
+        <div class="roi-output-sub" id="roi-occ-sub">At 75% projected occupancy (vs 65% current)</div>
+        <div class="roi-divider"></div>
+        <span class="roi-output-label">Estimated payback period</span>
+        <div class="roi-output-val" id="roi-payback">4.4 months</div>
+        <div class="roi-output-sub" id="roi-pack-cost">Pack cost: £4,699 +VAT</div>
+        <div class="roi-cta-row">
+          <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" target="_blank" rel="noopener" class="btn" id="roi-order-btn">Order 1-Bed Pack &rarr;</a>
+        </div>
+        <p class="roi-disclaimer">Projections based on BoomHaus client data. Actual results vary by location, platform, and management. These figures are indicative only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var PACK_COSTS = { '1': 4699, '2': 6599 };
+  var STRIPE_URLS = {
+    '1': 'https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207',
+    '2': 'https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208'
+  };
+  var RATE_UPLIFT = 0.45;  // 45% nightly rate uplift for Blakethrough
+  var OCC_UPLIFT = 0.10;   // +10 percentage points occupancy
+
+  function calcROI() {
+    var rate = parseFloat(document.getElementById('roi-rate').value) || 0;
+    var occ  = parseFloat(document.getElementById('roi-occ').value) / 100 || 0;
+    var size = document.getElementById('roi-size').value;
+
+    var newRate = Math.round(rate * (1 + RATE_UPLIFT));
+    var newOcc  = Math.min(occ + OCC_UPLIFT, 0.95);
+    var packCost = PACK_COSTS[size];
+
+    var currentRevenue = rate * occ * 365;
+    var projectedRevenue = newRate * newOcc * 365;
+    var uplift = projectedRevenue - currentRevenue;
+    var paybackMonths = uplift > 0 ? (packCost / (uplift / 12)) : 0;
+
+    document.getElementById('roi-new-rate').textContent = '£' + newRate;
+    document.getElementById('roi-uplift').textContent = '£' + Math.round(uplift).toLocaleString('en-GB');
+    document.getElementById('roi-occ-sub').textContent = 'At ' + Math.round(newOcc * 100) + '% projected occupancy (vs ' + Math.round(occ * 100) + '% current)';
+    document.getElementById('roi-payback').textContent = paybackMonths > 0 ? paybackMonths.toFixed(1) + ' months' : '—';
+    document.getElementById('roi-pack-cost').textContent = 'Pack cost: £' + packCost.toLocaleString('en-GB') + ' +VAT';
+    document.getElementById('roi-order-btn').href = STRIPE_URLS[size];
+    document.getElementById('roi-order-btn').textContent = 'Order ' + (size === '1' ? '1' : '2') + '-Bed Pack →';
+  }
+  calcROI();
+</script>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof-strip">
+  <div class="social-quote">&ldquo;The Blakethrough transformed our flat. We went from 65% to 94% occupancy within 6 weeks of the install.&rdquo;</div>
+  <div class="social-attr">BoomHaus client &mdash; verified review</div>
+</div>
+
 <!-- PRICING -->
 <section class="pricing">
   <div class="pricing-inner">
     <div>
       <span class="eyebrow">Pricing</span>
       <h2>Straightforward Pricing. No Hidden Costs.</h2>
-      <p class="pricing-note">All prices exclude VAT and delivery. Delivery charges vary by location and are confirmed at order. Lead time is typically 2–4 weeks from order confirmation.</p>
+      <p class="pricing-note">Prices shown exclude VAT. Delivery to London included. Outside the M25 — <a href="/contact" style="color:var(--orange);">contact us for a delivery quote</a>. Lead time: typically 2–4 weeks from order.</p>
       <div class="price-table">
         <div class="price-row">
           <div class="price-size">1 bedroom</div>
-          <div class="price-val">£4,699</div>
-        </div><div class="price-row">
+          <div style="display:flex;align-items:center;gap:24px;">
+            <div class="price-val">£4,699 <span style="font-size:13px;font-weight:400;color:var(--grey-dark);">+VAT</span></div>
+            <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
+          </div>
+        </div>
+<div class="price-row">
           <div class="price-size">2 bedroom</div>
-          <div class="price-val">£6,599</div>
+          <div style="display:flex;align-items:center;gap:24px;">
+            <div class="price-val">£6,599 <span style="font-size:13px;font-weight:400;color:var(--grey-dark);">+VAT</span></div>
+            <a href="https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
+          </div>
         </div>
       </div>
-      <p class="price-vat">* All prices ex. VAT + delivery</p>
+      <p class="price-vat">All prices + VAT. Delivery to London included. Outside M25 — <a href="/contact" style="color:var(--orange);">contact us</a>.</p>
     </div>
     <div>
       <div class="pricing-ctas">
-        <a href="/contact" class="btn btn-primary">Order Now — Contact Us</a>
+        <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary">Order Now — Secure Checkout</a>
         <a href="/contact" class="btn btn-dark">Request a Brochure</a>
         <a href="/superhost-audit" class="btn btn-dark">Get a Free Property Audit First</a>
       </div>
-      <p class="stripe-note">Secure checkout powered by Stripe. 50% deposit on order, 50% prior to delivery.</p>
+      <p class="stripe-note">Secure checkout powered by Stripe. Payment terms confirmed at order.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-header" style="margin-bottom:40px;">
+      <span class="eyebrow">Questions</span>
+      <h2>Before You Order.</h2>
+    </div>
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Can I customise the pack?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>The Blakethrough is a curated package — the pieces work together as a system. Minor variations can be discussed. Contact us before purchasing if you have specific requirements.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What size property does this suit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>The 1-bed pack suits a flat with a living area of roughly 20m² or more. The 2-bed suits properties with two double bedrooms and a separate living space.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Do you deliver outside London?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Yes, across the UK. Delivery costs vary by location and are confirmed at order. London and South East typically have the shortest lead times.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What happens if something arrives damaged?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Notify us within 48 hours of installation with photographs. We arrange replacement or repair at no additional cost.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What's the lead time?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Typically 2–4 weeks from order confirmation. We confirm your specific date within 24 hours of order placement.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faq-footer">
+      <p>Still have questions? <a href="/contact">Talk to the team &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -413,6 +852,7 @@
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms &amp; Conditions</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -501,7 +941,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
+  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
@@ -536,5 +976,14 @@
   }
 </script>
 
+
+<script>
+  function toggleFaq(btn) {
+    var answer = btn.nextElementSibling;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    answer.style.display = expanded ? 'none' : 'block';
+  }
+</script>
 </body>
 </html>

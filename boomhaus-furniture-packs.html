@@ -14,7 +14,12 @@
 <meta property="og:site_name" content="BoomHaus">
 <meta property="og:image" content="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
   <script>
@@ -58,12 +63,11 @@
 
   /* Hero right — value props */
   .hero-props { display: flex; flex-direction: column; gap: 2px; }
-  .prop-item { background: #1e1e1e; padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; }
-  .prop-item:first-child { background: var(--orange); }
-  .prop-item:first-child .prop-title { color: var(--white); }
-  .prop-item:first-child .prop-desc { color: rgba(255,255,255,0.7); }
+  .prop-item { background: #1e1e1e; padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.25s; cursor: default; }
+  .prop-item:hover { background: var(--orange); }
+  .prop-item:hover .prop-title { color: var(--white); }
+  .prop-item:hover .prop-desc { color: rgba(255,255,255,0.7); }
   .prop-num { font-size: 28px; font-weight: 500; color: rgba(255,255,255,0.2); line-height: 1; flex-shrink: 0; min-width: 32px; }
-  .prop-item:first-child .prop-num { color: rgba(255,255,255,0.4); }
   .prop-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
   .prop-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.55; }
 
@@ -81,8 +85,8 @@
 
   .pack-card { background: var(--grey-light); overflow: hidden; display: grid; grid-template-columns: 480px 1fr; position: relative; }
   .pack-card:hover .pack-img img { transform: scale(1.03); }
-  .pack-img { overflow: hidden; background: #2a2a2a; }
-  .pack-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; min-height: 360px; }
+  .pack-img { overflow: hidden; background: #2a2a2a; height: 300px; }
+  .pack-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
   .pack-body { padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; }
   .pack-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; display: block; }
   .pack-name { font-size: 32px; font-weight: 500; margin-bottom: 8px; letter-spacing: -0.01em; }
@@ -102,7 +106,8 @@
   .process-header h2 { color: var(--white); }
   .process-header p { color: rgba(255,255,255,0.45); font-size: 16px; line-height: 1.8; }
   .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .process-step { background: #1e1e1e; padding: 44px 36px; position: relative; overflow: hidden; }
+  .process-step { background: #1e1e1e; padding: 44px 36px; position: relative; overflow: hidden; border-top: 3px solid transparent; transition: border-color 0.25s; }
+  .process-step:hover { border-top-color: var(--orange); }
   .step-bg-num { position: absolute; top: 16px; right: 16px; font-size: 100px; font-weight: 600; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
   .step-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; margin-bottom: 24px; }
   .process-step h3 { color: var(--white); font-size: 18px; margin-bottom: 12px; position: relative; z-index: 1; }
@@ -145,13 +150,120 @@
     .superhost-upsell { padding: 60px 24px; }
     footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
   }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--grey-light);
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-child { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison { padding: 100px 60px; background: var(--white); }
+  .comparison-inner { max-width: 1200px; margin: 0 auto; }
+  .comparison-header { margin-bottom: 56px; }
+  .comparison-table { width: 100%; border-collapse: collapse; }
+  .comparison-table th { padding: 20px 24px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--black); border-right: 2px solid #333; }
+  .comparison-table th:first-child { color: rgba(255,255,255,0.4); background: #111; }
+  .comparison-table th.featured { background: var(--orange); border-right-color: var(--orange); }
+  .comparison-table td { padding: 18px 24px; font-size: 14px; border-bottom: 1px solid var(--grey-light); border-right: 1px solid var(--grey-light); vertical-align: top; }
+  .comparison-table td:first-child { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); background: #fafafa; width: 160px; }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:hover td { background: #fafafa; }
+  .comparison-table tr:hover td:first-child { background: #f0f0f0; }
+  .comp-tick { color: var(--orange); font-weight: 600; }
+  .comp-dash { color: #ccc; }
+  .comp-price { font-size: 16px; font-weight: 500; }
+  .comp-price-note { font-size: 11px; color: var(--grey-dark); display: block; margin-top: 2px; }
+  .comp-link { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); text-decoration: none; }
+  .comp-link:hover { text-decoration: underline; }
+  @media (max-width: 900px) {
+    .comparison { padding: 60px 0; overflow-x: auto; }
+    .comparison-inner { padding: 0 24px; min-width: 700px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -161,6 +273,9 @@
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -220,7 +335,7 @@
       <!-- Blakethrough — featured -->
       <div class="pack-card">
         <div class="pack-img">
-          <img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp" alt="The Blakethrough" loading="lazy">
+          <img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp" alt="The Blakethrough" loading="eager">
         </div>
         <div class="pack-body">
           <span class="pack-tag">Most Popular</span>
@@ -232,8 +347,8 @@
           </div>
           <div class="pack-footer">
             <div>
-              <div class="pack-price">From £4,699</div>
-              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+              <div class="pack-price">From £4,699 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
             </div>
             <a href="/the-blakethrough" class="pack-cta">Explore Pack →</a>
           </div>
@@ -255,8 +370,8 @@
           </div>
           <div class="pack-footer">
             <div>
-              <div class="pack-price">From £6,399</div>
-              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+              <div class="pack-price">From £6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
             </div>
             <a href="/the-lois" class="pack-cta">Explore Pack →</a>
           </div>
@@ -278,8 +393,8 @@
           </div>
           <div class="pack-footer">
             <div>
-              <div class="pack-price">From £4,599</div>
-              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+              <div class="pack-price">From £4,599 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
             </div>
             <a href="/the-btr" class="pack-cta">Explore Pack →</a>
           </div>
@@ -301,8 +416,8 @@
           </div>
           <div class="pack-footer">
             <div>
-              <div class="pack-price">From £6,999</div>
-              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+              <div class="pack-price">From £6,999 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
             </div>
             <a href="/the-take-five" class="pack-cta">Explore Pack →</a>
           </div>
@@ -324,8 +439,8 @@
           </div>
           <div class="pack-footer">
             <div>
-              <div class="pack-price">From £6,399</div>
-              <div class="pack-price-note">1-bed · ex. VAT + delivery</div>
+              <div class="pack-price">From £6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
             </div>
             <a href="/the-classic" class="pack-cta">Explore Pack →</a>
           </div>
@@ -333,6 +448,128 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- PACK COMPARISON -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="comparison-header">
+      <span class="eyebrow">Compare Packs</span>
+      <h2>Which Pack Is Right for You?</h2>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:640px;">Every BoomHaus pack is designed for a specific property type and guest profile. Use this table to narrow it down, then explore the full specification on each pack page.</p>
+    </div>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>The Blakethrough</th>
+          <th>The Lois</th>
+          <th>The BTR</th>
+          <th>The Classic</th>
+          <th>The Take Five</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mood</td>
+          <td>Dark, moody, dramatic</td>
+          <td>Warm terracotta, rich</td>
+          <td>Clean, modern, grey</td>
+          <td>Natural, cosy, timeless</td>
+          <td>Tactile, premium, oak</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td>City short-lets, premium Airbnb</td>
+          <td>Design-forward Airbnb</td>
+          <td>BTR, serviced apartments</td>
+          <td>Country, coastal, heritage</td>
+          <td>High-spec, design statement</td>
+        </tr>
+        <tr>
+          <td>1-bed price</td>
+          <td><span class="comp-price">£4,699 <span style="font-size:12px;font-weight:300;">+VAT</span></span><a href="/the-blakethrough" class="comp-link">Explore →</a></td>
+          <td><span class="comp-price">£6,399 <span style="font-size:12px;font-weight:300;">+VAT</span></span><a href="/the-lois" class="comp-link">Explore →</a></td>
+          <td><span class="comp-price">£4,599 <span style="font-size:12px;font-weight:300;">+VAT</span></span><a href="/the-btr" class="comp-link">Explore →</a></td>
+          <td><span class="comp-price">£6,399 <span style="font-size:12px;font-weight:300;">+VAT</span></span><a href="/the-classic" class="comp-link">Explore →</a></td>
+          <td><span class="comp-price">£6,999 <span style="font-size:12px;font-weight:300;">+VAT</span></span><a href="/the-take-five" class="comp-link">Explore →</a></td>
+        </tr>
+        <tr>
+          <td>2-bed price</td>
+          <td>£6,599 +VAT</td>
+          <td>£7,899 +VAT</td>
+          <td>£6,799 +VAT</td>
+          <td>£7,899 +VAT</td>
+          <td>£10,299 +VAT</td>
+        </tr>
+        <tr>
+          <td>3-bed</td>
+          <td><span class="comp-dash">—</span></td>
+          <td><span class="comp-dash">—</span></td>
+          <td>POA</td>
+          <td><span class="comp-dash">—</span></td>
+          <td><span class="comp-dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Palette</td>
+          <td>Charcoal, walnut, bronze</td>
+          <td>Terracotta, umber, oak</td>
+          <td>Grey, mango wood, brass</td>
+          <td>Linen, natural oak, stone</td>
+          <td>Pumice, sage, dark walnut</td>
+        </tr>
+        <tr>
+          <td>Key sofa</td>
+          <td>Verona seaweed 3-seater</td>
+          <td>Brick red velvet</td>
+          <td>Grey ghost fabric</td>
+          <td>Grey pumice linen</td>
+          <td>Pumice linen, walnut legs</td>
+        </tr>
+        <tr>
+          <td>Mattress included</td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+        </tr>
+        <tr>
+          <td>Installation included</td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+          <td><span class="comp-tick">✓</span></td>
+        </tr>
+        <tr>
+          <td>London delivery</td>
+          <td><span class="comp-tick">Included</span></td>
+          <td><span class="comp-tick">Included</span></td>
+          <td><span class="comp-tick">Included</span></td>
+          <td><span class="comp-tick">Included</span></td>
+          <td><span class="comp-tick">Included</span></td>
+        </tr>
+        <tr>
+          <td>Volume pricing</td>
+          <td><span class="comp-dash">—</span></td>
+          <td><span class="comp-dash">—</span></td>
+          <td><span class="comp-tick">5+ units</span></td>
+          <td><span class="comp-dash">—</span></td>
+          <td><span class="comp-dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Lead time</td>
+          <td>2–4 weeks</td>
+          <td>2–4 weeks</td>
+          <td>2–4 weeks</td>
+          <td>2–4 weeks</td>
+          <td>2–4 weeks</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:var(--grey-dark);margin-top:20px;">All prices +VAT. London delivery included. Outside M25 — <a href="/contact" style="color:var(--orange);">contact us</a> for delivery options.</p>
   </div>
 </section>
 
@@ -387,6 +624,7 @@
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms &amp; Conditions</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -465,7 +703,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
+  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">

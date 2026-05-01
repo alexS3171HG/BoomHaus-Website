@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — BoomHaus</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -82,13 +87,10 @@
     justify-content: flex-end;
     gap: 2px;
   }
-  .hero-stat {
-    background: #1e1e1e;
-    padding: 32px 36px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
+  .hero-stat { background: #1e1e1e; padding: 32px 36px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.25s; cursor: default; }
+  .hero-stat:hover { background: var(--orange); }
+  .hero-stat:hover .stat-num { color: var(--white); }
+  .hero-stat:hover .stat-label { color: rgba(255,255,255,0.75); }
   .hero-stat:first-child { background: var(--orange); }
   .hero-stat:first-child .stat-num { color: var(--white); }
   .hero-stat:first-child .stat-label { color: rgba(255,255,255,0.75); }
@@ -182,13 +184,17 @@
     overflow: hidden;
   }
   /* Alternating accent — first card gets orange top bar */
-  .value-card:first-child::before {
+  .value-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
     background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
   }
+  .value-card:hover::before { transform: scaleX(1); }
   .value-num {
     font-size: 88px;
     font-weight: 600;
@@ -216,6 +222,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2px;
+    align-items: stretch;
   }
   .team-card { }
   .team-photo {
@@ -240,7 +247,12 @@
   .team-info {
     background: var(--grey-light);
     padding: 20px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
+  .team-card { display: flex; flex-direction: column; }
+  .team-photo { flex-shrink: 0; }
   .team-name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
   .team-title { font-size: 12px; color: var(--grey-dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
   .team-bio { font-size: 17px; color: var(--grey-dark); line-height: 1.65; }
@@ -302,6 +314,89 @@
     .cta-strip { padding: 60px 24px; }
         footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
   }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--grey-light);
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-child { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
   <meta name="description" content="BoomHaus was founded by short-let operators who became designers. We bring commercial rigour to every interior design project.">
   <meta name="robots" content="index, follow">
@@ -309,7 +404,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About BoomHaus — Operators Who Design">
+  <meta property="og:title" content="About BoomHaus Operators Who Design">
   <meta property="og:description" content="Founded by short-let operators. Built to make interior design perform commercially.">
   <meta property="og:url" content="https://boomhaus.design/about">
   <meta property="og:site_name" content="BoomHaus">
@@ -317,7 +412,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About BoomHaus — Operators Who Design">
+  <meta name="twitter:title" content="About BoomHaus Operators Who Design">
   <meta name="twitter:description" content="Founded by short-let operators. Built to make interior design perform commercially.">
   <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
 
@@ -335,7 +430,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -345,6 +440,9 @@
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -376,9 +474,9 @@
     <div class="origin-text">
       <span class="eyebrow">Where We Started</span>
       <h2>Built from a Specific Frustration.</h2>
-      <p>BoomHaus was born from watching property owners bleed revenue while trying to furnish spaces that ended up looking generic and taking far too long to get live. <strong>Every empty day is money you never recover.</strong> Traditional interior design didn't understand that — or didn't care.</p>
+      <p>BoomHaus was born from watching property owners bleed revenue while trying to furnish spaces that ended up looking generic and taking far too long to get live. <strong>Every empty day is money you never recover.</strong> Traditional interior design didn't understand that, or didn't care.</p>
       <p>Our founders weren't designers who moved into short-lets. They were short-let operators who learned to design. That distinction matters. We've sat on your side of the table. We know what drives occupancy, what triggers the algorithm, and what actually earns a five-star review.</p>
-      <p>We built BoomHaus to be the partner we wished we'd had — one that moves fast, specifies smart, and never loses sight of the commercial reality your property has to survive.</p>
+      <p>We built BoomHaus to be the partner we wished we'd had, one that moves fast, specifies smart, and never loses sight of the commercial reality your property has to survive.</p>
     </div>
     <div class="origin-visual">
       <img src="https://boomhaus-website.web.app/assets/images/about-hero.webp" alt="BoomHaus studio" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -408,7 +506,7 @@
           <path d="M8 38c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <h3>People Before Properties</h3>
-        <p>We design for the people who use the space — guests who need to feel at home, clients who need to feel confident, and suppliers who need to feel valued. Good design serves the people inside it, not just the camera pointed at it.</p>
+        <p>We design for the people who use the space, for guests who need to feel at home, clients who need to feel confident, and suppliers who need to feel valued. Good design serves the people inside it, not just the camera pointed at it.</p>
       </div>
 
       <div class="value-card">
@@ -418,7 +516,7 @@
           <path d="M14 22h6l3-6 4 12 3-6h4" stroke="#993333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3>Tech That Creates Space to Think</h3>
-        <p>We use smart systems, automation, and AI — not to replace design thinking, but to free it up. By automating the logistics and admin that slow traditional studios down, our team spends its time on what actually matters: creative decisions and real relationships.</p>
+        <p>We use smart systems not to replace design thinking, but to free it up. Operational efficiency means our team spends its time on what actually matters: creative decisions and real relationships.</p>
       </div>
 
       <div class="value-card">
@@ -429,7 +527,7 @@
           <line x1="22" y1="27" x2="22" y2="36" stroke="#993333" stroke-width="1"/>
         </svg>
         <h3>Small Projects. Long Partnerships.</h3>
-        <p>We don't treat your first unit as a one-off transaction. We treat it as the beginning of something bigger. Our goal isn't to sell you furniture today — it's to be the partner you call when you're ready for your fifth property, or your fiftieth.</p>
+        <p>We don't treat your first unit as a one-off transaction. We treat it as the beginning of something bigger. Our goal isn't to sell you furniture today, it's to be the partner you call when you're ready for your fifth property, or your fiftieth.</p>
       </div>
 
     </div>
@@ -459,7 +557,7 @@
         <div class="team-info">
           <div class="team-name">Allan Harding</div>
           <div class="team-title">Co-Founder</div>
-          <p class="team-bio">Property investor and operator turned design entrepreneur. Allan drives the commercial framework behind every BoomHaus project — yield first, always.</p>
+          <p class="team-bio">Property investor and operator turned design entrepreneur, Allan is the commercial force behind BoomHaus.</p>
         </div>
       </div>
 
@@ -468,7 +566,7 @@
         <div class="team-info">
           <div class="team-name">Blake Duffy</div>
           <div class="team-title">Chief Revenue Officer</div>
-          <p class="team-bio">Blake leads business development and client growth — building the relationships that turn first projects into long-term portfolios.</p>
+          <p class="team-bio">Blake leads business development and client growth, building the relationships that turn first projects into long-term portfolios.</p>
         </div>
       </div>
 
@@ -477,7 +575,7 @@
         <div class="team-info">
           <div class="team-name">Alex Martins</div>
           <div class="team-title">Chief of Operations</div>
-          <p class="team-bio">Alex runs the engine room — procurement, logistics, systems, and the technology that lets BoomHaus move at the speed the market demands.</p>
+          <p class="team-bio">Alex complements the Studio's creative magic with operational thinking and a focus on execution.</p>
         </div>
       </div>
 
@@ -489,7 +587,7 @@
 <section class="cta-strip">
   <div class="cta-strip-inner">
     <h2>Ready to Work Together?</h2>
-    <p>Whether you're furnishing your first short-let or scaling a hospitality portfolio — there's a starting point that fits.</p>
+    <p>Whether you're furnishing your first short-let or scaling a hospitality portfolio, there's a starting point that fits.</p>
     <div class="cta-buttons">
       <a href="/furniture-packs" class="btn btn-primary">Browse Furniture Packs</a>
       <a href="/contact" class="btn btn-white-outline">Talk to the Team</a>
@@ -508,6 +606,7 @@
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms &amp; Conditions</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -597,7 +696,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
+  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">

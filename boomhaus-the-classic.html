@@ -16,7 +16,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Classic — BoomHaus Furniture Pack">
 <meta name="twitter:image" content="https://boomhaus-website.web.app/assets/images/pack-classic-hero.webp">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
   <script>
@@ -87,15 +92,12 @@
   .meta-chip { background: rgba(255,255,255,0.07); padding: 10px 18px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; }
   .meta-chip span { color: #fff; font-weight: 600; display: block; font-size: 15px; margin-bottom: 2px; }
   .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-  .pack-hero-gallery { display: grid; grid-template-rows: 1fr 1fr; gap: 2px; height: 520px; }
-  .gallery-img { overflow: hidden; background: rgba(255,255,255,0.05); }
-  .gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s; }
+  .pack-hero-gallery-old { display: flex; align-items: center; justify-content: center; padding: 48px; background: rgba(255,255,255,0.04); }
+  .gallery-img { width: 100%; max-width: 520px; aspect-ratio: 4/3; overflow: hidden; box-shadow: 0 8px 48px rgba(0,0,0,0.4); }
+  .gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.3s; }
   .gallery-img img:hover { opacity: 1; }
 
   /* Breadcrumb */
-  .breadcrumb { padding: 16px 60px; background: var(--grey-light); font-size: 12px; color: var(--grey-dark); letter-spacing: 0.06em; }
-  .breadcrumb a { color: var(--grey-dark); text-decoration: none; }
-  .breadcrumb a:hover { color: var(--orange); }
 
   /* Best for strip */
   .best-for-strip { background: var(--orange); padding: 18px 60px; display: flex; align-items: center; gap: 16px; }
@@ -170,7 +172,8 @@
   /* Mobile */
   @media (max-width: 900px) {
     .pack-hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
-    .pack-hero-gallery { height: 300px; grid-template-rows: 1fr; grid-template-columns: 1fr 1fr; }
+    .pack-hero-gallery-old { padding: 28px; }
+    .gallery-img { max-width: 100%; }
     .breadcrumb, .best-for-strip { padding: 16px 24px; }
     .key-pieces, .item-lists, .story, .pricing, .cross-sell { padding: 60px 24px; }
     .pieces-grid { grid-template-columns: 1fr 1fr; }
@@ -178,13 +181,152 @@
     .cross-grid { grid-template-columns: 1fr; }
     .cross-card { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--grey-light);
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-child { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── HERO IMAGE (full bleed) ── */
+  .pack-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; background: #1A1A1A; }
+  .pack-hero-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .breadcrumb-inline { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+  .breadcrumb-inline a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-inline a:hover { color: rgba(255,255,255,0.7); }
+  .pack-hero-image { overflow: hidden; }
+  .pack-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── NUDGE STRIP ── */
+  .nudge-strip { background: #1A1A1A; padding: 32px 60px; display: flex; align-items: center; gap: 28px; }
+  .nudge-number { font-size: 52px; font-weight: 500; color: var(--orange); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0; }
+  .nudge-text { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 480px; }
+
+  /* ── JOURNEY ── */
+  .journey { padding: 100px 60px; background: var(--grey-light); }
+  .journey-inner { max-width: 1200px; margin: 0 auto; }
+  .journey-steps { display: flex; flex-direction: column; gap: 0; }
+  .journey-step { display: flex; align-items: flex-start; gap: 32px; padding: 28px 0; border-bottom: 1px solid #E0E0E0; }
+  .journey-step:last-child { border-bottom: none; }
+  .journey-num { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: var(--orange); width: 28px; flex-shrink: 0; padding-top: 4px; }
+  .journey-title { font-size: 17px; font-weight: 500; color: var(--black); margin-bottom: 6px; }
+  .journey-desc { font-size: 14px; color: var(--grey-dark); line-height: 1.8; }
+
+  /* ── SOCIAL PROOF ── */
+  .social-proof-strip { background: var(--black); padding: 56px 60px; text-align: center; }
+  .social-quote { font-size: clamp(18px, 2.2vw, 26px); font-weight: 300; color: var(--white); line-height: 1.7; max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.01em; font-style: italic; }
+  .social-attr { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 100px 60px; background: var(--white); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-list { border-top: 1px solid var(--grey-light); }
+  .faq-item { border-bottom: 1px solid var(--grey-light); }
+  .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font); font-size: 16px; font-weight: 500; color: var(--black); gap: 16px; }
+  .faq-q:hover { color: var(--orange); }
+  .faq-icon { font-size: 22px; font-weight: 300; flex-shrink: 0; color: var(--orange); transition: transform 0.2s; line-height: 1; }
+  .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+  .faq-a { padding: 0 0 22px; }
+  .faq-a p { font-size: 15px; color: var(--grey-dark); line-height: 1.85; margin: 0; }
+  .faq-footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--grey-light); }
+  .faq-footer p { font-size: 15px; color: var(--grey-dark); }
+  .faq-footer a { color: var(--orange); text-decoration: none; font-weight: 500; }
+  .faq-footer a:hover { text-decoration: underline; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .pack-hero { grid-template-columns: 1fr; min-height: auto; }
+    .pack-hero-content { padding: 60px 24px 40px; }
+    .pack-hero-image { height: 280px; }
+    .nudge-strip { padding: 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .nudge-number { font-size: 40px; }
+    .journey, .faq-section { padding: 60px 24px; }
+    .social-proof-strip { padding: 48px 24px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -194,32 +336,35 @@
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- BREADCRUMB -->
-<div class="breadcrumb">
-  <a href="/furniture-packs">Furniture Packs</a> &nbsp;/&nbsp; The Classic
-</div>
-
 <!-- HERO -->
 <section class="pack-hero">
   <div class="pack-hero-content">
-    <span class="eyebrow">BoomHaus Furniture Pack</span>
+    <nav class="breadcrumb-inline">
+      <a href="/furniture-packs">Furniture Packs</a>
+      <span> / </span>
+      <span>The Classic</span>
+    </nav>
     <div class="pack-name">The Classic</div>
     <div class="pack-mood">Cosy, timeless, and impossible to leave.</div>
-    <p class="pack-tagline">Considered, natural materials for country houses, coastal retreats, and heritage city breaks.</p>
+    <p class="pack-tagline">Considered natural materials for country houses, coastal retreats, and heritage city breaks.</p>
     <div class="pack-hero-meta">
-      <div class="meta-chip"><span>£6,399</span>From (1-bed)</div>
-      <div class="meta-chip"><span>1 bedroom / 2 bedroom</span>Available sizes</div>
+      <div class="meta-chip"><span>From £6,399</span>Starting price</div>
+      <div class="meta-chip"><span>1 bedroom  /  2 bedroom</span>Available sizes</div>
       <div class="meta-chip"><span>Ex. VAT</span>Price shown</div>
     </div>
     <div class="hero-ctas">
-      <a href="/contact" class="btn btn-primary">Order This Pack</a>
-      <a href="/contact" class="btn btn-white-outline">Request Brochure</a>
+      <a href="https://buy.stripe.com/9B63cweeq1q75127nq4F209" class="btn btn-primary" target="_blank" rel="noopener">Order 1 Bedroom Pack</a>
+      <a href="https://buy.stripe.com/5kQ9AUdamecT79a7nq4F20a" class="btn btn-white-outline" target="_blank" rel="noopener">Order 2 Bedroom Pack</a>
     </div>
   </div>
-  <div class="pack-hero-gallery">
-    <div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-classic-hero.webp" alt="The Classic interior" loading="lazy"></div><div class="gallery-img"><img src="https://boomhaus-website.web.app/assets/images/pack-classic-bedroom.webp" alt="The Classic interior" loading="lazy"></div>
+  <div class="pack-hero-image">
+    <img src="https://boomhaus-website.web.app/assets/images/pack-classic-hero.webp" alt="The Classic — cosy natural materials interior" loading="eager">
   </div>
 </section>
 
@@ -227,6 +372,13 @@
 <div class="best-for-strip">
   <span class="best-for-label">Best for</span>
   <span class="best-for-text">Country houses, coastal retreats, barn conversions, and heritage city breaks.</span>
+</div>
+
+
+<!-- NUDGE STAT -->
+<div class="nudge-strip">
+  <div class="nudge-number">2–4 wks</div>
+  <div class="nudge-text">from order to guest-ready property — faster than sourcing furniture independently</div>
 </div>
 
 <!-- KEY PIECES -->
@@ -239,7 +391,7 @@
     <div class="pieces-grid">
       <div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/244289a9-c9cf-4cfd-a365-10828292eeb0/Screenshot+2026-03-06+at+13.39.47.png" alt="Classic Sofa" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-sofa.png" alt="Classic Sofa" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Sofa</div>
@@ -248,7 +400,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/15b4a1ad-90b8-41f0-bec3-285a283d39dd/Screenshot+2026-03-06+at+13.40.40.png" alt="Classic Armchair" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-armchair.png" alt="Classic Armchair" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Armchair</div>
@@ -257,7 +409,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/e65b8656-860c-4c7a-92da-9ce54c6c9700/Screenshot+2026-03-06+at+13.40.06.png" alt="Classic Coffee Table" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-coffee-table.png" alt="Classic Coffee Table" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Coffee Table</div>
@@ -266,7 +418,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/87040e2f-1c24-4dc5-864f-a90eccce9005/Screenshot+2026-03-06+at+13.40.25.png" alt="Classic Dining Chair" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-dining-chair.png" alt="Classic Dining Chair" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Dining Chair</div>
@@ -275,7 +427,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/d93bc213-0186-4d85-aa76-c45878270418/Screenshot+2026-03-06+at+13.48.45.png" alt="Classic Bedframe" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-bedframe.png" alt="Classic Bedframe" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Bedframe</div>
@@ -284,7 +436,7 @@
           </div>
         </div><div class="piece-card">
           <div class="piece-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/68f205c3b397ea2ce34dfbb1/28c7654e-fcfc-4eee-b690-9938c671d589/Screenshot+2026-03-06+at+13.49.01.png" alt="Classic Bedside Lamp" loading="lazy">
+            <img src="https://boomhaus-website.web.app/assets/images/products/classic-bedside-lamp.png" alt="Classic Bedside Lamp" loading="lazy">
           </div>
           <div class="piece-info">
             <div class="piece-name">Classic Bedside Lamp</div>
@@ -328,6 +480,54 @@
   </div>
 </section>
 
+<!-- WHAT HAPPENS NEXT -->
+<section class="journey">
+  <div class="journey-inner">
+    <div class="section-header" style="margin-bottom:48px;">
+      <span class="eyebrow">After You Order</span>
+      <h2>What Happens Next.</h2>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">We&rsquo;ve handled hundreds of installations. Here&rsquo;s exactly what to expect — no surprises, no vague timelines.</p>
+    </div>
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="journey-num">01</div>
+        <div>
+          <div class="journey-title">Order confirmed</div>
+          <div class="journey-desc">You receive a Stripe receipt immediately. We receive your order and begin processing within the hour.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">02</div>
+        <div>
+          <div class="journey-title">We call within 24 hours</div>
+          <div class="journey-desc">A member of the BoomHaus team contacts you to confirm your delivery address, access requirements, and preferred installation date.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">03</div>
+        <div>
+          <div class="journey-title">Lead time confirmed</div>
+          <div class="journey-desc">We confirm your installation date in writing. Typically 2–4 weeks from order. You&rsquo;ll have a fixed date to plan around.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">04</div>
+        <div>
+          <div class="journey-title">Installation day</div>
+          <div class="journey-desc">Our team arrives, assembles everything, and styles the property. You or an authorised representative needs to be present. Most installs complete in half a day.</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num">05</div>
+        <div>
+          <div class="journey-title">Guest-ready handover</div>
+          <div class="journey-desc">We leave the property photographed, styled, and ready. Update your listing the same day. Your first booking can be that evening.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STORY -->
 <section class="story">
   <div class="story-inner">
@@ -345,6 +545,12 @@
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
+<div class="social-proof-strip">
+  <div class="social-quote">&ldquo;We tried sourcing everything ourselves for our cottage. It took 4 months. BoomHaus did the whole thing in 3 weeks.&rdquo;</div>
+  <div class="social-attr">BoomHaus client &mdash; verified review</div>
+</div>
+
 <!-- PRICING -->
 <section class="pricing">
   <div class="pricing-inner">
@@ -355,21 +561,89 @@
       <div class="price-table">
         <div class="price-row">
           <div class="price-size">1 bedroom</div>
-          <div class="price-val">£6,399</div>
-        </div><div class="price-row">
+          <div style="display:flex;align-items:center;gap:24px;">
+            <div class="price-val">£6,399</div>
+            <a href="https://buy.stripe.com/9B63cweeq1q75127nq4F209" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
+          </div>
+        </div>
+<div class="price-row">
           <div class="price-size">2 bedroom</div>
-          <div class="price-val">£7,899</div>
+          <div style="display:flex;align-items:center;gap:24px;">
+            <div class="price-val">£7,899</div>
+            <a href="https://buy.stripe.com/5kQ9AUdamecT79a7nq4F20a" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
+          </div>
         </div>
       </div>
       <p class="price-vat">* All prices ex. VAT + delivery</p>
     </div>
     <div>
       <div class="pricing-ctas">
-        <a href="/contact" class="btn btn-primary">Order Now — Contact Us</a>
+        <a href="https://buy.stripe.com/9B63cweeq1q75127nq4F209" class="btn btn-primary">Order Now — Secure Checkout</a>
         <a href="/contact" class="btn btn-dark">Request a Brochure</a>
         <a href="/superhost-audit" class="btn btn-dark">Get a Free Property Audit First</a>
       </div>
       <p class="stripe-note">Secure checkout powered by Stripe. 50% deposit on order, 50% prior to delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-header" style="margin-bottom:40px;">
+      <span class="eyebrow">Questions</span>
+      <h2>Before You Order.</h2>
+    </div>
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Can I customise the pack?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>The Classic is designed to work as a system. The natural linen and oak palette holds the look together. Minor variations can be discussed — contact us before ordering.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What size property does this suit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Ideal for country cottages, barn conversions, and coastal flats. The 1-bed works in any comfortable living space. The 2-bed suits larger rural or coastal properties.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Do you deliver outside London?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Yes, across the UK. The Classic is particularly popular in rural and coastal locations. Delivery costs confirmed at order.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What happens if something arrives damaged?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Notify us within 48 hours of installation with photos. We replace or repair at no extra cost.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          What's the lead time?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" style="display:none;">
+          <p>Typically 2–4 weeks from order. We confirm your date within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faq-footer">
+      <p>Still have questions? <a href="/contact">Talk to the team &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -413,6 +687,7 @@
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms &amp; Conditions</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -501,7 +776,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
+  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20furniture%20packs." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
@@ -536,5 +811,14 @@
   }
 </script>
 
+
+<script>
+  function toggleFaq(btn) {
+    var answer = btn.nextElementSibling;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    answer.style.display = expanded ? 'none' : 'block';
+  }
+</script>
 </body>
 </html>

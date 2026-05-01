@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Residential Design — BoomHaus</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -406,6 +411,89 @@
   /* HubSpot form wrapper */
   .hs-form-wrapper { width: 100%; }
   .hs-form-wrapper .hs-form-frame { display: block; width: 100%; }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--grey-light);
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-child { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
   <meta name="description" content="Bespoke interior design for your home. Whole-home transformations, room-by-room design, or a styling refresh. Fixed fees, no surprises.">
   <meta name="robots" content="index, follow">
@@ -439,7 +527,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -449,6 +537,9 @@
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -484,6 +575,176 @@
       </div>
       <div class="quote-attr">— BoomHaus Design Philosophy</div>
     </div>
+    
+<style id="hs-form-override">
+  /* ── HubSpot Form Brand Override ── */
+
+  /* Form wrapper */
+  .hs-form-frame,
+  .hbspt-form { width: 100% !important; }
+
+  /* Field groups */
+  .hs-form .hs-form-field { margin-bottom: 20px !important; }
+
+  /* Labels */
+  .hs-form label {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: #1A1A1A !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+
+  /* All inputs, selects, textareas */
+  .hs-form input[type="text"],
+  .hs-form input[type="email"],
+  .hs-form input[type="tel"],
+  .hs-form input[type="number"],
+  .hs-form input[type="url"],
+  .hs-form select,
+  .hs-form textarea {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    color: #1A1A1A !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #D0D0D0 !important;
+    border-radius: 0 !important;
+    padding: 14px 16px !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: border-color 0.2s !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  /* Focus state */
+  .hs-form input:focus,
+  .hs-form select:focus,
+  .hs-form textarea:focus {
+    border-color: #993333 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Textarea */
+  .hs-form textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+  }
+
+  /* Submit button */
+  .hs-form input[type="submit"],
+  .hs-form .hs-button {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    color: #FFFFFF !important;
+    background: #993333 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 16px 36px !important;
+    cursor: pointer !important;
+    transition: background 0.2s !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .hs-form input[type="submit"]:hover,
+  .hs-form .hs-button:hover {
+    background: #882222 !important;
+  }
+
+  /* Error messages */
+  .hs-form .hs-error-msgs {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 6px 0 0 !important;
+  }
+  .hs-form .hs-error-msgs li {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 12px !important;
+    color: #993333 !important;
+    padding: 0 !important;
+  }
+  .hs-form .hs-error-msgs li::before { display: none !important; }
+
+  /* Field with error */
+  .hs-form .hs-input.error,
+  .hs-form input.error,
+  .hs-form select.error,
+  .hs-form textarea.error {
+    border-color: #993333 !important;
+  }
+
+  /* Placeholder text */
+  .hs-form input::placeholder,
+  .hs-form textarea::placeholder {
+    color: #999999 !important;
+    font-weight: 300 !important;
+  }
+
+  /* Remove HubSpot branding footer */
+  .hs-form .hs_submit { margin-top: 8px !important; }
+  .legal-consent-container { margin-top: 16px !important; }
+  .legal-consent-container p,
+  .legal-consent-container label {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 12px !important;
+    color: #666666 !important;
+    font-weight: 300 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  /* Checkbox styling */
+  .hs-form input[type="checkbox"] {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0 !important;
+    accent-color: #993333 !important;
+  }
+
+  /* Select dropdown arrow */
+  .hs-form .input select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231A1A1A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    padding-right: 40px !important;
+  }
+
+  /* Multi-column form fields */
+  .hs-form .hs-fieldtype-row { display: flex !important; gap: 16px !important; }
+  .hs-form .hs-fieldtype-row .hs-form-field { flex: 1 !important; }
+
+  /* Remove default HubSpot box shadows and borders on fieldsets */
+  .hs-form fieldset {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Success message */
+  .hs-form .submitted-message {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #1A1A1A !important;
+    padding: 24px !important;
+    background: #F0F0F0 !important;
+    border-left: 3px solid #993333 !important;
+  }
+</style>
   </div>
 </section>
 
@@ -664,6 +925,7 @@
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms &amp; Conditions</a></li>
   </ul>
   <div class="footer-contact">
     info@boomhaus.design<br>
@@ -753,7 +1015,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447831861363?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
+  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
