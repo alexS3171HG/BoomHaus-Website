@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BTR Interior Design &amp; Furniture Packages — BoomHaus</title>
-<meta name="description" content="BoomHaus BTR furniture packs are designed for build-to-rent operators. Commercial-grade, consistent across all units, installed in 2–4 weeks. Volume pricing available.">
+<title>BTR Interior Design &amp; Furniture Packages, BoomHaus</title>
+<meta name="description" content="BoomHaus BTR furniture packs are designed for build-to-rent operators. Professionally specified, consistent across all units, installed in 2–4 weeks. Volume pricing available.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://boomhaus.design/btr">
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
@@ -66,7 +66,7 @@
   .nav-mobile-overlay a:hover { color: var(--orange); }
   .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; width: auto; border: none; }
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
-  @media (max-width: 900px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
+  
   @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; } }
   .lp-hero { padding: 120px 60px 100px; background: #1A1A1A; margin-top: 64px; }
   .lp-hero-inner { max-width: 800px; }
@@ -102,6 +102,87 @@
   .lp-cta-strip .btn:hover { background: var(--grey-light); }
   @media (max-width: 900px) { .lp-grid { grid-template-columns: 1fr; gap: 40px; } .lp-cards { grid-template-columns: 1fr; } .pack-strip { grid-template-columns: 1fr 1fr; } .stat-row { grid-template-columns: 1fr; } }
   @media (max-width: 768px) { .lp-hero, .lp-section, .lp-cta-strip { padding: 60px 24px; } }
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+  }
 </style>
 </head>
 <body>
@@ -133,18 +214,19 @@
 </div>
 <script>
   function toggleMobileNav() {
-    var o=document.getElementById('nav-mobile-overlay');
-    var h=document.getElementById('nav-hamburger');
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
     o.classList.toggle('open');
-    if(h) h.classList.toggle('open');
-    document.body.style.overflow=o.classList.contains('open')?'hidden':'';
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 <section class="lp-hero">
   <div class="lp-hero-inner">
     <span class="eyebrow">For BTR Operators</span>
     <h1>Commercial-Grade Design. At Scale.</h1>
-    <p class="lp-sub">BoomHaus BTR furniture packs are built for operators who need a consistent, high-quality finish across multiple units — without the cost and delays of a full bespoke design service.</p>
+    <p class="lp-sub">BoomHaus BTR furniture packs are built for operators who need a consistent, high-quality finish across multiple units, without the cost and delays of a full bespoke design service.</p>
     <a href="/the-btr" class="btn btn-primary">Explore The BTR Pack</a>
   </div>
 </section>
@@ -157,12 +239,12 @@
     <div class="lp-grid" style="margin-top:40px;">
       <div>
         <p>Build-to-rent operators face a specific problem: the budget hotel aesthetic that once passed for &ldquo;design&rdquo; no longer competes. Modern renters expect something that feels considered, personal, and worth the premium price.</p>
-        <p style="margin-top:20px;">At the same time, the bespoke interior design route is slow, expensive, and hard to replicate across multiple units. BoomHaus is designed specifically for this gap — commercial-grade specification, consistent across every unit, at a price point that makes the ROI clear.</p>
+        <p style="margin-top:20px;">At the same time, the bespoke interior design route is slow, expensive, and hard to replicate across multiple units. BoomHaus is designed specifically for this gap, built to professional specification, consistent across every unit, at a price point that makes the ROI clear.</p>
       </div>
       <div>
         <div class="stat-row" style="margin-top:0;">
           <div class="stat-tile"><div class="stat-num">30%</div><div class="stat-desc">lower void rates for BTR schemes with quality design vs comparable units</div></div>
-          <div class="stat-tile"><div class="stat-num">5+</div><div class="stat-desc">unit volume pricing available — contact us for a scheme quote</div></div>
+          <div class="stat-tile"><div class="stat-num">5+</div><div class="stat-desc">unit volume pricing available, contact us for a scheme quote</div></div>
           <div class="stat-tile"><div class="stat-num">2–4<br><span style="font-size:24px;">wks</span></div><div class="stat-desc">per unit from order to installation, with phased delivery for larger schemes</div></div>
         </div>
       </div>
@@ -176,8 +258,8 @@
     <h2>Designed Specifically for City Operators.</h2>
     <div class="lp-grid" style="margin-top:40px;">
       <div>
-        <p style="color:rgba(255,255,255,0.55);">The BTR pack uses a clean grey and mango wood palette with brass accents — professional enough for corporate renters, warm enough to feel like a home. Available in 1-bed, 2-bed, and 3-bed (POA) configurations.</p>
-        <p style="color:rgba(255,255,255,0.55);margin-top:20px;">Every item is commercial-grade. The upholstery, the finishes, the hardware — all selected to hold up to the churn of multiple tenants. You won&rsquo;t be replacing pieces after 18 months.</p>
+        <p style="color:rgba(255,255,255,0.55);">The BTR pack uses a clean grey and mango wood palette with brass accents, professional enough for corporate renters, warm enough to feel like a home. Available in 1-bed, 2-bed, and 3-bed (POA) configurations.</p>
+        <p style="color:rgba(255,255,255,0.55);margin-top:20px;">Every item is professionally specified. The upholstery, the finishes, the hardware, all selected to hold up to the churn of multiple tenants. You won&rsquo;t be replacing pieces after 18 months.</p>
         <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
           <a href="/the-btr" class="btn btn-primary">Explore The BTR</a>
           <a href="/contact" class="btn btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.3);">Discuss a Scheme</a>
@@ -187,7 +269,7 @@
         <div style="background:#1e1e1e;padding:40px;">
           <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:24px;">What&rsquo;s Included</div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
-            <li style="font-size:14px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">&mdash;</span>Commercial-grade specification throughout</li>
+            <li style="font-size:14px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">&mdash;</span>Built to professional specification throughout</li>
             <li style="font-size:14px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">&mdash;</span>Full living room, dining, bedroom and storage furniture</li>
             <li style="font-size:14px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">&mdash;</span>Cotton pillowtop mattress(es)</li>
             <li style="font-size:14px;color:rgba(255,255,255,0.6);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">&mdash;</span>Coordinated delivery and full installation</li>
@@ -204,7 +286,7 @@
   <div class="lp-section-inner" style="text-align:center;max-width:720px;">
     <span class="eyebrow">Also Available</span>
     <h2>Need a Full Design Service?</h2>
-    <p>For larger or more complex schemes, BoomHaus offers a full hospitality interior design service — from concept through to installation and handover. We work with BTR developers, serviced apartment operators, and co-living providers.</p>
+    <p>For larger or more complex schemes, BoomHaus offers a full hospitality interior design service, from concept through to installation and handover. We work with BTR developers, serviced apartment operators, and co-living providers.</p>
     <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="/hospitality" class="btn btn-primary">Hospitality Design Services</a>
       <a href="/contact" class="btn btn-outline">Get a Scheme Quote</a>
@@ -250,12 +332,28 @@
 </footer>
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
-  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Got It</button>
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
 </div>
 <script>
-  function acknowledgeCookies() {{ try{{localStorage.setItem('bh_cookie_ack','1');}}catch(e){{}} document.getElementById('cookie-banner').style.display='none'; }}
-  (function(){{ var a=false; try{{a=localStorage.getItem('bh_cookie_ack')==='1';}}catch(e){{}} if(!a){{ var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex'; }} }})();
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
 </body>
 </html>

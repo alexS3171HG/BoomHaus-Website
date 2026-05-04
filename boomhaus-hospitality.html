@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hospitality Design — BoomHaus</title>
+<title>Hospitality Design, BoomHaus</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -477,9 +477,87 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
   <meta name="description" content="Commercial interior design for BTR operators, serviced apartments, co-living providers, and boutique hotels across the UK.">
@@ -488,7 +566,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Hospitality Interior Design — BoomHaus">
+  <meta property="og:title" content="Hospitality Interior Design, BoomHaus">
   <meta property="og:description" content="Full-service design for BTR, serviced apartments, co-living and boutique hotels. Commercial spec, fast delivery.">
   <meta property="og:url" content="https://boomhaus.design/hospitality">
   <meta property="og:site_name" content="BoomHaus">
@@ -496,7 +574,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hospitality Interior Design — BoomHaus">
+  <meta name="twitter:title" content="Hospitality Interior Design, BoomHaus">
   <meta name="twitter:description" content="Full-service design for BTR, serviced apartments, co-living and boutique hotels. Commercial spec, fast delivery.">
   <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
 
@@ -540,7 +618,7 @@
       <span class="pill">Boutique Hotel</span>
     </div>
     <h1>Design Is a<br><em>Revenue Lever.</em><br>Not a Cost.</h1>
-    <p class="hero-body">We work with hospitality operators — from single-site managers to multi-unit portfolio owners — to deliver interior design that performs commercially. Faster than a traditional studio, built to survive real guests, and designed to compound returns across every unit.</p>
+    <p class="hero-body">We work with hospitality operators, from single-site managers to multi-unit portfolio owners, to deliver interior design that performs commercially. Faster than a traditional studio, built to survive real guests, and designed to compound returns across every unit.</p>
     <div class="hero-ctas">
       <a href="#form" class="btn btn-primary">Start a Conversation</a>
       <a href="#services" class="btn btn-secondary">See What We Deliver</a>
@@ -560,8 +638,8 @@
       <h2>Most Hospitality Interiors Are Designed for One Handover. Not Ten Years of Guests.</h2>
     </div>
     <div class="problem-body">
-      <p>At scale, the wrong design decisions compound. Furniture that looks good in a render falls apart in six months. Styling choices that photograph beautifully don't translate to occupancy. And procurement delays mean empty units — which, at portfolio scale, is a serious commercial problem.</p>
-      <p>We work differently. Every specification decision we make is filtered through one question: what will this cost — and earn — across the lifecycle of this property?</p>
+      <p>At scale, the wrong design decisions compound. Furniture that looks good in a render falls apart in six months. Styling choices that photograph beautifully don't translate to occupancy. And procurement delays mean empty units, which, at portfolio scale, is a serious commercial problem.</p>
+      <p>We work differently. Every specification decision we make is filtered through one question: what will this cost, and earn, across the lifecycle of this property?</p>
     </div>
   </div>
 </section>
@@ -583,7 +661,7 @@
           <rect x="24" y="28" width="6" height="12" rx="0.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
         </svg>
         <h3>BTR Operators</h3>
-        <p>Design-led apartments that retain residents, command higher rents, and reduce void periods — across every unit, consistently.</p>
+        <p>Design-led apartments that retain residents, command higher rents, and reduce void periods, across every unit, consistently.</p>
       </div>
 
       <div class="who-card">
@@ -594,7 +672,7 @@
           <rect x="24" y="22" width="8" height="8" rx="0.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
         </svg>
         <h3>Serviced Apartments</h3>
-        <p>Commercial-grade spec that handles high guest turnover without losing the finish that drives five-star reviews and direct rebooking.</p>
+        <p>Professionally specified spec that handles high guest turnover without losing the finish that drives five-star reviews and direct rebooking.</p>
       </div>
 
       <div class="who-card">
@@ -604,7 +682,7 @@
           <circle cx="22" cy="22" r="3" fill="rgba(255,255,255,0.2)"/>
         </svg>
         <h3>Co-Living Providers</h3>
-        <p>Community spaces and private rooms designed around how people actually live together — functional, distinctive, and built to last.</p>
+        <p>Community spaces and private rooms designed around how people actually live together, functional, distinctive, and built to last.</p>
       </div>
 
       <div class="who-card">
@@ -615,7 +693,7 @@
           <line x1="8" y1="36" x2="36" y2="36" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <h3>Boutique Hotels</h3>
-        <p>Considered, character-led design that gives independent properties a distinctive identity — and a reason for guests to choose you over the branded alternative.</p>
+        <p>Considered, character-led design that gives independent properties a distinctive identity, and a reason for guests to choose you over the branded alternative.</p>
       </div>
 
     </div>
@@ -635,7 +713,7 @@
         <div class="service-num">01</div>
         <div>
           <h3>Interior Design</h3>
-          <p>Concept to specification. We design spaces that balance guest appeal with operational durability — with full documentation for procurement and fit-out. Every decision is commercially justified.</p>
+          <p>Concept to specification. We design spaces that balance guest appeal with operational durability, with full documentation for procurement and fit-out. Every decision is commercially justified.</p>
           <p class="service-detail">Concept development · FF&amp;E specification · Room-by-room layouts · Material &amp; finish schedules</p>
         </div>
       </div>
@@ -644,7 +722,7 @@
         <div class="service-num">02</div>
         <div>
           <h3>Procurement</h3>
-          <p>We source and manage the purchase of every item in the specification — furniture, lighting, soft furnishings, OS&amp;E. Commercial-grade quality at margins that protect your return.</p>
+          <p>We source and manage the purchase of every item in the specification, furniture, lighting, soft furnishings, OS&amp;E. Professionally specified quality at margins that protect your return.</p>
           <p class="service-detail">Supplier management · Volume pricing · Lead time coordination · Quality control</p>
         </div>
       </div>
@@ -653,7 +731,7 @@
         <div class="service-num">03</div>
         <div>
           <h3>Project Management</h3>
-          <p>One point of contact across the full delivery. We coordinate contractors, suppliers, and installation teams — so your unit is handed over on time, on spec, and ready for guests.</p>
+          <p>One point of contact across the full delivery. We coordinate contractors, suppliers, and installation teams, so your unit is handed over on time, on spec, and ready for guests.</p>
           <p class="service-detail">Programme management · Contractor coordination · Snag management · Handover sign-off</p>
         </div>
       </div>
@@ -662,7 +740,7 @@
         <div class="service-num">04</div>
         <div>
           <h3>Installation &amp; Styling</h3>
-          <p>Delivery, assembly, and full professional styling. We don't hand over flat-pack boxes. We hand over a guest-ready property — photographed, staged, and launch-ready.</p>
+          <p>Delivery, assembly, and full professional styling. We don't hand over flat-pack boxes. We hand over a guest-ready property, photographed, staged, and launch-ready.</p>
           <p class="service-detail">White-glove delivery · Full installation · Professional styling · Photography-ready setup</p>
         </div>
       </div>
@@ -687,17 +765,17 @@
       <div class="why-card">
         <span class="why-num">02</span>
         <h3>Yield-First Design Thinking</h3>
-        <p>We analyse market performance data before we begin. Design decisions are rooted in what drives ADR and occupancy — not just what looks good.</p>
+        <p>We analyse market performance data before we begin. Design decisions are rooted in what drives ADR and occupancy, not just what looks good.</p>
       </div>
       <div class="why-card">
         <span class="why-num">03</span>
         <h3>Built for Speed</h3>
-        <p>Tech-enabled processes and a lean, experienced team mean we move faster than a traditional design studio. Every empty day has a cost — and we take that seriously.</p>
+        <p>Tech-enabled processes and a lean, experienced team mean we move faster than a traditional design studio. Every empty day has a cost, and we take that seriously.</p>
       </div>
       <div class="why-card">
         <span class="why-num">04</span>
         <h3>Scalable From Day One</h3>
-        <p>Whether you're fitting out one unit or fifty, our systems are built for consistency at scale — same spec, same quality, same turnaround time across every property.</p>
+        <p>Whether you're fitting out one unit or fifty, our systems are built for consistency at scale, same spec, same quality, same turnaround time across every property.</p>
       </div>
     </div>
     
@@ -891,7 +969,7 @@
       <div class="process-step">
         <span class="ps-num">Step 02</span>
         <h3>Proposal &amp; Scope</h3>
-        <p>We send a clear, fixed-scope proposal — what's included, what it costs, and when it delivers. No hidden fees, no vague estimates.</p>
+        <p>We send a clear, fixed-scope proposal, what's included, what it costs, and when it delivers. No hidden fees, no vague estimates.</p>
       </div>
 
       <div class="process-step">
@@ -916,12 +994,12 @@
     <div class="cta-left">
       <span class="eyebrow" style="color:rgba(153,51,51,0.9);">Get in Touch</span>
       <h2>Tell Us About Your Project.</h2>
-      <p>Fill in the form and we'll be in touch within one business day to arrange a discovery call. There's no sales pitch — just a conversation about what you're building and whether we're the right fit.</p>
+      <p>Fill in the form and we'll be in touch within one business day to arrange a discovery call. There's no sales pitch, just a conversation about what you're building and whether we're the right fit.</p>
       <p>If you'd prefer to speak to someone directly, email us at <span style="color:rgba(255,255,255,0.7);">info@boomhaus.design</span></p>
       <div class="cta-reassurance">
         <div class="reassurance-item">
           <div class="r-dot"></div>
-          <p>Every enquiry gets a personal response — not an automated reply.</p>
+          <p>Every enquiry gets a personal response, not an automated reply.</p>
         </div>
         <div class="reassurance-item">
           <div class="r-dot"></div>
@@ -1082,5 +1160,15 @@
   })();
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

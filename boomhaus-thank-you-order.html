@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order Confirmed — BoomHaus</title>
+<title>Order Confirmed, BoomHaus</title>
 <meta name="description" content="Your BoomHaus furniture pack order has been confirmed.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://boomhaus.design/thank-you/order">
@@ -66,7 +66,7 @@
   .nav-mobile-overlay a:hover { color: var(--orange); }
   .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; width: auto; border: none; }
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
-  @media (max-width: 900px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
+  
   @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; } }
   .ty-wrap { margin-top: 64px; }
   .ty-hero { background: var(--black); padding: 100px 60px; text-align: center; }
@@ -85,6 +85,87 @@
   .ty-next p { margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
   .ty-next-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
   @media (max-width: 768px) { .ty-hero, .ty-steps, .ty-next { padding: 60px 24px; } }
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+  }
 </style>
 </head>
 <body>
@@ -116,11 +197,12 @@
 </div>
 <script>
   function toggleMobileNav() {
-    var o=document.getElementById('nav-mobile-overlay');
-    var h=document.getElementById('nav-hamburger');
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
     o.classList.toggle('open');
-    if(h) h.classList.toggle('open');
-    document.body.style.overflow=o.classList.contains('open')?'hidden':'';
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 <div class="ty-wrap">
@@ -139,7 +221,7 @@
         <div class="ty-step-num">01</div>
         <div>
           <div class="ty-step-title">Stripe receipt sent</div>
-          <div class="ty-step-desc">Check your inbox — a payment confirmation from Stripe is on its way. If you don&rsquo;t see it within 10 minutes, check your spam folder.</div>
+          <div class="ty-step-desc">Check your inbox, a payment confirmation from Stripe is on its way. If you don&rsquo;t see it within 10 minutes, check your spam folder.</div>
         </div>
       </div>
       <div class="ty-step">
@@ -217,12 +299,28 @@
 </footer>
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
-  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Got It</button>
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
 </div>
 <script>
-  function acknowledgeCookies() {{ try{{localStorage.setItem('bh_cookie_ack','1');}}catch(e){{}} document.getElementById('cookie-banner').style.display='none'; }}
-  (function(){{ var a=false; try{{a=localStorage.getItem('bh_cookie_ack')==='1';}}catch(e){{}} if(!a){{ var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex'; }} }})();
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
 </body>
 </html>

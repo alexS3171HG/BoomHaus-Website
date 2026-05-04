@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — BoomHaus</title>
+<title>Privacy Policy, BoomHaus</title>
 <meta name="description" content="BoomHaus privacy policy. How we collect, use, and protect your data.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://boomhaus.design/privacy-policy">
@@ -44,7 +44,7 @@
   p { color: var(--grey-dark); margin-bottom: 18px; font-size: 17px; line-height: 1.85; }
   ul { margin: 0 0 18px 0; padding-left: 0; list-style: none; }
   ul li { color: var(--grey-dark); font-size: 17px; line-height: 1.8; padding: 6px 0 6px 24px; position: relative; }
-  ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-weight: 500; }
+  ul li::before { content: ' to '; position: absolute; left: 0; color: var(--orange); font-weight: 500; }
   a { color: var(--orange); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
@@ -149,9 +149,87 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
 </head>
@@ -223,18 +301,18 @@
 
   <p>Our lawful basis for processing your personal data is:</p>
   <ul>
-    <li><strong>Contract performance</strong> — where processing is necessary to deliver a service you have requested</li>
-    <li><strong>Legitimate interests</strong> — for website analytics and improving our services</li>
-    <li><strong>Consent</strong> — where you have explicitly agreed to receive marketing communications</li>
+    <li><strong>Contract performance</strong>, where processing is necessary to deliver a service you have requested</li>
+    <li><strong>Legitimate interests</strong>, for website analytics and improving our services</li>
+    <li><strong>Consent</strong>, where you have explicitly agreed to receive marketing communications</li>
   </ul>
 
   <h2>3. Who We Share Your Data With</h2>
   <p>We do not sell your personal data. We may share it with:</p>
   <ul>
-    <li><strong>HubSpot</strong> — our CRM platform, used to manage enquiries and follow-ups</li>
-    <li><strong>Google</strong> — via Google Analytics 4, for website analytics</li>
-    <li><strong>Resend</strong> — our transactional email provider, used to deliver reports and confirmations</li>
-    <li><strong>Stripe</strong> — our payment processor, for handling furniture pack orders</li>
+    <li><strong>HubSpot</strong>, our CRM platform, used to manage enquiries and follow-ups</li>
+    <li><strong>Google</strong>, via Google Analytics 4, for website analytics</li>
+    <li><strong>Resend</strong>, our transactional email provider, used to deliver reports and confirmations</li>
+    <li><strong>Stripe</strong>, our payment processor, for handling furniture pack orders</li>
   </ul>
   <p>All third-party providers are required to process your data in accordance with applicable data protection law and our instructions.</p>
 
@@ -244,14 +322,14 @@
   <h3>Essential cookies</h3>
   <p>These are required for the website to function and cannot be disabled. They do not collect personal data or track your browsing activity.</p>
   <ul>
-    <li><strong>bh_cookie_ack</strong> — records that you have acknowledged our cookie notice. Expires after 1 year.</li>
+    <li><strong>bh_cookie_ack</strong>, records that you have acknowledged our cookie notice. Expires after 1 year.</li>
   </ul>
 
   <h3>Analytics cookies (Google Analytics 4)</h3>
   <p>These cookies help us understand how visitors use our site. They collect anonymised data about page views, session duration, and traffic sources. No personally identifiable information is collected.</p>
   <ul>
-    <li><strong>_ga</strong> — distinguishes unique users. Expires after 2 years.</li>
-    <li><strong>_ga_[ID]</strong> — maintains session state. Expires after 2 years.</li>
+    <li><strong>_ga</strong>, distinguishes unique users. Expires after 2 years.</li>
+    <li><strong>_ga_[ID]</strong>, maintains session state. Expires after 2 years.</li>
   </ul>
   <p>You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
 
@@ -350,5 +428,15 @@
   }
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

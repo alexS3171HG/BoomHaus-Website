@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Blakethrough — BoomHaus Furniture Pack</title>
-<meta name="description" content="The Blakethrough furniture pack from BoomHaus. Dark, dramatic, deeply instagrammable. From £4,699 for a 1-bed. Commercial-grade quality for short-let and BTR properties.">
+<title>The Blakethrough, BoomHaus Furniture Pack</title>
+<meta name="description" content="The Blakethrough furniture pack from BoomHaus. Dark, dramatic, deeply instagrammable. From £4,699 for a 1-bed. Professionally specified quality for short-let and BTR properties.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://boomhaus.design/the-blakethrough">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The Blakethrough — BoomHaus Furniture Pack">
-<meta property="og:description" content="The Blakethrough furniture pack from BoomHaus. Dark, dramatic, deeply instagrammable. From £4,699 for a 1-bed. Commercial-grade quality for short-let and BTR properties.">
+<meta property="og:title" content="The Blakethrough, BoomHaus Furniture Pack">
+<meta property="og:description" content="The Blakethrough furniture pack from BoomHaus. Dark, dramatic, deeply instagrammable. From £4,699 for a 1-bed. Professionally specified quality for short-let and BTR properties.">
 <meta property="og:url" content="https://boomhaus.design/the-blakethrough">
 <meta property="og:site_name" content="BoomHaus">
-<meta property="og:image" content="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp">
+<meta property="og:image" content="https://boomhaus-website.web.app/assets/images/products/pack-blakethrough-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Blakethrough — BoomHaus Furniture Pack">
-<meta name="twitter:image" content="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp">
+<meta name="twitter:title" content="The Blakethrough, BoomHaus Furniture Pack">
+<meta name="twitter:image" content="https://boomhaus-website.web.app/assets/images/products/pack-blakethrough-hero.webp">
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -260,10 +260,7 @@
     font-family: sans-serif;
   }
 
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-  }
+  
 
   /* ── HERO IMAGE (full bleed) ── */
   .pack-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; background: #1A1A1A; }
@@ -364,6 +361,92 @@
   .roi-disclaimer { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 16px; line-height: 1.6; }
   @media (max-width: 900px) { .roi-layout { grid-template-columns: 1fr; } }
   @media (max-width: 768px) { .roi-calc { padding: 60px 24px; } .roi-inputs, .roi-outputs { padding: 36px 28px; } .roi-output-val { font-size: 36px; } }
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+  }
+
+  .key-pieces-footer { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--grey-light); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .key-pieces-footer p { font-size: 14px; color: var(--grey-dark); margin: 0; }
+  .gallery-link { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
+  .gallery-link:hover { opacity: 0.7; }
 </style>
 </head>
 <body>
@@ -408,7 +491,7 @@
     </div>
   </div>
   <div class="pack-hero-image">
-    <img src="https://boomhaus-website.web.app/assets/images/pack-blakethrough-hero.webp" alt="The Blakethrough — moody design-led interior" loading="eager">
+    <img src="https://boomhaus-website.web.app/assets/images/products/pack-blakethrough-hero.webp" alt="The Blakethrough, moody design-led interior" loading="eager">
   </div>
 </section>
 
@@ -498,7 +581,7 @@
     <div class="section-header">
       <span class="eyebrow">Floor Plan Guidance</span>
       <h2>Will It Fit?</h2>
-      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">The Blakethrough is designed for well-proportioned London flats and city apartments. Use these minimums as a guide — if you&rsquo;re unsure, send us a floor plan and we&rsquo;ll advise before you order.</p>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">The Blakethrough is designed for well-proportioned London flats and city apartments. Use these minimums as a guide, if you&rsquo;re unsure, send us a floor plan and we&rsquo;ll advise before you order.</p>
     </div>
     <div class="dims-grid">
       <div class="dims-card">
@@ -548,7 +631,7 @@
     <div style="background:var(--white);padding:44px 40px;">
       <span class="eyebrow">All Packs Include</span>
       <ul class="includes-list" style="list-style:none;margin-top:8px;">
-        <li>Commercial-grade specification throughout</li>
+        <li>Built to professional specification throughout</li>
         <li>Cotton pillowtop mattress(es)</li>
         <li>Coordinated delivery to your property</li>
         <li>Full installation and assembly</li>
@@ -565,7 +648,7 @@
     <div class="section-header" style="margin-bottom:48px;">
       <span class="eyebrow">After You Order</span>
       <h2>What Happens Next.</h2>
-      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">We&rsquo;ve handled hundreds of installations. Here&rsquo;s exactly what to expect — no surprises, no vague timelines.</p>
+      <p style="color:var(--grey-dark);font-size:15px;margin-top:12px;line-height:1.8;max-width:600px;">We&rsquo;ve handled hundreds of installations. Here&rsquo;s exactly what to expect, no surprises, no vague timelines.</p>
     </div>
     <div class="journey-steps">
       <div class="journey-step">
@@ -613,12 +696,12 @@
     <div>
       <span class="eyebrow" style="color:rgba(153,51,51,0.9);">The Design</span>
       <h2>What Makes This Pack Different.</h2>
-      <p>The Blakethrough masterfully uses a darker, richer palette to create a moody, calming environment — a genuine haven from the outside world. This is not a budget package. It sits in the mid-premium sweet spot, delivering the kind of "effortlessly cool" aesthetic that modern short-let and BTR markets demand, with the commercial-grade durability to back it up. Every piece is selected to photograph well, hold up to real guests, and justify a premium nightly rate.</p>
+      <p>The Blakethrough masterfully uses a darker, richer palette to create a moody, calming environment, a genuine haven from the outside world. This is not a budget package. It sits in the mid-premium sweet spot, delivering the kind of "effortlessly cool" aesthetic that modern short-let and BTR markets demand, with the long-term durability to back it up. Every piece is selected to photograph well, hold up to real guests, and justify a premium nightly rate.</p>
     </div>
     <div>
       <span class="eyebrow" style="color:rgba(153,51,51,0.9);">Highlights</span>
       <ul class="highlights">
-        <li><span class="highlight-dot"></span>Mid-premium positioning — £4,000–£7,000 range</li><li><span class="highlight-dot"></span>Dark, moody palette designed to photograph beautifully</li><li><span class="highlight-dot"></span>Commercial-grade upholstery and finishes throughout</li><li><span class="highlight-dot"></span>Linked directly to higher rental yields and lower void days</li>
+        <li><span class="highlight-dot"></span>Mid-premium positioning, £4,000–£7,000 range</li><li><span class="highlight-dot"></span>Dark, moody palette designed to photograph beautifully</li><li><span class="highlight-dot"></span>Professionally specified upholstery and finishes throughout</li><li><span class="highlight-dot"></span>Linked directly to higher rental yields and lower void days</li>
       </ul>
     </div>
   </div>
@@ -649,8 +732,8 @@
         <div class="roi-field">
           <label class="roi-label" for="roi-size">Property size</label>
           <select class="roi-input" id="roi-size" onchange="calcROI()" style="appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;">
-            <option value="1">1 bedroom — £4,699</option>
-            <option value="2">2 bedroom — £6,599</option>
+            <option value="1">1 bedroom, £4,699</option>
+            <option value="2">2 bedroom, £6,599</option>
           </select>
         </div>
       </div>
@@ -702,7 +785,7 @@
     document.getElementById('roi-new-rate').textContent = '£' + newRate;
     document.getElementById('roi-uplift').textContent = '£' + Math.round(uplift).toLocaleString('en-GB');
     document.getElementById('roi-occ-sub').textContent = 'At ' + Math.round(newOcc * 100) + '% projected occupancy (vs ' + Math.round(occ * 100) + '% current)';
-    document.getElementById('roi-payback').textContent = paybackMonths > 0 ? paybackMonths.toFixed(1) + ' months' : '—';
+    document.getElementById('roi-payback').textContent = paybackMonths > 0 ? paybackMonths.toFixed(1) + ' months' : ' to ';
     document.getElementById('roi-pack-cost').textContent = 'Pack cost: £' + packCost.toLocaleString('en-GB') + ' +VAT';
     document.getElementById('roi-order-btn').href = STRIPE_URLS[size];
     document.getElementById('roi-order-btn').textContent = 'Order ' + (size === '1' ? '1' : '2') + '-Bed Pack →';
@@ -722,7 +805,7 @@
     <div>
       <span class="eyebrow">Pricing</span>
       <h2>Straightforward Pricing. No Hidden Costs.</h2>
-      <p class="pricing-note">Prices shown exclude VAT. Delivery to London included. Outside the M25 — <a href="/contact" style="color:var(--orange);">contact us for a delivery quote</a>. Lead time: typically 2–4 weeks from order.</p>
+      <p class="pricing-note">Prices shown exclude VAT. Delivery to London included. Outside the M25, <a href="/contact" style="color:var(--orange);">contact us for a delivery quote</a>. Lead time: typically 2–4 weeks from order.</p>
       <div class="price-table">
         <div class="price-row">
           <div class="price-size">1 bedroom</div>
@@ -739,11 +822,11 @@
           </div>
         </div>
       </div>
-      <p class="price-vat">All prices + VAT. Delivery to London included. Outside M25 — <a href="/contact" style="color:var(--orange);">contact us</a>.</p>
+      <p class="price-vat">All prices + VAT. Delivery to London included. Outside M25, <a href="/contact" style="color:var(--orange);">contact us</a>.</p>
     </div>
     <div>
       <div class="pricing-ctas">
-        <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary">Order Now — Secure Checkout</a>
+        <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary">Order Now, Secure Checkout</a>
         <a href="/contact" class="btn btn-dark">Request a Brochure</a>
         <a href="/superhost-audit" class="btn btn-dark">Get a Free Property Audit First</a>
       </div>
@@ -767,7 +850,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a" style="display:none;">
-          <p>The Blakethrough is a curated package — the pieces work together as a system. Minor variations can be discussed. Contact us before purchasing if you have specific requirements.</p>
+          <p>The Blakethrough is a curated package, the pieces work together as a system. Minor variations can be discussed. Contact us before purchasing if you have specific requirements.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -983,6 +1066,16 @@
     var expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', !expanded);
     answer.style.display = expanded ? 'none' : 'block';
+  }
+</script>
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 </body>

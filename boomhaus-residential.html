@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Residential Design — BoomHaus</title>
+<title>Residential Design, BoomHaus</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -47,7 +47,7 @@
   .btn-white-outline:hover { border-color: var(--white); }
 
   /* ── HERO ── */
-  /* Warm, light hero — different from Hospitality's dark treatment */
+  /* Warm, light hero, different from Hospitality's dark treatment */
   .hero {
     margin-top: 64px;
     background: var(--warm);
@@ -88,7 +88,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-  /* Organic shape accent — warm, residential feel */
+  /* Organic shape accent, warm, residential feel */
   .hero-accent-bar {
     position: absolute;
     bottom: 0;
@@ -166,7 +166,7 @@
   .services-header { margin-bottom: 64px; }
   .services-header h2 { max-width: 560px; }
 
-  /* 3-col cards — more personal, less corporate than Hospitality 2x2 */
+  /* 3-col cards, more personal, less corporate than Hospitality 2x2 */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -269,7 +269,7 @@
   .process-step p { color: var(--grey-dark); font-size: 15px; line-height: 1.8; position: relative; z-index: 1; }
   /* Connector line between steps (desktop only) */
   .process-connector {
-    display: none; /* decorative — handled via gap on desktop */
+    display: none; /* decorative, handled via gap on desktop */
   }
 
   /* ── WHY BOOMHAUS ── */
@@ -490,9 +490,87 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
   <meta name="description" content="Bespoke interior design for your home. Whole-home transformations, room-by-room design, or a styling refresh. Fixed fees, no surprises.">
@@ -501,7 +579,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Residential Interior Design — BoomHaus">
+  <meta property="og:title" content="Residential Interior Design, BoomHaus">
   <meta property="og:description" content="Whole-home, room-by-room, or styling refresh. Commercial rigour for personal spaces.">
   <meta property="og:url" content="https://boomhaus.design/residential">
   <meta property="og:site_name" content="BoomHaus">
@@ -509,7 +587,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Residential Interior Design — BoomHaus">
+  <meta name="twitter:title" content="Residential Interior Design, BoomHaus">
   <meta name="twitter:description" content="Whole-home, room-by-room, or styling refresh. Commercial rigour for personal spaces.">
   <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
 
@@ -547,7 +625,7 @@
   <div class="hero-content">
     <span class="eyebrow">Residential Interior Design</span>
     <h1>Designed for How<br>You Actually <em>Live.</em></h1>
-    <p class="hero-body">We bring commercial rigour to personal spaces — without losing the warmth that makes a house feel like a home. From a single room to a whole-home transformation, we design around your life, your budget, and how you want to feel when you walk through the door.</p>
+    <p class="hero-body">We bring commercial rigour to personal spaces, without losing the warmth that makes a house feel like a home. From a single room to a whole-home transformation, we design around your life, your budget, and how you want to feel when you walk through the door.</p>
     <div class="hero-ctas">
       <a href="#form" class="btn btn-primary">Start a Conversation</a>
       <a href="#services" class="btn btn-dark">See What We Offer</a>
@@ -566,14 +644,14 @@
       <span class="eyebrow">Our Approach</span>
       <h2>The Same Rigour. A Completely Different Brief.</h2>
       <p>BoomHaus was built on the principle that good design should pay back. In commercial properties, that means occupancy rates and ADR. In a home, it means spaces that work harder, feel better, and hold their value longer.</p>
-      <p>We don't design for photoshoots. We design for how you live — your morning routine, your dinner parties, the way you actually use your kitchen. The difference shows in every room we deliver.</p>
+      <p>We don't design for photoshoots. We design for how you live, your morning routine, your dinner parties, the way you actually use your kitchen. The difference shows in every room we deliver.</p>
       <p>Every residential project starts with a proper brief, not a mood board. We ask the questions that most designers skip, because getting those answers right is what turns a well-furnished room into a space you genuinely love.</p>
     </div>
     <div class="approach-quote">
       <div class="quote-text">
         We don't design for photoshoots. We design for the life that happens <em>inside</em> the frame.
       </div>
-      <div class="quote-attr">— BoomHaus Design Philosophy</div>
+      <div class="quote-attr"> to  BoomHaus Design Philosophy</div>
     </div>
     
 <style id="hs-form-override">
@@ -766,7 +844,7 @@
           <line x1="8" y1="38" x2="40" y2="38" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <h3>Whole-Home Design</h3>
-        <p>A complete interior design service from brief to final styling. We work through every room in sequence, ensuring the house feels coherent — not like a series of isolated decisions.</p>
+        <p>A complete interior design service from brief to final styling. We work through every room in sequence, ensuring the house feels coherent, not like a series of isolated decisions.</p>
         <ul class="service-includes">
           <li>Full design concept & brief</li>
           <li>Room-by-room FF&E specification</li>
@@ -784,7 +862,7 @@
           <rect x="26" y="26" width="16" height="16" rx="1" stroke="#1A1A1A" stroke-width="1.5"/>
         </svg>
         <h3>Room-by-Room</h3>
-        <p>Not ready for the full house? We work one room at a time — fully resolved, to the same standard as a whole-home project. A logical starting point that can grow into something bigger.</p>
+        <p>Not ready for the full house? We work one room at a time, fully resolved, to the same standard as a whole-home project. A logical starting point that can grow into something bigger.</p>
         <ul class="service-includes">
           <li>Single-room design brief</li>
           <li>Furniture & lighting specification</li>
@@ -801,7 +879,7 @@
           <circle cx="24" cy="24" r="5" stroke="#993333" stroke-width="1.5"/>
         </svg>
         <h3>Styling &amp; Refresh</h3>
-        <p>Your bones are good — you just need the right finish. We come in at the end: accessories, art, soft furnishings, and the small decisions that make everything feel intentional.</p>
+        <p>Your bones are good, you just need the right finish. We come in at the end: accessories, art, soft furnishings, and the small decisions that make everything feel intentional.</p>
         <ul class="service-includes">
           <li>Styling consultation</li>
           <li>Accessory & soft furnishing edit</li>
@@ -827,7 +905,7 @@
         <div class="step-bg-num">01</div>
         <div class="step-dot"></div>
         <h3>We Have a Conversation</h3>
-        <p>Tell us about your home, your brief, and your budget. There's no commitment at this stage — just a conversation to see if we're the right fit. Most first calls are 20 minutes.</p>
+        <p>Tell us about your home, your brief, and your budget. There's no commitment at this stage, just a conversation to see if we're the right fit. Most first calls are 20 minutes.</p>
       </div>
 
       <div class="process-step">
@@ -841,7 +919,7 @@
         <div class="step-bg-num">03</div>
         <div class="step-dot"></div>
         <h3>We Deliver the Design</h3>
-        <p>Concept, specification, procurement, and installation — all handled by us. You're involved in the decisions that matter, and spared the ones that don't.</p>
+        <p>Concept, specification, procurement, and installation, all handled by us. You're involved in the decisions that matter, and spared the ones that don't.</p>
       </div>
 
     </div>
@@ -853,7 +931,7 @@
   <div class="why-inner">
     <div class="why-header">
       <h2>Why BoomHaus for Your Home.</h2>
-      <p>We come from a commercial background — which means we think carefully about value, durability, and return on investment. Those instincts don't switch off when the brief is personal.</p>
+      <p>We come from a commercial background, which means we think carefully about value, durability, and return on investment. Those instincts don't switch off when the brief is personal.</p>
     </div>
     <div class="why-grid">
 
@@ -866,13 +944,13 @@
       <div class="why-card">
         <span class="why-num">02</span>
         <h3>Honest, Fixed-Fee Process</h3>
-        <p>No hourly billing. No hidden sourcing fees. No surprise invoices. We agree a scope, agree a price, and deliver to it. Your budget is a constraint we design within — not around.</p>
+        <p>No hourly billing. No hidden sourcing fees. No surprise invoices. We agree a scope, agree a price, and deliver to it. Your budget is a constraint we design within, not around.</p>
       </div>
 
       <div class="why-card">
         <span class="why-num">03</span>
         <h3>Designed to Last</h3>
-        <p>We specify for the long term. The pieces we choose are built to survive real life — children, pets, dinner parties, years of use. We'd rather steer you right than sell you something beautiful that breaks.</p>
+        <p>We specify for the long term. The pieces we choose are built to survive real life, children, pets, dinner parties, years of use. We'd rather steer you right than sell you something beautiful that breaks.</p>
       </div>
 
     </div>
@@ -885,12 +963,12 @@
     <div class="cta-left">
       <span class="eyebrow">Get in Touch</span>
       <h2>Start with a Conversation. Not a Commitment.</h2>
-      <p>Fill in the form and we'll be in touch within one business day. First conversations are always informal — we want to understand what you're trying to achieve before we say anything about how we can help.</p>
+      <p>Fill in the form and we'll be in touch within one business day. First conversations are always informal, we want to understand what you're trying to achieve before we say anything about how we can help.</p>
       <p>If you're not sure yet which service is right for you, tell us that. It's one of the most useful things to know at the start.</p>
       <div class="cta-reassurance">
         <div class="reassurance-item">
           <div class="r-dot"></div>
-          <p>Every enquiry gets a personal response — not an automated reply.</p>
+          <p>Every enquiry gets a personal response, not an automated reply.</p>
         </div>
         <div class="reassurance-item">
           <div class="r-dot"></div>
@@ -898,7 +976,7 @@
         </div>
         <div class="reassurance-item">
           <div class="r-dot"></div>
-          <p>First call is 20 minutes. No slides, no pitch — just a conversation.</p>
+          <p>First call is 20 minutes. No slides, no pitch, just a conversation.</p>
         </div>
       </div>
     </div>
@@ -1051,5 +1129,15 @@
   })();
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

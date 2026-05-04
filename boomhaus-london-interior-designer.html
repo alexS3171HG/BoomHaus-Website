@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interior Designer London — BoomHaus Studio — BoomHaus</title>
+<title>Interior Designer London, BoomHaus Studio, BoomHaus</title>
 <meta name="description" content="BoomHaus is a London interior design studio specialising in short-let, BTR, and residential properties. Design that earns its keep.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://boomhaus.design/london-interior-designer">
@@ -66,7 +66,7 @@
   .nav-mobile-overlay a:hover { color: var(--orange); }
   .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; width: auto; border: none; }
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
-  @media (max-width: 900px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
+  
   @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; } }
   .lp-hero { padding: 120px 60px 100px; background: var(--warm); margin-top: 64px; }
   .lp-hero-inner { max-width: 800px; }
@@ -102,6 +102,87 @@
   .lp-cta-strip .btn:hover { background: var(--grey-light); }
   @media (max-width: 900px) { .lp-grid { grid-template-columns: 1fr; gap: 40px; } .lp-cards { grid-template-columns: 1fr; } .pack-strip { grid-template-columns: 1fr 1fr; } .stat-row { grid-template-columns: 1fr; } }
   @media (max-width: 768px) { .lp-hero, .lp-section, .lp-cta-strip { padding: 60px 24px; } }
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+  }
 </style>
 </head>
 <body>
@@ -133,11 +214,12 @@
 </div>
 <script>
   function toggleMobileNav() {
-    var o=document.getElementById('nav-mobile-overlay');
-    var h=document.getElementById('nav-hamburger');
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
     o.classList.toggle('open');
-    if(h) h.classList.toggle('open');
-    document.body.style.overflow=o.classList.contains('open')?'hidden':'';
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 <section class="lp-hero">
@@ -156,14 +238,14 @@
     <h2>Interior Design That Earns Its Keep.</h2>
     <div class="lp-grid" style="margin-top:40px;">
       <div>
-        <p>BoomHaus is a London interior design studio with a difference: we measure our work in revenue. Every design decision we make is tested against a single question — does this help our client charge more, fill more nights, or retain tenants longer?</p>
-        <p style="margin-top:20px;">We work across three markets: short-let and Airbnb properties, build-to-rent and serviced apartments, and residential homes. Our approach is the same across all three: considered design, commercial-grade materials, and a process built around your timeline.</p>
+        <p>BoomHaus is a London interior design studio with a difference: we measure our work in revenue. Every design decision we make is tested against a single question, does this help our client charge more, fill more nights, or retain tenants longer?</p>
+        <p style="margin-top:20px;">We work across three markets: short-let and Airbnb properties, build-to-rent and serviced apartments, and residential homes. Our approach is the same across all three: considered design, professionally specified materials, and a process built around your timeline.</p>
       </div>
       <div>
         <div class="lp-cards" style="grid-template-columns:1fr;margin-top:0;gap:2px;">
           <div class="lp-card"><div class="lp-card-num">01</div><h3>Short-Let &amp; Airbnb</h3><p>Five curated furniture packs, each designed to maximise nightly rates and occupancy. Delivered and installed in 2–4 weeks.</p><a href="/furniture-packs" style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-block;margin-top:12px;">Explore Packs &rarr;</a></div>
-          <div class="lp-card"><div class="lp-card-num">02</div><h3>BTR &amp; Hospitality</h3><p>Full interior design service for commercial operators — from concept through to installation, across single units to entire schemes.</p><a href="/hospitality" style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-block;margin-top:12px;">Hospitality Services &rarr;</a></div>
-          <div class="lp-card"><div class="lp-card-num">03</div><h3>Residential</h3><p>Bespoke interior design for homeowners — whole-home, room-by-room, or a styling refresh to prepare for sale or rental.</p><a href="/residential" style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-block;margin-top:12px;">Residential Services &rarr;</a></div>
+          <div class="lp-card"><div class="lp-card-num">02</div><h3>BTR &amp; Hospitality</h3><p>Full interior design service for commercial operators, from concept through to installation, across single units to entire schemes.</p><a href="/hospitality" style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-block;margin-top:12px;">Hospitality Services &rarr;</a></div>
+          <div class="lp-card"><div class="lp-card-num">03</div><h3>Residential</h3><p>Bespoke interior design for homeowners, whole-home, room-by-room, or a styling refresh to prepare for sale or rental.</p><a href="/residential" style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-block;margin-top:12px;">Residential Services &rarr;</a></div>
         </div>
       </div>
     </div>
@@ -178,7 +260,7 @@
       <div class="lp-card" style="background:#1e1e1e;">
         <div class="lp-card-num">01</div>
         <h3 style="color:var(--white);">Commercially minded</h3>
-        <p>Every design decision is evaluated against its commercial impact. We don&rsquo;t decorate — we engineer environments that perform.</p>
+        <p>Every design decision is evaluated against its commercial impact. We don&rsquo;t decorate, we engineer environments that perform.</p>
       </div>
       <div class="lp-card" style="background:#1e1e1e;">
         <div class="lp-card-num">02</div>
@@ -244,12 +326,28 @@
 </footer>
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
-  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Got It</button>
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
 </div>
 <script>
-  function acknowledgeCookies() {{ try{{localStorage.setItem('bh_cookie_ack','1');}}catch(e){{}} document.getElementById('cookie-banner').style.display='none'; }}
-  (function(){{ var a=false; try{{a=localStorage.getItem('bh_cookie_ack')==='1';}}catch(e){{}} if(!a){{ var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex'; }} }})();
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
 </body>
 </html>

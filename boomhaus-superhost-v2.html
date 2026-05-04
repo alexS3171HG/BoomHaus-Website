@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Superhost Audit — BoomHaus</title>
+<title>Free Superhost Audit, BoomHaus</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -66,7 +66,7 @@
   .problem h2 { margin-bottom: 24px; }
   .problem p { font-size: 17px; color: var(--grey-dark); line-height: 1.85; }
 
-  /* ANALYSIS — 3 cols */
+  /* ANALYSIS, 3 cols */
   .analysis { background: var(--grey-light); padding: 100px 60px; }
   .analysis-inner { max-width: 1200px; margin: 0 auto; }
   .analysis-header { margin-bottom: 16px; }
@@ -267,9 +267,87 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
   <meta name="description" content="Get a free AI-powered listing performance report. Design score, revenue uplift projection, and ranked recommendations. No commitment.">
@@ -278,7 +356,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Free Superhost Audit — Is Your Airbnb Leaving Money on the Table?">
+  <meta property="og:title" content="Free Superhost Audit, Is Your Airbnb Leaving Money on the Table?">
   <meta property="og:description" content="Free AI-powered listing analysis. Design score, market benchmarking, and £ revenue uplift projection.">
   <meta property="og:url" content="https://boomhaus.design/superhost-audit">
   <meta property="og:site_name" content="BoomHaus">
@@ -286,7 +364,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Superhost Audit — Is Your Airbnb Leaving Money on the Table?">
+  <meta name="twitter:title" content="Free Superhost Audit, Is Your Airbnb Leaving Money on the Table?">
   <meta name="twitter:description" content="Free AI-powered listing analysis. Design score, market benchmarking, and £ revenue uplift projection.">
   <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
 
@@ -325,7 +403,7 @@
     <div>
       <span class="eyebrow" style="color:rgba(153,51,51,0.9);">Free Listing Performance Audit</span>
       <h1>Your Airbnb Is Leaving Money on the Table.</h1>
-      <p class="hero-body">We analyse your listing photos, guest reviews, and live market data to produce a scored performance report — with ranked recommendations and a projected £ revenue uplift. Free. No commitment. Straight to your inbox.</p>
+      <p class="hero-body">We analyse your listing photos, guest reviews, and live market data to produce a scored performance report, with ranked recommendations and a projected £ revenue uplift. Free. No commitment. Straight to your inbox.</p>
       <a href="#form" class="btn btn-primary">Get My Free Audit</a>
     </div>
     <div class="hero-card">
@@ -335,7 +413,7 @@
       <ul class="feature-list">
         <li><span class="dot"></span>Design score (0–100) across 7 dimensions</li>
         <li><span class="dot"></span>Design Premium Index vs peer median</li>
-        <li><span class="dot"></span>£ revenue uplift — 3 scenarios</li>
+        <li><span class="dot"></span>£ revenue uplift, 3 scenarios</li>
         <li><span class="dot"></span>Payback period estimate</li>
         <li><span class="dot"></span>Recommendations ranked by ROI impact</li>
       </ul>
@@ -349,10 +427,10 @@
 <section class="problem">
   <span class="eyebrow">The Problem</span>
   <h2>A Good Listing and a High-Performing One Are Very Different Things.</h2>
-  <p>Most hosts know something isn't working. Occupancy is inconsistent, the nightly rate feels like a guess, and the photos are fine — but not special. The gap between where you are and where top-performing listings sit in your market is rarely one big problem. It's a handful of fixable ones. The audit finds them.</p>
+  <p>Most hosts know something isn't working. Occupancy is inconsistent, the nightly rate feels like a guess, and the photos are fine, but not special. The gap between where you are and where top-performing listings sit in your market is rarely one big problem. It's a handful of fixable ones. The audit finds them.</p>
 </section>
 
-<!-- ANALYSIS — THREE LAYERS -->
+<!-- ANALYSIS, THREE LAYERS -->
 <section class="analysis">
   <div class="analysis-inner">
     <div class="analysis-header">
@@ -372,13 +450,13 @@
       <div class="analysis-card">
         <span class="analysis-num">Layer 02</span>
         <h3>Guest Reviews &amp; Listing Content</h3>
-        <p>We assess your written listing, amenities, and guest feedback to identify gaps in how your property is presented and perceived — and what guests are actually responding to.</p>
+        <p>We assess your written listing, amenities, and guest feedback to identify gaps in how your property is presented and perceived, and what guests are actually responding to.</p>
       </div>
 
       <div class="analysis-card">
         <span class="analysis-num">Layer 03</span>
         <h3>Your Market</h3>
-        <p>We pull live ADR, occupancy rates, and RevPAR data for comparable listings in your area, and benchmark your property against the peer median — so you can see exactly where the gap is.</p>
+        <p>We pull live ADR, occupancy rates, and RevPAR data for comparable listings in your area, and benchmark your property against the peer median, so you can see exactly where the gap is.</p>
         <p class="analysis-detail">Powered by AirROI market data</p>
       </div>
 
@@ -399,7 +477,7 @@
         <div class="output-icon-num">01</div>
         <div>
           <h3>Design Score</h3>
-          <p>A composite score out of 100 across 7 design dimensions, with a breakdown by room and category. You'll see exactly where your property sits — and what's dragging the score down.</p>
+          <p>A composite score out of 100 across 7 design dimensions, with a breakdown by room and category. You'll see exactly where your property sits, and what's dragging the score down.</p>
         </div>
       </div>
 
@@ -415,7 +493,7 @@
         <div class="output-icon-num">03</div>
         <div>
           <h3>Revenue Uplift Projection</h3>
-          <p>Three scenarios — conservative, expected, and optimistic — showing the estimated £ annual gain from design improvements, plus a payback period so you can weigh the investment.</p>
+          <p>Three scenarios, conservative, expected, and optimistic, showing the estimated £ annual gain from design improvements, plus a payback period so you can weigh the investment.</p>
           <p class="output-example">e.g. "Expected uplift: £3,200/year. Payback period: 4 months."</p>
         </div>
       </div>
@@ -456,7 +534,7 @@
         <span class="step-num">03</span>
         <span class="step-label">Step 03</span>
         <h3>Your Report Arrives</h3>
-        <p>A branded report with your design score, DPI, revenue projections, and prioritised action plan — reviewed by our team before it reaches you.</p>
+        <p>A branded report with your design score, DPI, revenue projections, and prioritised action plan, reviewed by our team before it reaches you.</p>
       </div>
     </div>
     
@@ -639,7 +717,7 @@
       <span class="eyebrow">Why Trust It</span>
       <h2>The Same Framework We Use Internally on Every Project.</h2>
       <p>Before BoomHaus begins any design project, we run this exact analysis on the client's listing. The Superhost Audit makes that framework available to every host, for free.</p>
-      <p>If the report surfaces something we can help with, we'll follow up. If it doesn't, you've still got a clearer picture of your property's performance — and where to focus next.</p>
+      <p>If the report surfaces something we can help with, we'll follow up. If it doesn't, you've still got a clearer picture of your property's performance, and where to focus next.</p>
     </div>
     <div class="report-visual">
       <span class="rv-label">Sample Report Output</span>
@@ -680,7 +758,7 @@
           <div class="rv-metric-val">£3,200<span style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.4)">/yr</span></div>
         </div>
       </div>
-      <div class="rv-disclaimer">Illustrative example — not a real listing</div>
+      <div class="rv-disclaimer">Illustrative example, not a real listing</div>
     </div>
   </div>
 </section>
@@ -715,14 +793,14 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">What do I need to submit?</div>
-      <p class="faq-a">Your Airbnb listing URL and a few property details. The system does the rest — it scrapes your listing, pulls your market data, and runs the analysis automatically.</p>
+      <p class="faq-a">Your Airbnb listing URL and a few property details. The system does the rest, it scrapes your listing, pulls your market data, and runs the analysis automatically.</p>
     </div>
     <div class="faq-item">
       <div class="faq-q">Will someone try to sell me something?</div>
-      <p class="faq-a">Only if the report identifies something we can genuinely help with. It's always your call — there's no obligation attached to receiving the report.</p>
+      <p class="faq-a">Only if the report identifies something we can genuinely help with. It's always your call, there's no obligation attached to receiving the report.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">My listing isn't on Airbnb — can I still submit?</div>
+      <div class="faq-q">My listing isn't on Airbnb, can I still submit?</div>
       <p class="faq-a">The analysis is optimised for Airbnb. If you're on VRBO or Booking.com, submit anyway and we'll do our best with what's available.</p>
     </div>
   </div>
@@ -865,5 +943,15 @@
   })();
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

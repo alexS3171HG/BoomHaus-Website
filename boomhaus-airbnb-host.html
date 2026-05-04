@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Airbnb Interior Design &amp; Furniture Packs for Hosts — BoomHaus</title>
+<title>Airbnb Interior Design &amp; Furniture Packs for Hosts, BoomHaus</title>
 <meta name="description" content="BoomHaus furniture packs are designed to maximise Airbnb nightly rates and occupancy. Five curated packs, delivered and installed in 2–4 weeks.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://boomhaus.design/airbnb-host">
@@ -66,7 +66,7 @@
   .nav-mobile-overlay a:hover { color: var(--orange); }
   .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; width: auto; border: none; }
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
-  @media (max-width: 900px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
+  
   @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; } }
   .lp-hero { padding: 120px 60px 100px; background: #1A1A1A; margin-top: 64px; }
   .lp-hero-inner { max-width: 800px; }
@@ -102,6 +102,87 @@
   .lp-cta-strip .btn:hover { background: var(--grey-light); }
   @media (max-width: 900px) { .lp-grid { grid-template-columns: 1fr; gap: 40px; } .lp-cards { grid-template-columns: 1fr; } .pack-strip { grid-template-columns: 1fr 1fr; } .stat-row { grid-template-columns: 1fr; } }
   @media (max-width: 768px) { .lp-hero, .lp-section, .lp-cta-strip { padding: 60px 24px; } }
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
+  }
 </style>
 </head>
 <body>
@@ -133,18 +214,19 @@
 </div>
 <script>
   function toggleMobileNav() {
-    var o=document.getElementById('nav-mobile-overlay');
-    var h=document.getElementById('nav-hamburger');
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
     o.classList.toggle('open');
-    if(h) h.classList.toggle('open');
-    document.body.style.overflow=o.classList.contains('open')?'hidden':'';
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 <section class="lp-hero">
   <div class="lp-hero-inner">
     <span class="eyebrow">For Airbnb Hosts</span>
     <h1>Design That Pays for Itself.</h1>
-    <p class="lp-sub">BoomHaus furniture packs are built for short-let hosts who want to charge more, fill more nights, and earn better reviews — without spending months sourcing furniture.</p>
+    <p class="lp-sub">BoomHaus furniture packs are built for short-let hosts who want to charge more, fill more nights, and earn better reviews, without spending months sourcing furniture.</p>
     <a href="/furniture-packs" class="btn btn-primary">Browse Furniture Packs</a>
   </div>
 </section>
@@ -157,7 +239,7 @@
     <div class="lp-grid" style="margin-top:40px;">
       <div>
         <p>The difference between a £90 night and a £150 night isn&rsquo;t location. It&rsquo;s the photograph at the top of the listing. Guests make their decision in under 8 seconds. If your space doesn&rsquo;t look premium in that window, you&rsquo;re leaving significant revenue on the table every night.</p>
-        <p style="margin-top:20px;">BoomHaus exists to close that gap. Our furniture packs are designed by interior designers who understand what short-let guests actually want — and what makes a listing appear at the top of search results.</p>
+        <p style="margin-top:20px;">BoomHaus exists to close that gap. Our furniture packs are designed by interior designers who understand what short-let guests actually want, and what makes a listing appear at the top of search results.</p>
       </div>
       <div>
         <div class="stat-row" style="margin-top:0;">
@@ -174,7 +256,7 @@
   <div class="lp-section-inner">
     <span class="eyebrow">The Solution</span>
     <h2>Five Packs. One for Every Property.</h2>
-    <p style="max-width:640px;">Each BoomHaus pack is a complete furniture system — every piece selected to work together, photograph well, and hold up to real guests. Choose the aesthetic that fits your property and your market.</p>
+    <p style="max-width:640px;">Each BoomHaus pack is a complete furniture system, every piece selected to work together, photograph well, and hold up to real guests. Choose the aesthetic that fits your property and your market.</p>
     <div class="pack-strip">
       <a href="/the-blakethrough" class="pack-tile">
         <div class="pack-tile-name">The Blakethrough</div>
@@ -233,7 +315,7 @@
   <div class="lp-section-inner" style="text-align:center;max-width:720px;">
     <span class="eyebrow">Free Tool</span>
     <h2>Not Sure If Design Is the Problem?</h2>
-    <p>Our free Superhost Audit analyses your listing photos, reviews, and pricing against local competitors. You&rsquo;ll receive a Design Score, estimated revenue uplift, and ranked recommendations — in 24 hours.</p>
+    <p>Our free Superhost Audit analyses your listing photos, reviews, and pricing against local competitors. You&rsquo;ll receive a Design Score, estimated revenue uplift, and ranked recommendations, in 24 hours.</p>
     <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="/superhost-audit" class="btn btn-primary">Get Your Free Audit</a>
       <a href="/furniture-packs" class="btn btn-outline">Browse Packs</a>
@@ -279,12 +361,28 @@
 </footer>
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
-  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Got It</button>
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
 </div>
 <script>
-  function acknowledgeCookies() {{ try{{localStorage.setItem('bh_cookie_ack','1');}}catch(e){{}} document.getElementById('cookie-banner').style.display='none'; }}
-  (function(){{ var a=false; try{{a=localStorage.getItem('bh_cookie_ack')==='1';}}catch(e){{}} if(!a){{ var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex'; }} }})();
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
 </script>
 </body>
 </html>

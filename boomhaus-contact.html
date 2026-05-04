@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — BoomHaus</title>
+<title>Contact, BoomHaus</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -71,7 +71,7 @@
     max-width: 480px;
   }
 
-  /* Right column — response promise */
+  /* Right column, response promise */
   .hero-promise {
     display: flex;
     flex-direction: column;
@@ -121,7 +121,7 @@
     align-items: start;
   }
 
-  /* Left — context + details */
+  /* Left, context + details */
   .contact-left { }
   .contact-left h2 { margin-bottom: 24px; }
   .contact-left > p {
@@ -224,7 +224,7 @@
   }
   .detail-text a:hover { color: var(--orange); }
 
-  /* Right — form panel */
+  /* Right, form panel */
   .form-panel {
     background: var(--black);
     padding: 52px 48px;
@@ -476,12 +476,90 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
-  <meta name="description" content="Get in touch with BoomHaus. Short-let, hospitality, residential enquiries and the free Superhost Audit — all starting here.">
+  <meta name="description" content="Get in touch with BoomHaus. Short-let, hospitality, residential enquiries and the free Superhost Audit, all starting here.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://boomhaus.design/contact">
 
@@ -541,7 +619,7 @@
         <div class="promise-dot"></div>
         <div>
           <div class="promise-title">Personal response within one business day</div>
-          <div class="promise-sub">Every enquiry is read and replied to by a member of the team — not an automated system.</div>
+          <div class="promise-sub">Every enquiry is read and replied to by a member of the team, not an automated system.</div>
         </div>
       </div>
       <div class="promise-item">
@@ -740,7 +818,7 @@
     <div class="contact-left">
       <span class="eyebrow">How Can We Help?</span>
       <h2>Not Sure Where to Start?</h2>
-      <p>Pick the enquiry type that fits closest — or just use the general form and tell us what you're working on. We'll figure out the right conversation from there.</p>
+      <p>Pick the enquiry type that fits closest, or just use the general form and tell us what you're working on. We'll figure out the right conversation from there.</p>
 
       <div class="enquiry-types">
         <a href="/" class="enquiry-type">
@@ -817,11 +895,11 @@
       </div>
     </div>
 
-    <!-- RIGHT — FORM -->
+    <!-- RIGHT, FORM -->
     <div class="form-panel">
       <span class="form-panel-label">General Enquiry</span>
       <h3>Tell Us What You're Working On</h3>
-      <p>We'll come back to you within one business day with a personal response — and a suggestion for how to take things forward.</p>
+      <p>We'll come back to you within one business day with a personal response, and a suggestion for how to take things forward.</p>
       <div class="hs-form-wrapper">
       <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
       <div class="hs-form-frame" data-region="eu1" data-form-id="b4e526d7-399f-442f-9b01-6b8d2895cbdc" data-portal-id="146792842"></div>
@@ -846,7 +924,7 @@
         </div>
       </div>
       <div class="office-note">
-        We work with clients across the UK — London, Manchester, Birmingham, Edinburgh, and Glasgow. Most initial conversations happen by phone or video call. Studio visits are by appointment.
+        We work with clients across the UK, London, Manchester, Birmingham, Edinburgh, and Glasgow. Most initial conversations happen by phone or video call. Studio visits are by appointment.
       </div>
     </div>
     <div class="map-placeholder">
@@ -995,5 +1073,15 @@
   })();
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BoomHaus — Design That Performs</title>
+<title>BoomHaus: Design That Performs</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -647,9 +647,87 @@
     font-family: sans-serif;
   }
 
+  
+
+  /* ── MOBILE NAV FIX ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a {
+    font-family: 'Jost', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid #F0F0F0; }
+  .nav-mobile-overlay a:hover { color: #993333; }
+  .nav-mobile-overlay .nav-mobile-cta {
+    margin-top: 32px;
+    background: #FF9933;
+    color: #FFFFFF !important;
+    padding: 16px 48px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    width: auto;
+  }
+  .nav-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1A1A1A;
+    font-weight: 300;
+    line-height: 1;
+    font-family: sans-serif;
+  }
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
 </style>
   <meta name="description" content="Interior design for short-let hosts and hospitality operators. We design spaces that stop the scroll, hold the guest, and protect your margins.">
@@ -658,7 +736,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BoomHaus — Design That Performs">
+  <meta property="og:title" content="BoomHaus: Design That Performs">
   <meta property="og:description" content="Interior design for short-let hosts and hospitality operators across the UK.">
   <meta property="og:url" content="https://boomhaus.design/">
   <meta property="og:site_name" content="BoomHaus">
@@ -666,7 +744,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BoomHaus Design That Performs">
+  <meta name="twitter:title" content="BoomHaus: Design That Performs">
   <meta name="twitter:description" content="Interior design for short-let hosts and hospitality operators across the UK.">
   <meta name="twitter:image" content="https://boomhaus.design/og-image.jpg">
 
@@ -705,7 +783,7 @@
   <div class="hero-content">
     <span class="section-label" style="color:rgba(255,255,255,0.4);">London-Based Interior Design Studio</span>
     <h1>Design That<br><em>Performs.</em></h1>
-    <p class="hero-body">We create spaces that stop the scroll, hold the guest, and protect your margins. Whether you're launching your first short-let or scaling a managed portfolio, we design for the numbers AND the five-star review.</p>
+    <p class="hero-body">We create spaces that stop the scroll, hold the guest, and protect your margins. Whether you're launching your first short-let or scaling a managed portfolio, we design for the numbers, and the five-star review.</p>
     <div class="hero-ctas">
       <a href="/furniture-packs" class="btn btn-primary">See Furniture Packs</a>
       <a href="/contact" class="btn btn-white-outline">Talk to Us</a>
@@ -713,7 +791,7 @@
     <div class="hero-accent">London · SE1</div>
   </div>
   <div class="hero-image">
-    <img src="https://boomhaus-website.web.app/assets/images/homepage-hero.webp" alt="BoomHaus — luxury interior design" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <img src="https://boomhaus-website.web.app/assets/images/homepage-hero.webp" alt="BoomHaus, luxury interior design" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
 </section>
 
@@ -721,7 +799,7 @@
 <section class="problem">
   <span class="eyebrow">The Problem</span>
   <h2>A Nice Space Isn't Enough Anymore.</h2>
-  <p>Guests make decisions in seconds. Algorithms reward performance, not taste. And every week your property sits half-furnished or under-performing is return you will never see. Most interior designers aren't thinking about any of that. We are.</p>
+  <p>Guests make decisions in seconds. Algorithms reward performance, not taste. And every week your property sits half-furnished or under-performing is yield you never recover. Most interior designers aren't thinking about any of that. We are.</p>
 </section>
 
 <!-- THE SOLUTION -->
@@ -735,17 +813,17 @@
       <div class="solution-card">
         <span class="solution-number">01</span>
         <h3>Yield-First Thinking</h3>
-        <p>We analyse occupancy and revenue potential before we touch a mood board. Design decisions that know the data.</p>
+        <p>We analyse occupancy and revenue potential before we touch a mood board. Design decisions follow the data.</p>
       </div>
       <div class="solution-card">
         <span class="solution-number">02</span>
         <h3>Built for the Real World</h3>
-        <p>Commercially-minded specs. Guest-proof quality. No luxury markup, no flat-pack compromise.</p>
+        <p>Professionally specified spec. Guest-proof quality. No luxury markup, no flat-pack compromise.</p>
       </div>
       <div class="solution-card">
         <span class="solution-number">03</span>
         <h3>Speed That Makes Business Sense</h3>
-        <p>Faster than a traditional studio because every empty day has a price tag.</p>
+        <p>Tech-enabled process. Faster than a traditional studio. Because every empty day has a price tag.</p>
       </div>
     </div>
   </div>
@@ -776,7 +854,7 @@
           <line x1="11" y1="24" x2="29" y2="24" stroke="#993333" stroke-width="1.5"/>
         </svg>
         <h3>Procurement</h3>
-        <p>Furniture that make your investment work.</p>
+        <p>Professionally specified furniture sourced at speed, at the margins that make your investment work.</p>
       </div>
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -857,7 +935,7 @@
         <span class="why-number">01</span>
         <div>
           <h3>We've Been in Your Position</h3>
-          <p>Our founders ran short-let properties before they designed them. We know what keeps a host up at night and what actually moves the needle on occupancy.</p>
+          <p>Our founders ran short-let properties before they designed them. We know what keeps a host up at night, and what actually moves the needle on occupancy.</p>
         </div>
       </div>
       <div class="why-card">
@@ -889,7 +967,7 @@
 <section class="cta-strip">
   <div class="cta-strip-inner">
     <h2>Ready to Make Your Space Work?</h2>
-    <p>Running one Airbnb or managing a portfolio of units? We've got a starting point for both.</p>
+    <p>Running one Airbnb or managing a portfolio of units, we've got a starting point for both.</p>
     <div class="cta-strip-buttons">
       <a href="/furniture-packs" class="btn btn-primary">Browse Furniture Packs</a>
       <a href="/contact" class="btn btn-white-outline">Talk to the Team</a>
@@ -1034,5 +1112,15 @@
   })();
 </script>
 
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
 </body>
 </html>

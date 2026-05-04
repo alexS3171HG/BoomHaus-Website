@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Blakethrough: Full Specification Gallery, BoomHaus</title>
+<meta name="description" content="Every item included in The Blakethrough furniture pack. Full specification with photography, dimensions and bedroom configuration details.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://boomhaus.design/the-blakethrough/gallery">
+<link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+<link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZM9SB4J9V');</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #1A1A1A; --white: #FFFFFF; --orange: #993333; --cta: #FF9933;
+    --grey-dark: #666666; --grey-light: #F0F0F0; --warm: #FAF8F5;
+    --font: 'Jost', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.65; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo img { height: 52px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--cta); color: var(--white) !important; padding: 10px 20px; }
+
+  /* MOBILE NAV FIX */
+  .nav-hamburger { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; cursor: pointer; background: none; border: none; padding: 0; z-index: 200; flex-shrink: 0; }
+  .nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--black); transition: all 0.3s ease; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay { display: none; position: fixed; inset: 0; background: #FFFFFF; z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a { font-family: var(--font); font-size: 22px; font-weight: 500; color: var(--black); text-decoration: none; padding: 18px 0; width: 100%; text-align: center; border-bottom: 1px solid var(--grey-light); transition: color 0.2s; }
+  .nav-mobile-overlay a:first-of-type { border-top: 1px solid var(--grey-light); }
+  .nav-mobile-overlay a:hover { color: var(--orange); }
+  .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: none; width: auto; }
+  .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-weight: 300; line-height: 1; font-family: sans-serif; }
+  @media (max-width: 900px) { .nav-links { display: none !important; } .nav-hamburger { display: flex !important; } }
+
+  /* PAGE HEADER */
+  .page-header { margin-top: 64px; background: var(--black); padding: 72px 60px; }
+  .breadcrumb-inline { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+  .breadcrumb-inline a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-inline a:hover { color: rgba(255,255,255,0.7); }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 16px; }
+  .page-header h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; color: var(--white); margin-bottom: 16px; }
+  .page-header p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 560px; margin-bottom: 32px; }
+  .header-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-block; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none !important; padding: 16px 36px; border: none; cursor: pointer; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #882222; }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+  .btn-outline:hover { border-color: var(--white); }
+
+  /* CONFIG FILTER */
+  .config-filter { background: var(--grey-light); padding: 0 60px; display: flex; gap: 0; border-bottom: 2px solid #E0E0E0; }
+  .filter-btn { font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 28px; background: none; border: none; cursor: pointer; color: var(--grey-dark); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+  .filter-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .filter-btn:hover { color: var(--black); }
+
+  /* GALLERY ROWS */
+  .gallery-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; border-bottom: 1px solid var(--grey-light); transition: opacity 0.3s; }
+  .gallery-row.hidden { display: none; }
+  .gallery-info { padding: 64px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .gallery-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .gallery-config { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); }
+  .gallery-dims { font-size: 12px; color: rgba(26,26,26,0.4); font-family: monospace; letter-spacing: 0.04em; }
+  .gallery-item-name { font-size: clamp(22px, 2.5vw, 34px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.1; }
+  .gallery-item-desc { font-size: 15px; color: var(--grey-dark); line-height: 1.85; max-width: 440px; }
+  .gallery-img-panel { overflow: hidden; background: var(--grey-light); }
+  .gallery-img-panel img { width: 100%; height: 100%; object-fit: contain; padding: 40px; display: block; transition: transform 0.6s ease; }
+  .gallery-row:hover .gallery-img-panel img { transform: scale(1.03); }
+
+  /* CTA STRIP */
+  .gallery-cta { background: var(--black); padding: 80px 60px; text-align: center; }
+  .gallery-cta h2 { color: var(--white); font-size: clamp(24px, 3vw, 42px); font-weight: 500; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .gallery-cta p { color: rgba(255,255,255,0.5); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; font-size: 16px; }
+  .gallery-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 56px 60px; display: grid; grid-template-columns: 200px 1fr 1fr auto; gap: 48px; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact { color: rgba(255,255,255,0.35); font-size: 14px; line-height: 1.8; }
+  .footer-social { display: flex; flex-direction: column; gap: 14px; }
+  .social-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: var(--orange); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .gallery-row { grid-template-columns: 1fr; min-height: auto; }
+    .gallery-info { padding: 48px 24px; order: 2; }
+    .gallery-img-panel { order: 1; height: 320px; }
+    .gallery-img-panel img { padding: 24px; }
+    .config-filter { padding: 0 24px; overflow-x: auto; }
+    .page-header { padding: 48px 24px; }
+    .gallery-cta { padding: 60px 24px; }
+    footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; }
+    nav { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/hospitality">Hospitality</a></li>
+    <li><a href="/residential">Residential</a></li>
+    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/superhost-audit">Superhost Audit</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="nav-mobile-overlay">
+  <button class="nav-mobile-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="/" onclick="toggleMobileNav()">Home</a>
+  <a href="/about" onclick="toggleMobileNav()">About</a>
+  <a href="/hospitality" onclick="toggleMobileNav()">Hospitality</a>
+  <a href="/residential" onclick="toggleMobileNav()">Residential</a>
+  <a href="/furniture-packs" onclick="toggleMobileNav()">Furniture Packs</a>
+  <a href="/superhost-audit" onclick="toggleMobileNav()">Superhost Audit</a>
+  <a href="/contact" onclick="toggleMobileNav()">Contact</a>
+  <a href="/contact" class="nav-mobile-cta" onclick="toggleMobileNav()">Get a Quote</a>
+</div>
+<script>
+  function toggleMobileNav() {
+    var o = document.getElementById('nav-mobile-overlay');
+    var h = document.getElementById('nav-hamburger');
+    if (!o) return;
+    o.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
+
+<div class="page-header">
+  <div class="breadcrumb-inline">
+    <a href="/furniture-packs">Furniture Packs</a> / <a href="/the-blakethrough">The Blakethrough</a> / Full Specification
+  </div>
+  <span class="eyebrow">Complete Inventory</span>
+  <h1>Every Piece in<br>The Blakethrough.</h1>
+  <p>The full specification gallery for all items included across 1-bedroom and 2-bedroom configurations. Use the filter to view by configuration.</p>
+  <div class="header-ctas">
+    <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary" target="_blank" rel="noopener">Order 1-Bed Pack</a>
+    <a href="https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208" class="btn btn-primary" target="_blank" rel="noopener">Order 2-Bed Pack</a>
+    <a href="/the-blakethrough" class="btn btn-outline">Back to Pack Overview</a>
+  </div>
+</div>
+
+<div class="config-filter">
+  <button class="filter-btn active" onclick="filterItems('all', this)">All Items (18)</button>
+  <button class="filter-btn" onclick="filterItems('1-bed', this)">1 Bedroom (12)</button>
+  <button class="filter-btn" onclick="filterItems('2-bed', this)">2 Bedroom (18)</button>
+</div>
+
+<div id="gallery-items">
+
+  <div class="gallery-row" data-config="1-bed-only" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom</span>
+          <span class="gallery-dims">1820 x 930 x 800mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake 3-Seater Sofa</h2>
+        <p class="gallery-item-desc">Verona seaweed fabric with black metal legs. Structured silhouette designed for high-occupancy short-lets.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-sofa.png" alt="Blake 3-Seater Sofa" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-armchair.png" alt="Blake Armchair" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">680 x 840 x 830mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Armchair</h2>
+        <p class="gallery-item-desc">Taupe boucle with antique ebony oak legs. Pairs with the sofa or stands alone as a reading chair.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">900 x 900 x 400mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Coffee Table</h2>
+        <p class="gallery-item-desc">Bronze iron frame with glass shelves. The centrepiece of the living space, designed to photograph.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-coffee-table.png" alt="Blake Coffee Table" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-side-table.png" alt="Blake Side Table" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">450 x 450 x 550mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Side Table</h2>
+        <p class="gallery-item-desc">Mango wood with black iron. Versatile placement alongside sofa or armchair.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">1400 x 400 x 450mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Media Unit</h2>
+        <p class="gallery-item-desc">Walnut mango wood with open shelving. Designed for TVs up to 65 inches with cable management.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-media-unit.png" alt="Blake Media Unit" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-rug.png" alt="Blake Rug" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">2000 x 3000mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Rug</h2>
+        <p class="gallery-item-desc">Deep tonal rug anchoring the living space. Durable construction suitable for high-footfall areas.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">H 1850mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Floor Lamp</h2>
+        <p class="gallery-item-desc">Sculptural black metal arc lamp. Creates atmospheric low lighting, essential for the Blakethrough aesthetic.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-floor-lamp.png" alt="Blake Floor Lamp" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-dining-chair.png" alt="Blake Dining Chair" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">525 x 510 x 750mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Dining Chair</h2>
+        <p class="gallery-item-desc">Green boucle with iron black frame. Supplied as a set of four. Stackable for storage.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="1-bed-only" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom</span>
+          <span class="gallery-dims">1500 x 2060 x 1200mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Bedframe (Double)</h2>
+        <p class="gallery-item-desc">Verona carbon polyester upholstered with pine and foam construction. Includes headboard.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-bedframe.png" alt="Blake Bedframe (Double)" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-bedframe-2.png" alt="Blake Bedframe 2 (Double)" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">1500 x 2060 x 1200mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Bedframe 2 (Double)</h2>
+        <p class="gallery-item-desc">Second bedroom bedframe for 2-bed configuration. Matching Verona carbon upholstery.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="all" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom + 2 Bedroom</span>
+          <span class="gallery-dims">450 x 400 x 500mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Bedside Table</h2>
+        <p class="gallery-item-desc">Black lacquered wood with single drawer. Supplied as a pair per bedroom.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-bedside-table.png" alt="Blake Bedside Table" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-bedside-table-2.png" alt="Blake Bedside Table 2" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">450 x 400 x 500mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Bedside Table 2</h2>
+        <p class="gallery-item-desc">Second bedroom bedside tables for 2-bed configuration. Matching black lacquered finish.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="1-bed-only" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom</span>
+          <span class="gallery-dims">900 x 450 x 1100mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Chest of Drawers</h2>
+        <p class="gallery-item-desc">Five-drawer chest in dark walnut finish. Soft-close mechanism throughout.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-chest-of-drawers.png" alt="Blake Chest of Drawers" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-chest-of-drawers-2.png" alt="Blake Chest of Drawers 2" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">900 x 450 x 1100mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Chest of Drawers 2</h2>
+        <p class="gallery-item-desc">Second bedroom chest for 2-bed configuration. Matching dark walnut finish.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="1-bed-only" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">1 Bedroom</span>
+          <span class="gallery-dims">Double (135 x 190cm)</span>
+        </div>
+        <h2 class="gallery-item-name">Cotton Pillowtop Mattress</h2>
+        <p class="gallery-item-desc">Hotel-quality cotton pillowtop mattress. Generous depth for guest comfort. Supplied for each bedroom.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-mattress.png" alt="Cotton Pillowtop Mattress" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-mattress-2.png" alt="Cotton Pillowtop Mattress 2" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">Double (135 x 190cm)</span>
+        </div>
+        <h2 class="gallery-item-name">Cotton Pillowtop Mattress 2</h2>
+        <p class="gallery-item-desc">Second bedroom mattress for 2-bed configuration. Identical hotel-quality specification.</p>
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="">
+    <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">2600 x 1600 x 800mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Chaise Sofa</h2>
+        <p class="gallery-item-desc">Right-hand chaise configuration for the 2-bed living space. Replaces the 3-seater in the 2-bedroom pack.</p>
+      </div><div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-chaise-sofa.png" alt="Blake Chaise Sofa" loading="lazy">
+      </div>
+  </div>
+  <div class="gallery-row" data-config="2-bed-only" style="background:#FAF8F5;">
+    <div class="gallery-img-panel">
+        <img src="https://boomhaus-website.web.app/assets/images/products/blakethrough-large-dining-table.png" alt="Blake Large Dining Table" loading="lazy">
+      </div><div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="gallery-config">2 Bedroom only</span>
+          <span class="gallery-dims">1600 x 800 x 750mm</span>
+        </div>
+        <h2 class="gallery-item-name">Blake Large Dining Table</h2>
+        <p class="gallery-item-desc">Extended dining table for the 2-bedroom configuration. Seats six comfortably.</p>
+      </div>
+  </div>
+</div>
+
+<div class="gallery-cta">
+  <h2>Ready to Order?</h2>
+  <p>Every item above is included in your chosen configuration, delivered and installed within 2 to 4 weeks.</p>
+  <div class="gallery-cta-btns">
+    <a href="https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207" class="btn btn-primary" target="_blank" rel="noopener">Order 1-Bed Pack from £4,699 +VAT</a>
+    <a href="https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208" class="btn btn-primary" target="_blank" rel="noopener">Order 2-Bed Pack from £6,599 +VAT</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-col">
+    <img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;">
+    <div class="footer-tagline">Design That Performs.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/hospitality">Hospitality</a></li>
+    <li><a href="/residential">Residential</a></li>
+    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/superhost-audit">Superhost Audit</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms">Terms and Conditions</a></li>
+  </ul>
+  <div class="footer-contact">
+    info@boomhaus.design<br>+44 20 4621 6202<br>
+    79 to 81 Borough Road, London SE1 1DN
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/boomhaus.design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.linkedin.com/company/boomhaus-design" target="_blank" rel="noopener" class="social-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17v-4c0-1.657 1.343-3 3-3s3 1.343 3 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies to function correctly. By continuing to use this site you acknowledge their use. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p>
+  <button onclick="acknowledgeCookies()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;flex-shrink:0;">Got It</button>
+</div>
+<script>
+  function acknowledgeCookies() {
+    try { localStorage.setItem('bh_cookie_ack', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function initCookieBanner() {
+    var acked = false;
+    try { acked = localStorage.getItem('bh_cookie_ack') === '1'; } catch(e) {}
+    if (!acked) { var b = document.getElementById('cookie-banner'); if (b) b.style.display = 'flex'; }
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initCookieBanner); } else { initCookieBanner(); }
+</script>
+
+<script>
+  function filterItems(config, btn) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Filter rows
+    var rows = document.querySelectorAll('.gallery-row');
+    rows.forEach(function(row) {
+      var rowConfig = row.getAttribute('data-config') || 'all';
+      if (config === 'all') {
+        row.classList.remove('hidden');
+      } else if (config === '1-bed' && rowConfig === '2-bed-only') {
+        row.classList.add('hidden');
+      } else if (config === '2-bed' && rowConfig === '1-bed-only') {
+        row.classList.add('hidden');
+      } else {
+        row.classList.remove('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
