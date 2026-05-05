@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Summary &mdash; BoomHaus</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
+<link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=20260429">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest?v=20260429">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZM9SB4J9V"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DZM9SB4J9V');</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --black: #1A1A1A; --white: #FFFFFF; --orange: #993333; --cta: #FF9933; --grey-dark: #666666; --grey-light: #F0F0F0; --warm: #FAF8F5; --font: 'Jost', sans-serif; }
+  body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.65; font-size: 17px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  .nav-logo img { height: 52px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--cta); color: var(--white) !important; padding: 10px 20px; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; cursor: pointer; background: none; border: none; padding: 0; z-index: 200; }
+  .nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--black); transition: all 0.3s; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  .nav-mobile-overlay { display: none; position: fixed; inset: 0; background: var(--white); z-index: 150; flex-direction: column; align-items: center; justify-content: center; }
+  .nav-mobile-overlay.open { display: flex !important; }
+  .nav-mobile-overlay a { font-size: 22px; font-weight: 500; color: var(--black); text-decoration: none; padding: 18px 0; width: 100%; text-align: center; border-bottom: 1px solid var(--grey-light); }
+  .nav-mobile-overlay .nav-mobile-cta { margin-top: 32px; background: var(--cta); color: var(--white) !important; padding: 16px 48px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: none; width: auto; }
+  .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
+  @media (max-width: 900px) { .nav-links { display: none !important; } .nav-hamburger { display: flex !important; } }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 16px; }
+  h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 16px; }
+  h2 { font-size: clamp(22px, 2.5vw, 36px); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  p { color: var(--grey-dark); line-height: 1.85; }
+  a { color: var(--orange); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .btn { display: inline-block; font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none !important; padding: 18px 40px; border: none; cursor: pointer; transition: all 0.2s; }
+  .btn-primary { background: var(--orange); color: var(--white); font-size: 14px; }
+  .btn-primary:hover { background: #882222; }
+  .btn-dark { background: var(--black); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--black); border: 1.5px solid #ccc; }
+  .btn-outline:hover { border-color: var(--black); }
+  footer { background: var(--black); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 12px; } }
+
+  .order-wrap { margin-top: 64px; min-height: calc(100vh - 64px); background: var(--warm); }
+  .order-grid { display: grid; grid-template-columns: 1fr 400px; min-height: calc(100vh - 64px); }
+  .order-main { padding: 64px 60px; }
+  .order-sidebar { background: var(--black); padding: 48px 40px; position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto; display: flex; flex-direction: column; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); text-decoration: none; margin-bottom: 48px; }
+  .back-link:hover { color: var(--black); text-decoration: none; }
+  .pack-summary { background: var(--white); padding: 28px; margin-bottom: 24px; display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: start; }
+  .pack-summary-img { width: 96px; height: 96px; overflow: hidden; background: var(--grey-light); }
+  .pack-summary-img img { width: 100%; height: 100%; object-fit: cover; }
+  .pack-summary-name { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+  .pack-summary-mood { font-size: 13px; color: var(--grey-dark); font-style: italic; margin-bottom: 10px; }
+  .pack-summary-size { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+  .section-block { background: var(--white); padding: 28px 32px; margin-bottom: 16px; }
+  .section-block h3 { font-size: 16px; margin-bottom: 18px; }
+  .detail-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--grey-light); gap: 16px; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { font-size: 13px; color: var(--grey-dark); }
+  .detail-value { font-size: 13px; font-weight: 500; text-align: right; max-width: 260px; }
+  .detail-value.green { color: #2a7a2a; }
+  .items-text { font-size: 13px; color: var(--grey-dark); line-height: 1.9; }
+  .step-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--grey-light); }
+  .step-row:last-child { border-bottom: none; }
+  .step-num { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--orange); width: 22px; flex-shrink: 0; padding-top: 2px; }
+  .step-body h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .step-body p { font-size: 13px; line-height: 1.7; }
+  /* SIDEBAR */
+  .sb-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,153,51,0.8); margin-bottom: 24px; }
+  .price-area { flex: 1; }
+  .price-line { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .price-line:last-child { border-bottom: none; }
+  .price-line span { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .price-line strong { font-size: 13px; color: var(--white); }
+  .price-total-row { display: flex; justify-content: space-between; padding: 18px 0 0; border-top: 2px solid rgba(255,255,255,0.12); margin-top: 12px; }
+  .price-total-row span { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+  .price-total-row strong { font-size: 22px; font-weight: 500; color: var(--white); }
+  .vat-note { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 12px; margin-bottom: 24px; line-height: 1.65; }
+  .terms-agree { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px; }
+  .terms-agree input { margin-top: 3px; flex-shrink: 0; accent-color: var(--orange); width: 16px; height: 16px; cursor: pointer; }
+  .terms-agree label { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.65; cursor: pointer; }
+  .terms-agree a { color: rgba(255,153,51,0.65); }
+  .confirm-btn { width: 100%; padding: 20px; background: var(--orange); color: var(--white); border: none; font-family: var(--font); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .confirm-btn:hover:not(:disabled) { background: #882222; }
+  .confirm-btn:disabled { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.25); cursor: not-allowed; }
+  .secure-note { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3); }
+  @media (max-width: 900px) { .order-grid { grid-template-columns: 1fr; } .order-sidebar { position: static; height: auto; } .order-main { padding: 40px 24px; } .order-sidebar { padding: 36px 24px; } .pack-summary { grid-template-columns: 72px 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
+  </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="nav-mobile-overlay">
+  <button class="nav-mobile-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="/furniture-packs" onclick="toggleMobileNav()">Furniture Packs</a>
+  <a href="/contact" onclick="toggleMobileNav()">Contact</a>
+  <a href="/contact" class="nav-mobile-cta" onclick="toggleMobileNav()">Get a Quote</a>
+</div>
+<script>function toggleMobileNav(){var o=document.getElementById('nav-mobile-overlay');var h=document.getElementById('nav-hamburger');if(!o)return;o.classList.toggle('open');if(h)h.classList.toggle('open');document.body.style.overflow=o.classList.contains('open')?'hidden':'';}</script>
+<div style="margin-top:64px;">
+  <div class="order-grid">
+    <div class="order-main">
+      <a href="javascript:history.back()" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Back to pack
+      </a>
+      <span class="eyebrow">Order Summary</span>
+      <h1 id="order-title">Review Your Order</h1>
+      <p style="color:var(--grey-dark);margin-bottom:36px;font-size:16px;">Please review everything below before paying. Your card will not be charged until you click Confirm Order.</p>
+
+      <div class="pack-summary">
+        <div class="pack-summary-img"><img id="pack-img" src="" alt="" loading="lazy"></div>
+        <div>
+          <div class="pack-summary-name" id="pack-name"></div>
+          <div class="pack-summary-mood" id="pack-mood"></div>
+          <div class="pack-summary-size" id="pack-size"></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>What's Included</h3>
+        <p class="items-text" id="items-text"></p>
+        <p style="margin-top:14px;font-size:13px;"><a href="" id="gallery-link">View full specification with photography &rarr;</a></p>
+      </div>
+
+      <div class="section-block">
+        <h3>Delivery and Installation</h3>
+        <div class="detail-row"><span class="detail-label">London delivery</span><span class="detail-value green">Included</span></div>
+        <div class="detail-row"><span class="detail-label">Outside M25</span><span class="detail-value">Contact us for a delivery quote</span></div>
+        <div class="detail-row"><span class="detail-label">Installation</span><span class="detail-value green">Included, full assembly and styling</span></div>
+        <div class="detail-row"><span class="detail-label">Lead time</span><span class="detail-value">Typically 2 to 4 weeks from order</span></div>
+        <div class="detail-row"><span class="detail-label">On installation day</span><span class="detail-value">You or an authorised representative must be present</span></div>
+      </div>
+
+      <div class="section-block">
+        <h3>Payment</h3>
+        <div class="detail-row"><span class="detail-label">Payment method</span><span class="detail-value">Secure card payment via Stripe</span></div>
+        <div class="detail-row"><span class="detail-label">Charged today</span><span class="detail-value" id="amount-today"></span></div>
+        <div class="detail-row"><span class="detail-label">VAT</span><span class="detail-value">20% added at checkout</span></div>
+        <div class="detail-row"><span class="detail-label">Currency</span><span class="detail-value">GBP</span></div>
+      </div>
+
+      <div class="section-block">
+        <h3>What Happens After You Order</h3>
+        <div class="step-row"><div class="step-num">01</div><div class="step-body"><h4>Stripe receipt by email</h4><p>A payment confirmation arrives in your inbox within minutes.</p></div></div>
+        <div class="step-row"><div class="step-num">02</div><div class="step-body"><h4>We call you within 24 hours</h4><p>The BoomHaus team confirms your delivery address, access requirements and preferred installation date.</p></div></div>
+        <div class="step-row"><div class="step-num">03</div><div class="step-body"><h4>Installation date confirmed</h4><p>You receive a written confirmation with your fixed date. Typically 2 to 4 weeks from today.</p></div></div>
+        <div class="step-row"><div class="step-num">04</div><div class="step-body"><h4>Installation day</h4><p>Our team arrives, assembles everything and styles the property. Most installs complete in half a day.</p></div></div>
+        <div class="step-row"><div class="step-num">05</div><div class="step-body"><h4>Guest-ready handover</h4><p>Property styled and ready. Update your listing the same day.</p></div></div>
+      </div>
+
+      <div class="section-block">
+        <h3>Cancellation</h3>
+        <p style="font-size:14px;">You may cancel within 14 days of order confirmation, provided installation has not started. See our <a href="/terms">Terms and Conditions</a> for full details including statutory rights.</p>
+      </div>
+    </div>
+
+    <div class="order-sidebar">
+      <div class="sb-eyebrow">Order Summary</div>
+      <div class="price-area">
+        <div class="price-line"><span id="sb-pack"></span><strong id="sb-price"></strong></div>
+        <div class="price-line"><span>Delivery (London)</span><strong>Included</strong></div>
+        <div class="price-line"><span>Installation and styling</span><strong>Included</strong></div>
+        <div class="price-line"><span>VAT (20%)</span><strong id="sb-vat"></strong></div>
+        <div class="price-total-row"><span>Total</span><strong id="sb-total"></strong></div>
+      </div>
+      <p class="vat-note">Price includes 20% VAT. You are redirected to Stripe for secure payment. BoomHaus does not store your card details.</p>
+      <div class="terms-agree">
+        <input type="checkbox" id="terms-check" onchange="toggleConfirm()">
+        <label for="terms-check">I have read and agree to the <a href="/terms" target="_blank">Terms and Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.</label>
+      </div>
+      <button class="confirm-btn" id="confirm-btn" onclick="proceedToPayment()" disabled>Confirm Order and Pay Securely</button>
+      <div class="secure-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6L12 2z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
+        Secure checkout powered by Stripe
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:44px;width:auto;"></div>
+  <div class="footer-copy">&copy; 2026 BoomHaus Studio Limited. All rights reserved.</div>
+</footer>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A1A;border-top:3px solid #FF9933;padding:20px 40px;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;"><p style="margin:0;font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:680px;">This site uses essential cookies. <a href="/privacy-policy" style="color:#FF9933;text-decoration:none;margin-left:6px;">Learn more &rarr;</a></p><button onclick="(function(){try{localStorage.setItem('bh_cookie_ack','1');}catch(e){}document.getElementById('cookie-banner').style.display='none';})()" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:#FF9933;color:#fff;border:none;cursor:pointer;">Got It</button></div><script>(function(){var a=false;try{a=localStorage.getItem('bh_cookie_ack')==='1';}catch(e){}if(!a){var b=document.getElementById('cookie-banner');if(b)b.style.display='flex';}})()</script>
+<script>
+var PACKS = {
+  'the-blakethrough': { name:'The Blakethrough', mood:'Dark. Dramatic. Deeply instagrammable.', img:'https://boomhaus-website.web.app/assets/images/products/pack-blakethrough-hero.webp', prices:{'1':4699,'2':6599}, stripes:{'1':'https://buy.stripe.com/8x23cw1rE0m33WY5fi4F207','2':'https://buy.stripe.com/00w3cwb2eb0H8de8ru4F208'}, items:{'1':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, dining table, 4 dining chairs, double bedframe, 2 bedside tables, chest of drawers, mattress','2':'Chaise sofa, armchair, coffee table, side table, media unit, rug, floor lamp, large dining table, 4 dining chairs, 2 double bedframes, 4 bedside tables, 2 chests of drawers, 2 mattresses'}, gallery:'/the-blakethrough/gallery' },
+  'the-lois':         { name:'The Lois',         mood:'Terracotta soul. Warm-luxe. Review-worthy.',     img:'https://boomhaus-website.web.app/assets/images/products/pack-lois-hero.webp',         prices:{'1':6399,'2':7899}, stripes:{'1':'https://buy.stripe.com/6oU9AU9YaecT0KM5fi4F203','2':'https://buy.stripe.com/8x2dRab2efgX512bDG4F204'}, items:{'1':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, round dining table, 4 dining chairs, double bedframe, 2 bedside tables, 2 bedside lamps, mattress','2':'Large sofa, armchair, coffee table, side table, media unit, rug, floor lamp, round dining table, 4 dining chairs, 2 double bedframes, 4 bedside tables, 4 bedside lamps, 2 mattresses'}, gallery:'/the-lois/gallery' },
+  'the-classic':      { name:'The Classic',      mood:'Cosy, timeless, and impossible to leave.',       img:'https://boomhaus-website.web.app/assets/images/products/pack-classic-hero.webp',      prices:{'1':6399,'2':7899}, stripes:{'1':'https://buy.stripe.com/9B63cweeq1q75127nq4F209','2':'https://buy.stripe.com/5kQ9AUdamecT79a7nq4F20a'}, items:{'1':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, round dining table (4-seat), 4 dining chairs, double bedframe, 2 bedside tables, bedside lamp, mattress','2':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, large dining table (6-seat), 6 dining chairs, 2 double bedframes, 4 bedside tables, 4 bedside lamps, 2 mattresses'}, gallery:'/the-classic/gallery' },
+  'the-btr':          { name:'The BTR',          mood:'Modern. Confident. Built for the city.',         img:'https://boomhaus-website.web.app/assets/images/products/pack-btr-hero.webp',          prices:{'1':4599,'2':6799}, stripes:{'1':'https://buy.stripe.com/4gMeVe3zM2ub8de6jm4F201','2':'https://buy.stripe.com/8x2fZieeq7OvfFG37a4F202'}, items:{'1':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, dining table (4-seat), 4 dining chairs, double bedframe, 2 bedside tables, chest of drawers, mattress','2':'Chaise sofa, armchair, coffee table, side table, media unit, rug, floor lamp, large dining table (6-seat), 4 dining chairs, 2 double bedframes, 4 bedside tables, 2 chests of drawers, 2 mattresses'}, gallery:'/the-btr/gallery' },
+  'the-take-five':    { name:'The Take Five',    mood:'Designer-led. Tactile. Effortlessly premium.',   img:'https://boomhaus-website.web.app/assets/images/products/pack-take-five-hero.webp',    prices:{'1':6999,'2':10299},stripes:{'1':'https://buy.stripe.com/9B63cw2vI0m31OQ37a4F205','2':'https://buy.stripe.com/14A00k8U69WD8de9vy4F206'}, items:{'1':'3-seater sofa, armchair, coffee table, side table, media unit, rug, floor lamp, round dining table, 4 dining chairs, double bedframe, 2 bedside tables, chest of drawers, mattress','2':'Chaise sofa, armchair, coffee table, side table, media unit, rug, floor lamp, large dining table, 4 dining chairs, 2 double bedframes, 4 bedside tables, 2 chests of drawers, 2 mattresses'}, gallery:'/the-take-five/gallery' }
+};
+
+  var SLUG = '', SIZE = '1', stripeUrl = '';
+  function init() {
+    var p = new URLSearchParams(window.location.search);
+    SLUG = p.get('pack') || 'the-blakethrough';
+    SIZE = p.get('size') || '1';
+    var pack = PACKS[SLUG];
+    if (!pack) { window.location.href = '/furniture-packs'; return; }
+    stripeUrl = pack.stripes[SIZE] || pack.stripes['1'];
+    var price = pack.prices[SIZE] || pack.prices['1'];
+    var vat = Math.round(price * 0.2);
+    var total = price + vat;
+    var sizeLabel = SIZE === '1' ? '1 Bedroom' : SIZE === '2' ? '2 Bedroom' : '3 Bedroom';
+    document.getElementById('order-title').textContent = 'Review Your ' + pack.name + ' Order';
+    document.getElementById('pack-img').src = pack.img;
+    document.getElementById('pack-img').alt = pack.name;
+    document.getElementById('pack-name').textContent = pack.name;
+    document.getElementById('pack-mood').textContent = pack.mood;
+    document.getElementById('pack-size').textContent = sizeLabel + ' configuration';
+    document.getElementById('items-text').textContent = pack.items[SIZE] || pack.items['1'];
+    document.getElementById('gallery-link').href = pack.gallery;
+    document.getElementById('amount-today').textContent = '\u00a3' + price.toLocaleString('en-GB') + ' + VAT (total \u00a3' + total.toLocaleString('en-GB') + ' inc. VAT)';
+    document.getElementById('sb-pack').textContent = pack.name + ' ' + (SIZE==='1'?'1-Bed':'2-Bed');
+    document.getElementById('sb-price').textContent = '\u00a3' + price.toLocaleString('en-GB');
+    document.getElementById('sb-vat').textContent = '\u00a3' + vat.toLocaleString('en-GB');
+    document.getElementById('sb-total').textContent = '\u00a3' + total.toLocaleString('en-GB');
+    document.title = 'Order: ' + pack.name + ' \u2014 BoomHaus';
+  }
+  function toggleConfirm() {
+    document.getElementById('confirm-btn').disabled = !document.getElementById('terms-check').checked;
+  }
+  function proceedToPayment() {
+    if (!stripeUrl) return;
+    if (typeof gtag !== 'undefined') gtag('event','begin_checkout',{pack:SLUG,size:SIZE});
+    window.location.href = stripeUrl;
+  }
+  init();
+</script>
+</body>
+</html>

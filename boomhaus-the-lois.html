@@ -74,24 +74,6 @@
   /* ── PACK PAGE SPECIFIC ── */
 
   /* Hero */
-  .pack-hero {
-    margin-top: 64px;
-    background: #2A1A1A;
-    padding: 80px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    min-height: 80vh;
-  }
-  .pack-hero-content { position: relative; z-index: 1; }
-  .pack-name { font-size: clamp(48px, 6vw, 88px); font-weight: 500; color: #fff; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 16px; }
-  .pack-mood { font-size: 18px; color: rgba(255,255,255,0.5); font-style: italic; margin-bottom: 32px; line-height: 1.5; }
-  .pack-tagline { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 40px; max-width: 440px; }
-  .pack-hero-meta { display: flex; gap: 2px; margin-bottom: 40px; flex-wrap: wrap; }
-  .meta-chip { background: rgba(255,255,255,0.07); padding: 10px 18px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; }
-  .meta-chip span { color: #fff; font-weight: 600; display: block; font-size: 15px; margin-bottom: 2px; }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
   .pack-hero-gallery-old { display: flex; align-items: center; justify-content: center; padding: 48px; background: rgba(255,255,255,0.04); }
   .gallery-img { width: 100%; max-width: 520px; aspect-ratio: 4/3; overflow: hidden; box-shadow: 0 8px 48px rgba(0,0,0,0.4); }
   .gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.3s; }
@@ -171,7 +153,6 @@
 
   /* Mobile */
   @media (max-width: 900px) {
-    .pack-hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
     .pack-hero-gallery-old { padding: 28px; }
     .gallery-img { max-width: 100%; }
     .breadcrumb, .best-for-strip { padding: 16px 24px; }
@@ -260,17 +241,6 @@
     font-family: sans-serif;
   }
 
-  
-
-  /* ── HERO IMAGE (full bleed) ── */
-  .pack-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; background: #1A1A1A; }
-  .pack-hero-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
-  .breadcrumb-inline { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
-  .breadcrumb-inline a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
-  .breadcrumb-inline a:hover { color: rgba(255,255,255,0.7); }
-  .pack-hero-image { overflow: hidden; }
-  .pack-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
   /* ── NUDGE STRIP ── */
   .nudge-strip { background: #1A1A1A; padding: 32px 60px; display: flex; align-items: center; gap: 28px; }
   .nudge-number { font-size: 52px; font-weight: 500; color: var(--orange); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0; }
@@ -309,9 +279,6 @@
 
   /* ── MOBILE ── */
   @media (max-width: 768px) {
-    .pack-hero { grid-template-columns: 1fr; min-height: auto; }
-    .pack-hero-content { padding: 60px 24px 40px; }
-    .pack-hero-image { height: 280px; }
     .nudge-strip { padding: 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
     .nudge-number { font-size: 40px; }
     .journey, .faq-section { padding: 60px 24px; }
@@ -403,6 +370,94 @@
   .key-pieces-footer p { font-size: 14px; color: var(--grey-dark); margin: 0; }
   .gallery-link { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
   .gallery-link:hover { opacity: 0.7; }
+
+  /* ── PACK HERO (carousel style) ── */
+  .pack-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 75vh; background: #1A1A1A; margin-top: 64px; position: relative; overflow: hidden; }
+  .pack-hero-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+  .pack-hero-image { overflow: hidden; position: relative; }
+  .pack-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pack-hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,26,26,0.15) 0%, transparent 100%); pointer-events: none; }
+  .pack-name { font-size: clamp(36px, 5vw, 64px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; color: var(--white); margin-bottom: 12px; }
+  .pack-mood { font-size: 17px; color: rgba(255,255,255,0.55); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+  .pack-tagline { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 36px; max-width: 420px; }
+  .pack-hero-meta { display: flex; gap: 2px; margin-bottom: 36px; flex-wrap: wrap; }
+  .meta-chip { background: rgba(255,255,255,0.07); padding: 10px 16px; font-size: 12px; color: rgba(255,255,255,0.55); }
+  .meta-chip span { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #882222; }
+  .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+  .breadcrumb-inline { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); margin-bottom: 32px; }
+  .breadcrumb-inline a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-inline a:hover { color: rgba(255,255,255,0.65); }
+  @media (max-width: 768px) {
+    .pack-hero { grid-template-columns: 1fr; min-height: auto; }
+    .pack-hero-content { padding: 48px 24px 36px; order: 2; }
+    .pack-hero-image { order: 1; height: 300px; }
+  }
+
+  /* ── KEY PIECES: backgrounds match hero ── */
+  .key-pieces { padding: 100px 60px; background: #1A1A1A; }
+  .key-pieces-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header h2 { color: var(--white); }
+  .section-header .eyebrow { color: rgba(153,51,51,0.9); }
+  .piece-card { background: #1e1e1e; overflow: hidden; }
+  .piece-img-wrap { aspect-ratio: 1/1; overflow: hidden; background: #2a2a2a; }
+  .piece-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 24px; transition: transform 0.4s ease; }
+  .piece-card:hover .piece-img-wrap img { transform: scale(1.04); }
+  .piece-info { padding: 20px; }
+  .piece-name { font-size: 15px; font-weight: 500; margin-bottom: 4px; color: var(--white); }
+  .piece-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.55; margin-bottom: 8px; }
+  .piece-dims { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; font-family: monospace; }
+  .key-pieces-footer { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .key-pieces-footer p { font-size: 14px; color: rgba(255,255,255,0.4); margin: 0; }
+  .gallery-link { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
+  .gallery-link:hover { opacity: 0.7; }
+
+  /* ── DIMENSIONS GUIDE ── */
+  .dims-guide { padding: 80px 60px; background: var(--grey-light); }
+  .dims-inner { max-width: 1200px; margin: 0 auto; }
+  .dims-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+  .dims-card { background: var(--white); padding: 40px 32px; }
+  .dims-room { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .dims-min { font-size: 28px; font-weight: 500; color: var(--black); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .dims-ideal { font-size: 13px; color: var(--grey-dark); margin-bottom: 20px; }
+  .dims-note { font-size: 14px; color: var(--grey-dark); line-height: 1.75; margin: 0; }
+  .dims-floorplan-cta { margin-top: 48px; padding: 40px; background: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .dims-floorplan-cta p { font-size: 16px; color: var(--grey-dark); margin: 0; }
+  @media (max-width: 900px) { .dims-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .dims-guide { padding: 60px 24px; } .dims-floorplan-cta { flex-direction: column; align-items: flex-start; } }
+
+  /* ── ROI CALCULATOR ── */
+  .roi-calc { padding: 80px 60px; background: var(--black); }
+  .roi-inner { max-width: 1100px; margin: 0 auto; }
+  .roi-header { margin-bottom: 48px; }
+  .roi-header h2 { color: var(--white); }
+  .roi-header p { color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 520px; line-height: 1.8; }
+  .roi-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .roi-inputs { background: #1e1e1e; padding: 48px 40px; }
+  .roi-outputs { background: var(--orange); padding: 48px 40px; }
+  .roi-field { margin-bottom: 28px; }
+  .roi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; display: block; }
+  .roi-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-family: var(--font); font-size: 20px; font-weight: 500; padding: 14px 16px; outline: none; transition: border-color 0.2s; }
+  .roi-input:focus { border-color: rgba(255,153,51,0.6); }
+  .roi-input-prefix { position: relative; }
+  .roi-input-prefix::before { content: "£"; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 20px; pointer-events: none; }
+  .roi-input-prefix .roi-input { padding-left: 32px; }
+  .roi-input-suffix { position: relative; }
+  .roi-input-suffix::after { content: "%"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 20px; pointer-events: none; }
+  .roi-output-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; display: block; }
+  .roi-output-val { font-size: 44px; font-weight: 500; color: var(--white); letter-spacing: -0.02em; margin-bottom: 4px; line-height: 1; }
+  .roi-output-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+  .roi-divider { height: 1px; background: rgba(255,255,255,0.2); margin: 24px 0; }
+  .roi-outputs h3 { color: var(--white); font-size: 18px; margin-bottom: 24px; }
+  .roi-cta-row { margin-top: 32px; }
+  .roi-cta-row .btn { background: var(--white); color: var(--black); font-size: 11px; padding: 14px 28px; }
+  .roi-cta-row .btn:hover { background: var(--grey-light); }
+  .roi-disclaimer { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 16px; line-height: 1.6; }
+  @media (max-width: 900px) { .roi-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .roi-calc { padding: 60px 24px; } .roi-inputs, .roi-outputs { padding: 36px 28px; } .roi-output-val { font-size: 36px; } }
 </style>
 </head>
 <body>
@@ -437,17 +492,15 @@
     <div class="pack-mood">Terracotta soul. Warm-luxe. Review-worthy.</div>
     <p class="pack-tagline">A design-forward space with standout photography and considered colour.</p>
     <div class="pack-hero-meta">
-      <div class="meta-chip"><span>From £6,399</span>Starting price</div>
-      <div class="meta-chip"><span>1 bedroom  /  2 bedroom</span>Available sizes</div>
-      <div class="meta-chip"><span>Ex. VAT</span>Price shown</div>
+      <div class="meta-chip"><span>From £6,399 +VAT</span>Starting price</div><div class="meta-chip"><span>1 bedroom  /  2 bedroom</span>Available sizes</div><div class="meta-chip"><span>Delivery included</span>London and M25</div>
     </div>
     <div class="hero-ctas">
-      <a href="https://buy.stripe.com/6oU9AU9YaecT0KM5fi4F203" class="btn btn-primary" target="_blank" rel="noopener">Order 1 Bedroom Pack</a>
-      <a href="https://buy.stripe.com/8x2dRab2efgX512bDG4F204" class="btn btn-white-outline" target="_blank" rel="noopener">Order 2 Bedroom Pack</a>
+      <a href="/order?pack=the-lois&size=1" class="btn btn-primary">Order 1 Bedroom Pack</a>
+      <a href="/order?pack=the-lois&size=2" class="btn btn-white-outline">Order 2 Bedroom Pack</a>
     </div>
   </div>
   <div class="pack-hero-image">
-    <img src="https://boomhaus-website.web.app/assets/images/products/pack-lois-hero.webp" alt="The Lois, warm terracotta luxe interior" loading="eager">
+    <img src="https://boomhaus-website.web.app/assets/images/products/pack-lois-hero.webp" alt="The Lois" loading="eager">
   </div>
 </section>
 
@@ -527,9 +580,95 @@
             <div class="piece-dims">450 × 400 × 600mm</div>
           </div>
         </div>
+    
+    <div class="key-pieces-footer">
+      <p>These are the headline pieces. The full specification includes all 14 items across all bedroom configurations.</p>
+      <a href="/the-lois/gallery" class="gallery-link">
+        View all 14 items with photography and dimensions
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:8px;vertical-align:middle;flex-shrink:0;"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+</div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-calc">
+  <div class="roi-inner">
+    <div class="roi-header">
+      <span class="eyebrow">Return on Investment</span>
+      <h2>What Will The Lois Earn You?</h2>
+      <p>Enter your current numbers and see how The Lois is likely to change them. Based on performance data from BoomHaus-furnished properties.</p>
+    </div>
+    <div class="roi-layout">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label class="roi-label" for="roi-rate">Current nightly rate</label>
+          <div class="roi-input-prefix">
+            <input class="roi-input" id="roi-rate" type="number" value="120" min="30" max="2000" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label" for="roi-occ">Current occupancy rate</label>
+          <div class="roi-input-suffix">
+            <input class="roi-input" id="roi-occ" type="number" value="65" min="10" max="100" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label" for="roi-size">Property size</label>
+          <select class="roi-input" id="roi-size" onchange="calcROI()" style="appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 16px center;">
+            <option value="1">1 Bedroom &mdash; £6,399</option>
+            <option value='2'>2 Bedroom &mdash; £7,899</option>
+          </select>
+        </div>
+      </div>
+      <div class="roi-outputs">
+        <h3>Your Estimated Results</h3>
+        <span class="roi-output-label">Projected nightly rate after BoomHaus</span>
+        <div class="roi-output-val" id="roi-new-rate">--</div>
+        <div class="roi-output-sub">Based on average 42% uplift for The Lois</div>
+        <div class="roi-divider"></div>
+        <span class="roi-output-label">Projected annual revenue uplift</span>
+        <div class="roi-output-val" id="roi-uplift">--</div>
+        <div class="roi-output-sub" id="roi-occ-sub">Calculating...</div>
+        <div class="roi-divider"></div>
+        <span class="roi-output-label">Estimated payback period</span>
+        <div class="roi-output-val" id="roi-payback">--</div>
+        <div class="roi-output-sub" id="roi-pack-cost">Pack cost: £6,399 +VAT</div>
+        <div class="roi-cta-row">
+          <a href="/order?pack=the-lois&size=1" class="btn" id="roi-order-btn">Order 1-Bed Pack &rarr;</a>
+        </div>
+        <p class="roi-disclaimer">Projections based on BoomHaus client data. Actual results vary by location, platform, and management. Indicative only.</p>
+      </div>
     </div>
   </div>
 </section>
+<script>
+  var ROI_DATA = {
+    packCosts: { '1': 6399, '2': 7899 },
+    orderUrls: { '1': '/order?pack=the-lois&size=1', '2': '/order?pack=the-lois&size=2' },
+    rateUplift: 0.42,
+    occUplift: 0.1
+  };
+  function calcROI() {
+    var rate = parseFloat(document.getElementById('roi-rate').value) || 0;
+    var occ  = parseFloat(document.getElementById('roi-occ').value) / 100 || 0;
+    var size = document.getElementById('roi-size').value;
+    var newRate = Math.round(rate * (1 + ROI_DATA.rateUplift));
+    var newOcc  = Math.min(occ + ROI_DATA.occUplift, 0.95);
+    var packCost = ROI_DATA.packCosts[size] || ROI_DATA.packCosts['1'];
+    var uplift = (newRate * newOcc * 365) - (rate * occ * 365);
+    var payback = uplift > 0 ? (packCost / (uplift / 12)) : 0;
+    document.getElementById('roi-new-rate').textContent = '£' + newRate;
+    document.getElementById('roi-uplift').textContent = '£' + Math.round(uplift).toLocaleString('en-GB');
+    document.getElementById('roi-occ-sub').textContent = 'At ' + Math.round(newOcc * 100) + '% projected occupancy (vs ' + Math.round(occ * 100) + '% current)';
+    document.getElementById('roi-payback').textContent = payback > 0 ? payback.toFixed(1) + ' months' : 'N/A';
+    document.getElementById('roi-pack-cost').textContent = 'Pack cost: £' + packCost.toLocaleString('en-GB') + ' +VAT';
+    document.getElementById('roi-order-btn').href = ROI_DATA.orderUrls[size] || ROI_DATA.orderUrls['1'];
+    document.getElementById('roi-order-btn').textContent = 'Order ' + (size === '1' ? '1' : '2') + '-Bed Pack →';
+  }
+  calcROI();
+</script>
 
 <!-- ITEM LISTS -->
 <section class="item-lists">
@@ -646,14 +785,14 @@
           <div class="price-size">1 bedroom</div>
           <div style="display:flex;align-items:center;gap:24px;">
             <div class="price-val">£6,399</div>
-            <a href="https://buy.stripe.com/6oU9AU9YaecT0KM5fi4F203" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
+            <a href="/order?pack=the-lois&size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
           </div>
         </div>
 <div class="price-row">
           <div class="price-size">2 bedroom</div>
           <div style="display:flex;align-items:center;gap:24px;">
             <div class="price-val">£7,899</div>
-            <a href="https://buy.stripe.com/8x2dRab2efgX512bDG4F204" class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
+            <a href="/order?pack=the-lois&size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
           </div>
         </div>
       </div>
@@ -661,7 +800,7 @@
     </div>
     <div>
       <div class="pricing-ctas">
-        <a href="https://buy.stripe.com/6oU9AU9YaecT0KM5fi4F203" class="btn btn-primary">Order Now, Secure Checkout</a>
+        <a href="/order?pack=the-lois&size=1"  class="btn btn-primary">Order Now, Secure Checkout</a>
         <a href="/contact" class="btn btn-dark">Request a Brochure</a>
         <a href="/superhost-audit" class="btn btn-dark">Get a Free Property Audit First</a>
       </div>
@@ -914,4 +1053,4 @@
   }
 </script>
 </body>
-</html>
+</html> 
