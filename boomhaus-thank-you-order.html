@@ -17,8 +17,8 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --black: #1A1A1A; --white: #FFFFFF; --orange: #993333; --cta: #FF9933; --grey-dark: #666666; --grey-light: #F0F0F0; --warm: #FAF8F5; --font: 'Jost', sans-serif; }
   body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.65; font-size: 17px; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
-  .nav-logo img { height: 52px; width: auto; display: block; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 84px; }
+  .nav-logo img { height: 78px; width: auto; display: block; }
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
   .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
   .nav-links a:hover { color: var(--orange); }
@@ -84,13 +84,33 @@
   .ty-next-card p { font-size: 14px; margin-bottom: 18px; }
   .ty-next-card .btn { display: block; text-align: center; margin-bottom: 10px; }
   @media (max-width: 900px) { .ty-inner { grid-template-columns: 1fr; } .ty-sidebar { position: static; } .ty-hero, .ty-body { padding: 48px 24px; } }
+  .nav-left { display: flex; align-items: center; gap: 12px; }
+  .nav-brand { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid #E8E8E8; min-width: 180px; list-style: none; padding: 8px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); z-index: 200; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu li { display: block; }
+  .nav-dropdown-menu li a { display: block; padding: 10px 20px; }
+  .nav-mobile-sub { font-size: 18px !important; color: #666666 !important; padding-left: 32px !important; }
 </style>
 </head>
 <body>
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <div class="nav-left">
+    <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:78px;width:auto;display:block;"></a>
+    <span class="nav-brand">BOOMHAUS</span>
+  </div>
   <ul class="nav-links">
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/about">About</a></li>
+    <li class="nav-dropdown">
+      <a href="/hosts">Hosts</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/furniture-packs">Furniture Packs</a></li>
+        <li><a href="/superhost-audit">Superhost Audit</a></li>
+      </ul>
+    </li>
+    <li><a href="/hospitality">Hospitality</a></li>
+    <li><a href="/residential">Residential</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
@@ -100,7 +120,13 @@
 </nav>
 <div class="nav-mobile-overlay" id="nav-mobile-overlay">
   <button class="nav-mobile-close" onclick="toggleMobileNav()">&times;</button>
-  <a href="/furniture-packs" onclick="toggleMobileNav()">Furniture Packs</a>
+  <a href="/" onclick="toggleMobileNav()">Home</a>
+  <a href="/about" onclick="toggleMobileNav()">About</a>
+  <a href="/hosts" onclick="toggleMobileNav()">Hosts</a>
+  <a href="/furniture-packs" onclick="toggleMobileNav()" class="nav-mobile-sub">Furniture Packs</a>
+  <a href="/superhost-audit" onclick="toggleMobileNav()" class="nav-mobile-sub">Superhost Audit</a>
+  <a href="/hospitality" onclick="toggleMobileNav()">Hospitality</a>
+  <a href="/residential" onclick="toggleMobileNav()">Residential</a>
   <a href="/contact" onclick="toggleMobileNav()">Contact</a>
   <a href="/contact" class="nav-mobile-cta" onclick="toggleMobileNav()">Get a Quote</a>
 </div>
