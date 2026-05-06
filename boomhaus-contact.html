@@ -566,6 +566,100 @@
   .nav-dropdown-menu li { display: block; }
   .nav-dropdown-menu li a { display: block; padding: 10px 20px; }
   .nav-mobile-sub { font-size: 18px !important; color: #666666 !important; padding-left: 32px !important; }
+  .nav-dropdown-menu li a { display: block; padding: 10px 20px; }
+  .nav-mobile-sub { font-size: 18px !important; color: #666666 !important; padding-left: 32px !important; }
+
+  /* ── POPUP STYLES ── */
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  .popup-overlay[style*="display: flex"] { display: flex !important; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .popup-modal {
+    background: var(--white);
+    border-radius: 4px;
+    max-width: 520px;
+    width: 100%;
+    padding: 52px 48px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .popup-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+    font-family: inherit;
+  }
+  .popup-close:hover { color: rgba(0, 0, 0, 0.8); }
+  .popup-header { margin-bottom: 32px; }
+  .popup-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .popup-headline {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .popup-subheading {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .popup-body {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .popup-content {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+  }
+  .popup-email-nudge { text-align: center; }
+  .popup-email-nudge p { margin: 0 0 12px 0; font-size: 14px; color: rgba(0, 0, 0, 0.7); }
+  .popup-email-nudge p:first-child { font-weight: 600; color: var(--black); margin-bottom: 16px; }
+  .popup-email-nudge a { color: var(--orange); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .popup-email-nudge a:hover { color: #cc6600; text-decoration: underline; }
+  @media (max-width: 640px) {
+    .popup-modal { padding: 40px 28px; max-width: 100%; }
+    .popup-close { top: 16px; right: 16px; font-size: 28px; }
+    .popup-headline { font-size: 24px; }
+    .popup-body { font-size: 14px; }
+    .popup-overlay { padding: 16px; }
+  }
+  @media (max-width: 480px) {
+    .popup-modal { padding: 32px 20px; }
+    .popup-headline { font-size: 22px; }
+    .popup-eyebrow { font-size: 11px; }
+  }
 </style>
   <meta name="description" content="Get in touch with BoomHaus. Short-let, hospitality, residential enquiries and the free Superhost Audit, all starting here.">
   <meta name="robots" content="index, follow">
@@ -832,6 +926,100 @@
     padding: 24px !important;
     background: #F0F0F0 !important;
     border-left: 3px solid #993333 !important;
+  }
+  .nav-dropdown-menu li a { display: block; padding: 10px 20px; }
+  .nav-mobile-sub { font-size: 18px !important; color: #666666 !important; padding-left: 32px !important; }
+
+  /* ── POPUP STYLES ── */
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  .popup-overlay[style*="display: flex"] { display: flex !important; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .popup-modal {
+    background: var(--white);
+    border-radius: 4px;
+    max-width: 520px;
+    width: 100%;
+    padding: 52px 48px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .popup-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+    font-family: inherit;
+  }
+  .popup-close:hover { color: rgba(0, 0, 0, 0.8); }
+  .popup-header { margin-bottom: 32px; }
+  .popup-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .popup-headline {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .popup-subheading {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .popup-body {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .popup-content {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+  }
+  .popup-email-nudge { text-align: center; }
+  .popup-email-nudge p { margin: 0 0 12px 0; font-size: 14px; color: rgba(0, 0, 0, 0.7); }
+  .popup-email-nudge p:first-child { font-weight: 600; color: var(--black); margin-bottom: 16px; }
+  .popup-email-nudge a { color: var(--orange); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .popup-email-nudge a:hover { color: #cc6600; text-decoration: underline; }
+  @media (max-width: 640px) {
+    .popup-modal { padding: 40px 28px; max-width: 100%; }
+    .popup-close { top: 16px; right: 16px; font-size: 28px; }
+    .popup-headline { font-size: 24px; }
+    .popup-body { font-size: 14px; }
+    .popup-overlay { padding: 16px; }
+  }
+  @media (max-width: 480px) {
+    .popup-modal { padding: 32px 20px; }
+    .popup-headline { font-size: 22px; }
+    .popup-eyebrow { font-size: 11px; }
   }
 </style>
   </div>
@@ -1120,6 +1308,114 @@
         'event_label': formName,
         'form_id': event.data.formId
       });
+    }
+  });
+</script>
+<!-- ========== POPUPS ========== -->
+<!-- POPUP 1: GENERAL INQUIRY -->
+<div class="popup-overlay" id="popup-general" style="display: none;">
+  <div class="popup-modal">
+    <button class="popup-close" onclick="closePopup('popup-general')" aria-label="Close">&times;</button>
+    <div class="popup-header">
+      <span class="popup-eyebrow">Get in Touch</span>
+      <h2 class="popup-headline">Not sure where to start?</h2>
+      <p class="popup-subheading">Let's figure out what's actually possible.</p>
+    </div>
+    <p class="popup-body">Maybe you know you want to redesign. Maybe you just know something needs to change. Either way, a quick conversation helps. We'll listen, ask some questions, and give you an honest sense of what we'd do and how we'd do it.<br><br>No sales pitch. Just ideas that might work for you.</p>
+    <div class="popup-content">
+      <div class="popup-email-nudge">
+        <p><strong>Ready to chat?</strong></p>
+        <p>Send us a message at <a href="mailto:hello@boomhaus.design?subject=Let's%20chat%20about%20my%20space">hello@boomhaus.design</a></p>
+        <p style="font-size: 12px; color: #999; margin-top: 12px;">Tell us: what type of space, what's prompting the change, and what matters most to you. Usually back within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 2: HOSPITALITY INQUIRY -->
+<div class="popup-overlay" id="popup-hospitality" style="display: none;">
+  <div class="popup-modal">
+    <button class="popup-close" onclick="closePopup('popup-hospitality')" aria-label="Close">&times;</button>
+    <div class="popup-header">
+      <span class="popup-eyebrow">Hospitality</span>
+      <h2 class="popup-headline">Growing your hospitality business?</h2>
+      <p class="popup-subheading">Let's talk about what's actually holding you back.</p>
+    </div>
+    <p class="popup-body">Whether it's occupancy, guest reviews, unit turnover, or brand consistency—we've worked on projects just like yours. A conversation usually uncovers things you hadn't even thought about.<br><br>Tell us a bit about your situation. We'll ask some questions, listen, and give you real thoughts on what's possible.</p>
+    <div class="popup-content">
+      <div class="popup-email-nudge">
+        <p><strong>Let's discuss your project.</strong></p>
+        <p>Email us at <a href="mailto:hello@boomhaus.design?subject=Let's%20discuss%20my%20hospitality%20project">hello@boomhaus.design</a></p>
+        <p style="font-size: 12px; color: #999; margin-top: 12px;">Tell us: property type, location, how many units, main challenge, and rough timeline. We'll get back within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 3: RESIDENTIAL INQUIRY -->
+<div class="popup-overlay" id="popup-residential" style="display: none;">
+  <div class="popup-modal">
+    <button class="popup-close" onclick="closePopup('popup-residential')" aria-label="Close">&times;</button>
+    <div class="popup-header">
+      <span class="popup-eyebrow">Residential</span>
+      <h2 class="popup-headline">Ready to actually love your home?</h2>
+      <p class="popup-subheading">Let's talk about what would make the difference.</p>
+    </div>
+    <p class="popup-body">Whether you're starting from scratch or just need a refresh, a good conversation helps. We'll understand what matters to you, how you actually live, and what would genuinely improve things.<br><br>No showroom vibes. Just a space that feels right.</p>
+    <div class="popup-content">
+      <div class="popup-email-nudge">
+        <p><strong>Let's design something real.</strong></p>
+        <p>Chat with us at <a href="mailto:hello@boomhaus.design?subject=Let's%20design%20my%20space">hello@boomhaus.design</a></p>
+        <p style="font-size: 12px; color: #999; margin-top: 12px;">Tell us: property type, rooms, what's not working, your style vibe, budget and timeline. We'll respond within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 4: FURNITURE PACKS GUIDANCE -->
+<div class="popup-overlay" id="popup-furniture-guidance" style="display: none;">
+  <div class="popup-modal">
+    <button class="popup-close" onclick="closePopup('popup-furniture-guidance')" aria-label="Close">&times;</button>
+    <div class="popup-header">
+      <span class="popup-eyebrow">Furniture Packs</span>
+      <h2 class="popup-headline">Not sure which pack is right for you?</h2>
+      <p class="popup-subheading">Let's figure it out together.</p>
+    </div>
+    <p class="popup-body">You've seen the options—now let's make sure you pick the pack that actually works for your space. A quick chat with us takes 15 minutes and saves you weeks of second-guessing.<br><br>We'll help you think through which pack fits your space and vibe, what the timeline looks like, any tweaks that make sense, and budget logistics.<br><br>No pressure. If after chatting you're still deciding, we'll just send you all the info and you can take your time.</p>
+    <div class="popup-content">
+      <div class="popup-email-nudge">
+        <p><strong>Get some guidance.</strong></p>
+        <p>Let's chat at <a href="mailto:hello@boomhaus.design?subject=Need%20help%20choosing%20a%20furniture%20pack">hello@boomhaus.design</a></p>
+        <p style="font-size: 12px; color: #999; margin-top: 12px;">Tell us: which packs you're considering, what you're trying to achieve, what's holding you back, and your timeline. Usually back within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+      popup.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+  document.addEventListener('click', function(event) {
+    if (event.target.classList && event.target.classList.contains('popup-overlay')) {
+      closePopup(event.target.id);
+    }
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const openPopups = document.querySelectorAll('.popup-overlay[style*="display: flex"]');
+      openPopups.forEach(popup => closePopup(popup.id));
     }
   });
 </script>

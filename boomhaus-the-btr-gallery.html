@@ -66,7 +66,7 @@
   .filter-btn { font-family: var(--font); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 28px; background: none; border: none; cursor: pointer; color: var(--grey-dark); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; white-space: nowrap; }
   .filter-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
   .filter-btn:hover { color: var(--black); }
-  .gallery-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 400px; border-bottom: 1px solid var(--grey-light); }
+  .gallery-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 100px; border-bottom: 1px solid var(--grey-light); }
   .gallery-row.hidden { display: none; }
   .gallery-info { padding: 64px 60px; display: flex; flex-direction: column; justify-content: center; }
   .gallery-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
@@ -75,7 +75,7 @@
   .gallery-item-name { font-size: clamp(22px, 2.5vw, 34px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.1; }
   .gallery-item-desc { font-size: 15px; color: var(--grey-dark); line-height: 1.85; max-width: 440px; }
   .gallery-img-panel { overflow: hidden; background: var(--grey-light); }
-  .gallery-img-panel img { width: 100%; height: 100%; object-fit: contain; padding: 24px; display: block; transition: transform 0.6s ease; }
+  .gallery-img-panel img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; transition: transform 0.6s ease; }
   .gallery-row:hover .gallery-img-panel img { transform: scale(1.03); }
   .gallery-cta { background: var(--black); padding: 80px 60px; text-align: center; }
   .gallery-cta h2 { color: var(--white); font-size: clamp(24px, 3vw, 42px); font-weight: 500; letter-spacing: -0.02em; margin-bottom: 12px; }

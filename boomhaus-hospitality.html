@@ -616,7 +616,6 @@
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -633,7 +632,6 @@
   <a href="/hospitality" onclick="toggleMobileNav()">Hospitality</a>
   <a href="/residential" onclick="toggleMobileNav()">Residential</a>
   <a href="/contact" onclick="toggleMobileNav()">Contact</a>
-  <a href="/contact" class="nav-mobile-cta" onclick="toggleMobileNav()">Get a Quote</a>
 </div>
 
 <!-- HERO -->
@@ -647,7 +645,7 @@
       <span class="pill">Boutique Hotel</span>
     </div>
     <h1>Design Is a<br><em>Revenue Lever.</em><br>Not a Cost.</h1>
-    <p class="hero-body">We work with hospitality operators, from single-site managers to multi-unit portfolio owners, to deliver interior design that performs commercially. Faster than a traditional studio, built to survive real guests, and designed to compound returns across every unit.</p>
+    <p class="hero-body">We work with hospitality operators, from single-site managers to multi-unit portfolio owners, to deliver interior design that performs commercially.</p>
     <div class="hero-ctas">
       <a href="#form" class="btn btn-primary">Start a Conversation</a>
       <a href="#services" class="btn btn-secondary">See What We Deliver</a>
@@ -1044,10 +1042,11 @@
       <span class="form-panel-label">Hospitality Enquiry</span>
       <h3>Start the Conversation</h3>
       <p>We'll follow up within one business day to arrange a 20-minute discovery call.</p>
-      <div class="hs-form-wrapper">
-      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="48fd9f77-8d48-42ad-a27b-ad7094304493" data-portal-id="146792842"></div>
-    </div>
+      <div style="margin-top: 24px;">
+        <a href="javascript:void(0)" onclick="openPopup('popup-hospitality')" class="btn btn-primary">
+          Let's discuss your project
+        </a>
+      </div>
     </div>
   </div>
 </section>
