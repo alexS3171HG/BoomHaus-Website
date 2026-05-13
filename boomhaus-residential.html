@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Residential Design, BoomHaus</title>
+<title>Residential Design | BoomHaus</title>
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png?v=20260429" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg?v=20260429">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=20260429">
@@ -24,7 +24,7 @@
   body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 18px; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 84px; }
   .nav-logo { font-weight: 600; font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
@@ -572,6 +572,14 @@
     .nav-links { display: none !important; }
     .nav-hamburger { display: flex !important; }
   }
+  .nav-left { display: flex; align-items: center; gap: 12px; }
+  .nav-brand { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid #E8E8E8; min-width: 180px; list-style: none; padding: 8px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); z-index: 200; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu li { display: block; }
+  .nav-dropdown-menu li a { display: block; padding: 10px 20px; }
+  .nav-mobile-sub { font-size: 18px !important; color: #666666 !important; padding-left: 32px !important; }
 </style>
   <meta name="description" content="Bespoke interior design for your home. Whole-home transformations, room-by-room design, or a styling refresh. Fixed fees, no surprises.">
   <meta name="robots" content="index, follow">
@@ -605,20 +613,39 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <div class="nav-left">
+    <a href="/" class="nav-logo"><img src="https://boomhaus-website.web.app/assets/images/Logo-transparent.webp" crossorigin="anonymous" alt="BoomHaus" style="height:78px;width:auto;display:block;" decoding="async"></a>
+    <span class="nav-brand">BOOMHAUS</span>
+  </div>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
+    <li class="nav-dropdown">
+      <a href="/boomhaus-airbnb-host">Hosts</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/furniture-packs">Furniture Packs</a></li>
+        <li><a href="/superhost-audit">Superhost Audit</a></li>
+      </ul>
+    </li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
-    <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="/contact" class="nav-cta btn">Get a Quote</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<div class="nav-mobile-overlay" id="nav-mobile-overlay">
+  <button class="nav-mobile-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="/" onclick="toggleMobileNav()">Home</a>
+  <a href="/about" onclick="toggleMobileNav()">About</a>
+  <a href="/boomhaus-airbnb-host" onclick="toggleMobileNav()">Hosts</a>
+  <a href="/furniture-packs" onclick="toggleMobileNav()" class="nav-mobile-sub">Furniture Packs</a>
+  <a href="/superhost-audit" onclick="toggleMobileNav()" class="nav-mobile-sub">Superhost Audit</a>
+  <a href="/hospitality" onclick="toggleMobileNav()">Hospitality</a>
+  <a href="/residential" onclick="toggleMobileNav()">Residential</a>
+  <a href="/contact" onclick="toggleMobileNav()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -632,7 +659,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="https://boomhaus-website.web.app/assets/images/residential-hero.webp" alt="Residential interior design" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <img src="https://boomhaus-website.web.app/assets/images/residential-hero.webp" crossorigin="anonymous" alt="Residential interior design" style="width:100%;height:100%;object-fit:cover;display:block;" decoding="async">
     <div class="hero-accent-bar"></div>
   </div>
 </section>
@@ -984,17 +1011,18 @@
       <span class="form-panel-label">Residential Enquiry</span>
       <h3>Tell Us About Your Home</h3>
       <p>We'll follow up within one business day to arrange an initial conversation.</p>
-      <div class="hs-form-wrapper">
-      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="e3852bf6-18c0-409c-97e7-7a7a222d271f" data-portal-id="146792842"></div>
-    </div>
+      <div style="margin-top: 24px;">
+        <a href="javascript:void(0)" onclick="openPopup('popup-residential')" class="btn btn-primary">
+          Let's design something real
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-col"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"><div class="footer-tagline">Design That Performs.</div></div>
+  <div class="footer-col"><img src="https://boomhaus-website.web.app/assets/images/boomhaus-logo-stacked-white.png" crossorigin="anonymous" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;" decoding="async"><div class="footer-tagline">Design That Performs.</div></div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
@@ -1138,6 +1166,19 @@
     if (h) h.classList.toggle('open');
     document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
+</script>
+<script>
+  // GA4: Track HubSpot form submissions
+  window.addEventListener('message', function(event) {
+    if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+      var formName = event.data.formId || 'contact_form';
+      gtag('event', 'generate_lead', {
+        'event_category': 'engagement',
+        'event_label': formName,
+        'form_id': event.data.formId
+      });
+    }
+  });
 </script>
 </body>
 </html>
