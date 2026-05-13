@@ -26,6 +26,7 @@
       { "source": "/superhost-audit",    "destination": "/boomhaus-superhost-v2.html" },
       { "source": "/superhost",          "destination": "/boomhaus-superhost-v2.html" },
       { "source": "/contact",            "destination": "/boomhaus-contact.html" },
+      { "source": "/order",              "destination": "/boomhaus-order.html" },
       { "source": "/order/**",           "destination": "/boomhaus-order.html" },
       { "source": "/the-blakethrough",   "destination": "/boomhaus-the-blakethrough.html" },
       { "source": "/the-btr",            "destination": "/boomhaus-the-btr.html" },
