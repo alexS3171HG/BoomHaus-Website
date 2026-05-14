@@ -23,7 +23,7 @@
     --font: 'Jost', sans-serif;
   }
   body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.65; font-size: 17px; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 100px; }
   .nav-logo img { height: 52px; width: auto; display: block; }
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
   .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
@@ -68,7 +68,7 @@
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-family: sans-serif; }
   
   @media (max-width: 768px) { nav { padding: 0 24px; } footer { padding: 40px 24px; grid-template-columns: 1fr; gap: 32px; } }
-  .lp-hero { padding: 120px 60px 100px; background: var(--warm); margin-top: 64px; }
+  .lp-hero { padding: 120px 60px 100px; background: var(--warm); margin-top: 100px; }
   .lp-hero-inner { max-width: 800px; }
   .lp-hero h1 { color: var(--black); }
   .lp-hero .lp-sub { font-size: 19px; color: var(--grey-dark); line-height: 1.75; margin-bottom: 40px; max-width: 600px; }
@@ -187,12 +187,12 @@
 </head>
 <body>
 <nav>
-  <a href="/" class="nav-logo"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:80px;width:auto;display:block;"><span style="font-size:20px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A1A1A;">BOOMHAUS</span></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     
@@ -296,14 +296,14 @@
 
 <footer>
   <div class="footer-col">
-    <div class="footer-logo"><img src="/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"></div>
+    <div class="footer-logo"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;filter:brightness(0) invert(1);"></div>
     <div class="footer-tagline">Design That Performs.</div>
   </div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>

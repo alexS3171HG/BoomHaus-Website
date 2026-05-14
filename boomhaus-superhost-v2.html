@@ -23,7 +23,7 @@
   body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.6; font-size: 18px; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 100px; }
   .nav-logo { font-weight: 600; font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
@@ -41,7 +41,7 @@
   .btn-primary:hover { background: #882222; }
 
   /* HERO */
-  .hero { margin-top: 64px; background: var(--black); padding: 100px 60px; position: relative; overflow: hidden; }
+  .hero { margin-top: 100px; background: var(--black); padding: 100px 60px; position: relative; overflow: hidden; }
   .hero::before { content: 'FREE'; position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 260px; font-weight: 600; letter-spacing: -0.06em; color: rgba(255,255,255,0.025); pointer-events: none; line-height: 1; }
   .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: start; position: relative; z-index: 1; }
   .hero h1 { color: var(--white); margin-bottom: 28px; }
@@ -382,12 +382,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:52px;width:auto;display:block;"></a>
+  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:80px;width:auto;display:block;"><span style="font-size:20px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A1A1A;">BOOMHAUS</span></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     
@@ -808,12 +808,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-col"><img src="/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;"><div class="footer-tagline">Design That Performs.</div></div>
+  <div class="footer-col"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;filter:brightness(0) invert(1);"><div class="footer-tagline">Design That Performs.</div></div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>

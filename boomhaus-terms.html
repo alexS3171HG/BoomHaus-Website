@@ -26,7 +26,7 @@
   :root { --black: #1A1A1A; --white: #FFFFFF; --orange: #993333; --grey-dark: #666666; --grey-light: #F0F0F0; --font: 'Jost', sans-serif; }
   body { font-family: var(--font); color: var(--black); background: var(--white); font-weight: 300; line-height: 1.75; font-size: 18px; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 64px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 100px; }
   .nav-logo img { height: 44px; width: auto; display: block; }
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
   .nav-links a { font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--black); transition: color 0.2s; }
@@ -45,7 +45,7 @@
   .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); font-weight: 300; line-height: 1; font-family: sans-serif; }
   
 
-  .page-wrap { margin-top: 64px; max-width: 800px; margin-left: auto; margin-right: auto; padding: 80px 60px 120px; }
+  .page-wrap { margin-top: 100px; max-width: 800px; margin-left: auto; margin-right: auto; padding: 80px 60px 120px; }
   .page-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: block; }
   h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; }
   .page-meta { font-size: 14px; color: var(--grey-dark); margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--grey-light); }
@@ -159,12 +159,12 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo"><img src="/assets/images/boomhaus-logo-stacked-black.png" alt="BoomHaus"></a>
+  <a href="/" class="nav-logo"><img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:56px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     
@@ -266,14 +266,14 @@
 
 <footer>
   <div class="footer-col">
-    <img src="/assets/images/boomhaus-logo-stacked-white.png" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;">
+    <img src="/assets/images/Logo-transparent.webp" alt="BoomHaus" style="height:56px;width:auto;display:block;margin-bottom:8px;filter:brightness(0) invert(1);">
     <div class="footer-tagline">Design That Performs.</div>
   </div>
   <ul class="footer-links">
     <li><a href="/about">About</a></li>
     <li><a href="/hospitality">Hospitality</a></li>
     <li><a href="/residential">Residential</a></li>
-    <li><a href="/furniture-packs">Furniture Packs</a></li>
+    <li><a href="/airbnb-host">AirBnb Host</a></li>
     <li><a href="/superhost-audit">Superhost Audit</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy Policy</a></li>
