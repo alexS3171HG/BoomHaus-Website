@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/images/products/originals/
+Disallow: /assets/images/products/transparent/
+
+Sitemap: https://boomhaus.design/sitemap.xml
