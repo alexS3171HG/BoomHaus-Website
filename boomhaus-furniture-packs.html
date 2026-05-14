@@ -86,6 +86,7 @@
   .pack-card { background: var(--grey-light); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; position: relative; }
   .pack-card:hover .pack-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .pack-img { overflow: hidden; background: #2a2a2a; }
+  .pack-img a { display: block; height: 100%; }
   .pack-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
   .pack-body { padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; }
   .pack-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; display: block; }
@@ -93,11 +94,16 @@
   .pack-mood { font-size: 16px; color: var(--grey-dark); font-style: italic; margin-bottom: 24px; }
   .pack-best { font-size: 14px; color: var(--black); line-height: 1.65; margin-bottom: 36px; flex: 1; }
   .pack-best strong { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 6px; }
-  .pack-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(26,26,26,0.1); }
-  .pack-price { font-size: 22px; font-weight: 500; }
-  .pack-price-note { font-size: 11px; color: var(--grey-dark); margin-top: 3px; }
-  .pack-cta { font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--black); padding: 14px 28px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+  .pack-footer { padding-top: 24px; border-top: 1px solid rgba(26,26,26,0.1); display: flex; flex-direction: column; gap: 0; }
+  .pack-size-row { display: flex; flex-direction: column; padding: 14px 0; border-bottom: 1px solid rgba(26,26,26,0.07); }
+  .pack-size-row:first-child { padding-top: 0; }
+  .pack-size-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .pack-size-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 4px; }
+  .pack-price { font-size: 22px; font-weight: 500; margin-bottom: 10px; }
+  .pack-cta { font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--black); padding: 10px 20px; text-decoration: none; transition: background 0.2s; white-space: nowrap; align-self: flex-start; margin-top: 6px; }
   .pack-cta:hover { background: var(--orange); }
+  .pack-cta-ghost { background: transparent; color: var(--black); border: 1px solid var(--black); }
+  .pack-cta-ghost:hover { background: var(--black); color: var(--white); }
 
   /* Process */
   .process { background: var(--black); padding: 100px 60px; }
@@ -532,7 +538,7 @@
 
       <!-- Blakethrough, featured -->
       <div class="pack-card">
-        <a href="/the-blakethrough" style="display:block;"><a href="/the-blakethrough" class="pack-img-link"><img src="/assets/images/products/pack-blakethrough-hero.webp" alt="Blakethrough" loading="lazy"></a></a>
+        <div class="pack-img"><a href="/the-blakethrough"><img src="/assets/images/products/pack-blakethrough-hero.webp" alt="Blakethrough" loading="lazy"></a></div>
         <div class="pack-body">
           <span class="pack-tag">Most Popular</span>
           <div class="pack-name">The Blakethrough</div>
@@ -542,18 +548,27 @@
             Hosts chasing premium nightly rates with an interior that commands attention.
           </div>
           <div class="pack-footer">
-            <div>
-              <div class="pack-price">From £4,699 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
-              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">1 Bedroom</div>
+              <div class="pack-price">£4,699 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-blakethrough" class="pack-cta">Explore Pack →</a>
             </div>
-            <a href="/the-blakethrough" class="pack-cta">Explore Pack →</a>
+            <div class="pack-size-row">
+              <div class="pack-size-label">2 Bedroom</div>
+              <div class="pack-price">£6,599 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-blakethrough" class="pack-cta">Explore Pack →</a>
+            </div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">3 Bedroom</div>
+              <a href="/contact" class="pack-cta pack-cta-ghost">Ask for a quote →</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- The Lois -->
       <div class="pack-card">
-        <a href="/the-lois" style="display:block;"><a href="/the-lois" class="pack-img-link"><img src="/assets/images/products/pack-lois-hero.webp" alt="Lois" loading="lazy"></a></a>
+        <div class="pack-img"><a href="/the-lois"><img src="/assets/images/products/pack-lois-hero.webp" alt="Lois" loading="lazy"></a></div>
         <div class="pack-body">
           <span class="pack-tag">Warm-Luxe</span>
           <div class="pack-name">The Lois</div>
@@ -563,18 +578,27 @@
             Hosts who want a design-forward space with standout photography.
           </div>
           <div class="pack-footer">
-            <div>
-              <div class="pack-price">From £6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
-              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">1 Bedroom</div>
+              <div class="pack-price">£6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-lois" class="pack-cta">Explore Pack →</a>
             </div>
-            <a href="/the-lois" class="pack-cta">Explore Pack →</a>
+            <div class="pack-size-row">
+              <div class="pack-size-label">2 Bedroom</div>
+              <div class="pack-price">£7,899 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-lois" class="pack-cta">Explore Pack →</a>
+            </div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">3 Bedroom</div>
+              <a href="/contact" class="pack-cta pack-cta-ghost">Ask for a quote →</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- The BTR -->
       <div class="pack-card">
-        <a href="/the-btr" style="display:block;"><a href="/the-btr" class="pack-img-link"><img src="/assets/images/products/pack-btr-hero.webp" alt="Btr" loading="lazy"></a></a>
+        <div class="pack-img"><a href="/the-btr"><img src="/assets/images/products/pack-btr-hero.webp" alt="BTR" loading="lazy"></a></div>
         <div class="pack-body">
           <span class="pack-tag">City & BTR</span>
           <div class="pack-name">The BTR</div>
@@ -584,18 +608,27 @@
             Build-to-rent operators and city hosts competing for the corporate market. Available in 1, 2 and 3-bed.
           </div>
           <div class="pack-footer">
-            <div>
-              <div class="pack-price">From £4,599 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
-              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">1 Bedroom</div>
+              <div class="pack-price">£4,599 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-btr" class="pack-cta">Explore Pack →</a>
             </div>
-            <a href="/the-btr" class="pack-cta">Explore Pack →</a>
+            <div class="pack-size-row">
+              <div class="pack-size-label">2 Bedroom</div>
+              <div class="pack-price">£6,799 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-btr" class="pack-cta">Explore Pack →</a>
+            </div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">3 Bedroom</div>
+              <a href="/contact" class="pack-cta pack-cta-ghost">Ask for a quote →</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- The Classic -->
       <div class="pack-card">
-        <a href="/the-classic" style="display:block;"><a href="/the-classic" class="pack-img-link"><img src="/assets/images/products/pack-classic-hero.webp" alt="Classic" loading="lazy"></a></a>
+        <div class="pack-img"><a href="/the-classic"><img src="/assets/images/products/pack-classic-hero.webp" alt="Classic" loading="lazy"></a></div>
         <div class="pack-body">
           <span class="pack-tag">Country &amp; Coastal</span>
           <div class="pack-name">The Classic</div>
@@ -605,18 +638,27 @@
             Country houses, coastal retreats, barn conversions, and heritage city breaks.
           </div>
           <div class="pack-footer">
-            <div>
-              <div class="pack-price">From £6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
-              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">1 Bedroom</div>
+              <div class="pack-price">£6,399 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-classic" class="pack-cta">Explore Pack →</a>
             </div>
-            <a href="/the-classic" class="pack-cta">Explore Pack →</a>
+            <div class="pack-size-row">
+              <div class="pack-size-label">2 Bedroom</div>
+              <div class="pack-price">£7,899 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-classic" class="pack-cta">Explore Pack →</a>
+            </div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">3 Bedroom</div>
+              <a href="/contact" class="pack-cta pack-cta-ghost">Ask for a quote →</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- The Take Five -->
       <div class="pack-card">
-        <a href="/the-take-five" style="display:block;"><a href="/the-take-five" class="pack-img-link"><img src="/assets/images/products/pack-take-five-hero.webp" alt="Take Five" loading="lazy"></a></a>
+        <div class="pack-img"><a href="/the-take-five"><img src="/assets/images/products/pack-take-five-hero.webp" alt="Take Five" loading="lazy"></a></div>
         <div class="pack-body">
           <span class="pack-tag">Premium</span>
           <div class="pack-name">The Take Five</div>
@@ -626,11 +668,20 @@
             Operators wanting a high-spec finish that retains guests and justifies the rate.
           </div>
           <div class="pack-footer">
-            <div>
-              <div class="pack-price">From £6,999 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
-              <div class="pack-price-note">1-bed · +VAT · London delivery included</div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">1 Bedroom</div>
+              <div class="pack-price">£6,999 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-take-five" class="pack-cta">Explore Pack →</a>
             </div>
-            <a href="/the-take-five" class="pack-cta">Explore Pack →</a>
+            <div class="pack-size-row">
+              <div class="pack-size-label">2 Bedroom</div>
+              <div class="pack-price">£10,299 <span style="font-size:13px;font-weight:300;">+VAT</span></div>
+              <a href="/the-take-five" class="pack-cta">Explore Pack →</a>
+            </div>
+            <div class="pack-size-row">
+              <div class="pack-size-label">3 Bedroom</div>
+              <a href="/contact" class="pack-cta pack-cta-ghost">Ask for a quote →</a>
+            </div>
           </div>
         </div>
       </div>
