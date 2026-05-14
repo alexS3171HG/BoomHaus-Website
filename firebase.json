@@ -39,6 +39,7 @@
       { "source": "/airbnb-host",                 "destination": "/boomhaus-airbnb-host.html" },
       { "source": "/btr",                         "destination": "/boomhaus-btr.html" },
       { "source": "/london-interior-designer",    "destination": "/boomhaus-london-interior-designer.html" },
+      { "source": "/order",                        "destination": "/boomhaus-order.html" },
       { "source": "/the-blakethrough/gallery",   "destination": "/boomhaus-the-blakethrough-gallery.html" },
       { "source": "/the-lois/gallery",          "destination": "/boomhaus-the-lois-gallery.html" },
       { "source": "/the-classic/gallery",       "destination": "/boomhaus-the-classic-gallery.html" },
