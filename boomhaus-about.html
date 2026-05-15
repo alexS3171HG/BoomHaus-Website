@@ -668,7 +668,7 @@
     <p>Whether you're furnishing your first short-let or scaling a hospitality portfolio, there's a starting point that fits.</p>
     <div class="cta-buttons">
       <a href="/furniture-packs" class="btn btn-primary">Browse Furniture Packs</a>
-      <a href="/contact" class="btn btn-white-outline">Talk to the Team</a>
+      <a href="#" onclick="bhOpenModal();return false;" class="btn btn-white-outline">Talk to the Team</a>
     </div>
   </div>
 </section>
@@ -795,6 +795,22 @@
     if (h) h.classList.toggle('open');
     document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
   }
+</script>
+<!-- ── Enquiry Modal ─────────────────────────────────── -->
+<div id="bh-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.82);overflow-y:auto;">
+  <div style="min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px 24px;">
+    <div style="background:#fff;width:100%;max-width:580px;position:relative;padding:48px 40px 40px;">
+      <button onclick="bhCloseModal()" aria-label="Close" style="position:absolute;top:12px;right:16px;background:none;border:none;cursor:pointer;font-size:32px;line-height:1;color:#999;font-family:sans-serif;">&times;</button>
+      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="b4e526d7-399f-442f-9b01-6b8d2895cbdc" data-portal-id="146792842"></div>
+    </div>
+  </div>
+</div>
+<script>
+function bhOpenModal(){document.getElementById('bh-modal').style.display='block';document.body.style.overflow='hidden';}
+function bhCloseModal(){document.getElementById('bh-modal').style.display='none';document.body.style.overflow='';}
+document.getElementById('bh-modal').addEventListener('click',function(e){if(e.target===this)bhCloseModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')bhCloseModal();});
 </script>
 </body>
 </html>

@@ -227,7 +227,7 @@
     <span class="eyebrow">London Interior Design</span>
     <h1>London Interior Design That Performs.</h1>
     <p class="lp-sub">BoomHaus Studio is a London-based interior design practice specialising in short-let properties, build-to-rent schemes, and residential homes. We design for revenue, not just aesthetics.</p>
-    <a href="/contact" class="btn btn-primary">Talk to the Team</a>
+    <a href="#" onclick="bhOpenModal();return false;" class="btn btn-primary">Talk to the Team</a>
   </div>
 </section>
 
@@ -283,7 +283,7 @@
     <p>If you have an existing short-let property, our free audit analyses your photography, reviews, and pricing against local competitors. You&rsquo;ll receive a Design Score and specific recommendations within 24 hours.</p>
     <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="/superhost-audit" class="btn btn-primary">Get a Free Audit</a>
-      <a href="/contact" class="btn btn-outline">Talk to a Designer</a>
+      <a href="#" onclick="bhOpenModal();return false;" class="btn btn-outline">Talk to a Designer</a>
     </div>
   </div>
 </section>
@@ -291,7 +291,7 @@
 <section class="lp-cta-strip">
   <h2>Based in London. Working Across the UK.</h2>
   <p>From a single Airbnb flat to a 50-unit BTR scheme. Start with a conversation.</p>
-  <a href="/contact" class="btn">Get in Touch &rarr;</a>
+  <a href="#" onclick="bhOpenModal();return false;" class="btn">Get in Touch &rarr;</a>
 </section>
 
 <footer>
@@ -348,6 +348,22 @@
   } else {
     initCookieBanner();
   }
+</script>
+<!-- ── Enquiry Modal ─────────────────────────────────── -->
+<div id="bh-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.82);overflow-y:auto;">
+  <div style="min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px 24px;">
+    <div style="background:#fff;width:100%;max-width:580px;position:relative;padding:48px 40px 40px;">
+      <button onclick="bhCloseModal()" aria-label="Close" style="position:absolute;top:12px;right:16px;background:none;border:none;cursor:pointer;font-size:32px;line-height:1;color:#999;font-family:sans-serif;">&times;</button>
+      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="b4e526d7-399f-442f-9b01-6b8d2895cbdc" data-portal-id="146792842"></div>
+    </div>
+  </div>
+</div>
+<script>
+function bhOpenModal(){document.getElementById('bh-modal').style.display='block';document.body.style.overflow='hidden';}
+function bhCloseModal(){document.getElementById('bh-modal').style.display='none';document.body.style.overflow='';}
+document.getElementById('bh-modal').addEventListener('click',function(e){if(e.target===this)bhCloseModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')bhCloseModal();});
 </script>
 </body>
 </html>
