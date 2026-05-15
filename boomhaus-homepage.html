@@ -1076,7 +1076,7 @@
     Chat with us on WhatsApp
     <span style="position:absolute;bottom:-5px;right:18px;width:10px;height:10px;background:#1A1A1A;transform:rotate(45deg);display:block;"></span>
   </div>
-  <a href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
+  <a aria-label="Contact BoomHaus on WhatsApp" href="https://wa.me/447767677198?text=Hi%20BoomHaus%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener"
      style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
      onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';document.getElementById('wa-tooltip').style.opacity='1'"
      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)';document.getElementById('wa-tooltip').style.opacity='0'">
@@ -1103,13 +1103,12 @@
   <div style="min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px 24px;">
     <div style="background:#fff;width:100%;max-width:580px;position:relative;padding:48px 40px 40px;">
       <button onclick="bhCloseModal()" aria-label="Close" style="position:absolute;top:12px;right:16px;background:none;border:none;cursor:pointer;font-size:32px;line-height:1;color:#999;font-family:sans-serif;">&times;</button>
-      <script src="https://js-eu1.hsforms.net/forms/embed/146792842.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="b4e526d7-399f-442f-9b01-6b8d2895cbdc" data-portal-id="146792842"></div>
+      <div id="bh-hs-container"></div>
     </div>
   </div>
 </div>
 <script>
-function bhOpenModal(){document.getElementById('bh-modal').style.display='block';document.body.style.overflow='hidden';}
+function bhOpenModal(){document.getElementById('bh-modal').style.display='block';document.body.style.overflow='hidden';if(!window._bhHsLoaded){window._bhHsLoaded=true;var d=document.createElement('div');d.className='hs-form-frame';d.setAttribute('data-region','eu1');d.setAttribute('data-form-id','b4e526d7-399f-442f-9b01-6b8d2895cbdc');d.setAttribute('data-portal-id','146792842');document.getElementById('bh-hs-container').appendChild(d);var s=document.createElement('script');s.src='https://js-eu1.hsforms.net/forms/embed/146792842.js';document.head.appendChild(s);}}
 function bhCloseModal(){document.getElementById('bh-modal').style.display='none';document.body.style.overflow='';}
 document.getElementById('bh-modal').addEventListener('click',function(e){if(e.target===this)bhCloseModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')bhCloseModal();});
