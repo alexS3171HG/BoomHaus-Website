@@ -493,8 +493,8 @@
       <div class="meta-chip"><span>From £6,499 +VAT</span>Starting price</div><div class="meta-chip"><span>1 bedroom  /  2 bedroom</span>Available sizes</div><div class="meta-chip"><span>Delivery included</span>London and M25</div>
     </div>
     <div class="hero-ctas">
-      <a href="/order/the-take-five?size=1" class="btn btn-primary">Order 1 Bedroom Pack</a>
-      <a href="/order/the-take-five?size=2" class="btn btn-white-outline">Order 2 Bedroom Pack</a>
+      <a href="/order?pack=the-take-five&size=1" class="btn btn-primary">Order 1 Bedroom Pack</a>
+      <a href="/order?pack=the-take-five&size=2" class="btn btn-white-outline">Order 2 Bedroom Pack</a>
     </div>
   </div>
   <div class="pack-hero-image">
@@ -630,7 +630,7 @@
         <div class="roi-output-val" id="roi-payback">--</div>
         <div class="roi-output-sub" id="roi-pack-cost">Pack cost: £6,499 +VAT</div>
         <div class="roi-cta-row">
-          <a href="/order/the-take-five" class="btn" id="roi-order-btn">Order 1-Bed Pack &rarr;</a>
+          <a href="/order?pack=the-take-five" class="btn" id="roi-order-btn">Order 1-Bed Pack &rarr;</a>
         </div>
         <p class="roi-disclaimer">Projections based on BoomHaus client data. Actual results vary by location, platform, and management. Indicative only.</p>
       </div>
@@ -640,7 +640,7 @@
 <script>
   var ROI_DATA = {
     packCosts: { '1': 6999, '2': 10299 },
-    orderUrls: { '1': '/order/the-take-five?size=1', '2': '/order/the-take-five?size=2' },
+    orderUrls: { '1': '/order?pack=the-take-five&size=1', '2': '/order?pack=the-take-five&size=2' },
     rateUplift: 0.5,
     occUplift: 0.08
   };
@@ -779,14 +779,14 @@
           <div class="price-size">1 bedroom</div>
           <div style="display:flex;align-items:center;gap:24px;">
             <div class="price-val">£6,499</div>
-            <a href="/order/the-take-five?size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
+            <a href="/order?pack=the-take-five&size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 1 Bedroom &rarr;</a>
           </div>
         </div>
 <div class="price-row">
           <div class="price-size">2 bedroom</div>
           <div style="display:flex;align-items:center;gap:24px;">
             <div class="price-val">£9,299</div>
-            <a href="/order/the-take-five?size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
+            <a href="/order?pack=the-take-five&size=1"  class="btn btn-primary" style="padding:10px 20px;font-size:11px;" target="_blank" rel="noopener">Order 2 Bedroom &rarr;</a>
           </div>
         </div>
       </div>
@@ -794,7 +794,7 @@
     </div>
     <div>
       <div class="pricing-ctas">
-        <a href="/order/the-take-five?size=1"  class="btn btn-primary">Order Now, Secure Checkout</a>
+        <a href="/order?pack=the-take-five&size=1"  class="btn btn-primary">Order Now, Secure Checkout</a>
         <a href="#" onclick="bhOpenModal();return false;" class="btn btn-dark">Request a Brochure</a>
         <a href="/superhost-audit" class="btn btn-dark">Get a Free Property Audit First</a>
       </div>
